@@ -9,11 +9,9 @@ import {store} from "./store/store"
 import {Provider} from "react-redux"
 import New from "./pages/New"
 import Edit from "./pages/Edit"
-import {Box, Button, CssBaseline, Paper} from "@mui/material"
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos"
-import {css} from "@emotion/css"
-import AddIcon from "@mui/icons-material/Add"
+import {Box, CssBaseline, Paper} from "@mui/material"
 import {StyledEngineProvider} from '@mui/material/styles'
+import Login from "./pages/Login"
 
 function App() {
     return (
@@ -43,6 +41,9 @@ function App() {
                                     </Route>
                                     <Route path="/new">
                                         <New/>
+                                    </Route>
+                                    <Route path="/login">
+                                        <Login/>
                                     </Route>
                                     <Route path="/">
                                         <Home/>

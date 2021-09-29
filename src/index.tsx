@@ -6,7 +6,15 @@ const theme = createTheme({
     palette: {
         primary: { main: '#1976d2' },
     },
-}, zhCN);
+    shape: {
+        borderRadius: 4
+    },
+    typography: {
+        button: {
+            // textTransform: "none",
+        }
+    }
+});
 
 
 

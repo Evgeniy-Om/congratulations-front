@@ -34,7 +34,7 @@ function Home() {
             <h2>Birthday book</h2>
             <hr/>
             {list.map((item, index) =>
-                <Box sx={{
+                <Box key={index} sx={{
                     display: "flex",
                     alignItems: "center",
                     marginBottom: "10px",
@@ -50,7 +50,7 @@ function Home() {
                         padding: "0px 10px",
                         border: "1px solid",
                         borderColor: theme => theme.palette.primary.light,
-                        borderRadius: "4px",
+                        borderRadius: theme => theme.shape.borderRadius,
                     }}>
                         <span>{item.name}</span>
                         <span>{item.date && format(item.date, "d MMMM yyyy", {locale: ru})}</span>

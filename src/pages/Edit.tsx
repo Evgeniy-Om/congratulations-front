@@ -5,10 +5,10 @@ import ruLocale from "date-fns/locale/ru"
 import {useAppDispatch, useAppSelector} from "../store/hooks"
 import {TextField} from "@mui/material"
 import { changeBirthdayItem } from "../store/birthdaySlice"
-import {useEffect, useState} from "react"
+import {FC, useEffect, useState} from "react"
 
 
-function Edit() {
+function Edit () {
     const {control, handleSubmit, formState: {errors}} = useForm()
     const [disabled, setDisabled] = useState(true)
     const onSubmit = (data: any) => {

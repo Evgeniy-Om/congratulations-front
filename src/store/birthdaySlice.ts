@@ -1,4 +1,5 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit'
+import {createSlice, current, PayloadAction} from '@reduxjs/toolkit'
+import { SubmitPropsType } from '../pages/New'
 
 export interface BirthdayState {
     list: {
@@ -24,6 +25,11 @@ export const birthdaySlice = createSlice({
             state.list[0].date = action.payload
             console.log(state.list[0].date)
         },
+        addBirthdayItem: (state, action: PayloadAction<SubmitPropsType>) => {
+            state.list.push({_id: 4, name: action.payload.name, date: action.payload.date})
+            console.log(current(state))
+            console.log(action)
+        },
         deleteBirthdayItem: (state, action: PayloadAction<number> ) => {
             state.list.splice(action.payload, 1)
         },
@@ -37,6 +43,6 @@ export const birthdaySlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const {changeBirthdayItem, deleteBirthdayItem, decrement, incrementByAmount} = birthdaySlice.actions
+export const {changeBirthdayItem, deleteBirthdayItem, addBirthdayItem, decrement, incrementByAmount} = birthdaySlice.actions
 
 export default birthdaySlice.reducer
