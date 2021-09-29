@@ -8,9 +8,7 @@ export const FormInner = styled("div")({
     display: "flex",
     flexDirection: "column",
 })
-export const Input = styled(TextField)({
-    marginBottom: "20px",
-})
+
 export const Label = styled(FormControlLabel)({
     margin: "0 auto 10px",
 })

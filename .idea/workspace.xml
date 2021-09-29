@@ -1,34 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/controllers/user-controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/dtos/user-dto.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/models/token-model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/models/user-model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/router/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/service/mail-service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/service/token-service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/service/user-service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/InputEmail.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/SocialsButtons.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Login/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Login/styled.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Login2.tsx" afterDir="false" />
+    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="перенос на TS">
+      <change afterPath="$PROJECT_DIR$/src/components/RHookFormTextField.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/constants/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/schemes/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/types/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/fff.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Edit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Edit.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/New.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/New.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/birthdaySlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/birthdaySlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Login/styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/styled.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,8 +99,16 @@
       <workItem from="1631287896734" duration="58697000" />
       <workItem from="1631957999160" duration="19288000" />
       <workItem from="1632113566784" duration="77733000" />
-      <workItem from="1632823667201" duration="19465000" />
+      <workItem from="1632823667201" duration="23673000" />
     </task>
+    <task id="LOCAL-00001" summary="перенос на TS">
+      <created>1632931433071</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1632931433071</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,6 +131,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="перенос на TS" />
+    <option name="LAST_COMMIT_MESSAGE" value="перенос на TS" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
