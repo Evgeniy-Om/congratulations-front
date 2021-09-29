@@ -2,13 +2,13 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 import AddIcon from '@mui/icons-material/Add'
 import DeleteIcon from '@mui/icons-material/Delete'
 import EditIcon from '@mui/icons-material/Edit'
-import {useAppDispatch, useAppSelector} from "../store/hooks"
+import {useAppDispatch, useAppSelector} from "../core/hooks"
 import format from 'date-fns/format'
 import {ru} from 'date-fns/locale'
 import {Box, Button, IconButton} from "@mui/material"
 import {Link} from "react-router-dom"
 import {css} from '@emotion/css'
-import {deleteBirthdayItem} from '../store/birthdaySlice'
+import {deleteBirthdayItem} from '../core/store/birthdaySlice'
 
 
 function Home() {

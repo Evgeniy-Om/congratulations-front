@@ -2,9 +2,9 @@ import {Controller, useForm} from "react-hook-form"
 import {DatePicker, LocalizationProvider} from "@mui/lab"
 import AdapterDateFns from "@mui/lab/AdapterDateFns"
 import ruLocale from "date-fns/locale/ru"
-import {useAppDispatch, useAppSelector} from "../store/hooks"
+import {useAppDispatch, useAppSelector} from "../core/hooks"
 import {TextField} from "@mui/material"
-import { changeBirthdayItem } from "../store/birthdaySlice"
+import { changeBirthdayItem } from "../core/store/birthdaySlice"
 import {FC, useEffect, useState} from "react"
 
 

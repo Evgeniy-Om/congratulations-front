@@ -1,6 +1,5 @@
 import {Button} from "@mui/material"
 import {FormProvider, useForm} from "react-hook-form"
-import {SchemaOf, string, object, bool} from 'yup'
 import {yupResolver} from "@hookform/resolvers/yup"
 import {useState} from "react"
 import SocialsButtons from "../../components/SocialsButtons"

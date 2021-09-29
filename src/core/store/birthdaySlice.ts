@@ -1,5 +1,5 @@
 import {createSlice, current, PayloadAction} from '@reduxjs/toolkit'
-import { SubmitPropsType } from '../pages/New'
+import { SubmitPropsType } from '../../pages/New'
 
 export interface BirthdayState {
     list: {

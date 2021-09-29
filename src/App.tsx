@@ -5,7 +5,7 @@ import {
     Link,
 } from "react-router-dom"
 import Home from "./pages/Home"
-import {store} from "./store/store"
+import {store} from "./core/store/store"
 import {Provider} from "react-redux"
 import New from "./pages/New"
 import Edit from "./pages/Edit"

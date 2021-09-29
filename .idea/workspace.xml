@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="перенос на TS">
-      <change afterPath="$PROJECT_DIR$/src/components/RHookFormTextField.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/constants/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/schemes/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/types/index.ts" afterDir="false" />
+    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="изменение архитектуры проекта">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/types/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Edit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Edit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login/styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login/styled.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/New.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/New.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/birthdaySlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/store/birthdaySlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/hooks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/hooks/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/store/store.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +67,8 @@
       <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\pages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\core\hooks" />
+      <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\core" />
       <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\pages\Login" />
       <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\store" />
     </key>
@@ -99,7 +104,7 @@
       <workItem from="1631287896734" duration="58697000" />
       <workItem from="1631957999160" duration="19288000" />
       <workItem from="1632113566784" duration="77733000" />
-      <workItem from="1632823667201" duration="23673000" />
+      <workItem from="1632823667201" duration="24095000" />
     </task>
     <task id="LOCAL-00001" summary="перенос на TS">
       <created>1632931433071</created>
@@ -108,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632931433071</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="изменение архитектуры проекта">
+      <created>1632936181955</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1632936181955</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,7 +144,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="перенос на TS" />
-    <option name="LAST_COMMIT_MESSAGE" value="перенос на TS" />
+    <MESSAGE value="изменение архитектуры проекта" />
+    <option name="LAST_COMMIT_MESSAGE" value="изменение архитектуры проекта" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
