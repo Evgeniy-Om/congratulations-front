@@ -2,7 +2,6 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link,
 } from "react-router-dom"
 import Home from "./pages/Home"
 import {store} from "./core/store/store"
@@ -12,6 +11,8 @@ import Edit from "./pages/Edit"
 import {Box, CssBaseline, Paper} from "@mui/material"
 import {StyledEngineProvider} from '@mui/material/styles'
 import Login from "./pages/Login"
+import Agreement from "./pages/Agreement"
+import Registration from "./pages/Registration"
 
 function App() {
     return (
@@ -44,6 +45,12 @@ function App() {
                                     </Route>
                                     <Route path="/login">
                                         <Login/>
+                                    </Route>
+                                    <Route path="/registration">
+                                        <Registration/>
+                                    </Route>
+                                    <Route path="/agreement">
+                                        <Agreement/>
                                     </Route>
                                     <Route path="/">
                                         <Home/>
