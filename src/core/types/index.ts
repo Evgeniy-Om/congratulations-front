@@ -6,10 +6,24 @@ export type LoginFormInputsTypes = {
     rememberMe: boolean | undefined
 }
 
+export type RegistrationFormInputsTypes = {
+    email: string
+    password: string
+    repeat: string
+}
+
 export type ReactHookFormTextFieldTypes = {
     name: string
     type: string
     label: string
+}
+
+export type BirthdayStateType = {
+    list: {
+        _id: number,
+        name: string
+        date: number | null
+    }[]
 }
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
