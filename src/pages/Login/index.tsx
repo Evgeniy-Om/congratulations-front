@@ -1,48 +1,53 @@
-import {Button} from "@mui/material"
+import {Button, Checkbox} from "@mui/material"
 import {FormProvider, useForm} from "react-hook-form"
 import {yupResolver} from "@hookform/resolvers/yup"
 import {useState} from "react"
 import SocialsButtons from "../../components/SocialsButtons"
-import * as Styled from "./styled"
+import * as S from "./styled"
+import {Label} from "./styled"
 import ReactHookFormTextField from "../../components/RHookFormTextField"
-import { LoginFormInputsTypes } from "../../core/types"
-import { LOGIN_FORM_DEFAULT_VALUES } from "../../core/constants"
+import {LoginFormInputsTypes} from "../../core/types"
+import {LOGIN_FORM_DEFAULT_VALUES as DEFAULT_VALUES} from "../../core/constants"
 import {loginValidationSchema} from "../../core/schemes"
+import {useHistory} from "react-router-dom"
 
-
-function Login () {
+function Login() {
     const [error, setError] = useState(false)
+    const history = useHistory()
     const methods = useForm<LoginFormInputsTypes>({
         mode: "onBlur",
         resolver: yupResolver(loginValidationSchema),
-        defaultValues: LOGIN_FORM_DEFAULT_VALUES,
+        defaultValues: DEFAULT_VALUES,
     })
 
     const onSubmit = (data: LoginFormInputsTypes) => {
         setError(false) // Под вопросом нужно ли
         console.log(data)
-        if (data.email !== LOGIN_FORM_DEFAULT_VALUES.email ||
-            data.password !== LOGIN_FORM_DEFAULT_VALUES.password) {
+        if (data.email !== DEFAULT_VALUES.email ||
+            data.password !== DEFAULT_VALUES.password) {
             setError(true)
+        } else {
+            history.push("/home")
         }
     }
     return (
-        <Styled.Wrapper>
-            {error && <Styled.ErrorLoginOrPassword>Неверно указана почта или пароль</Styled.ErrorLoginOrPassword>}
+        <S.Wrapper>
+            {error && <S.Error>Неверно указана почта или пароль</S.Error>}
             <FormProvider {...methods} >
                 <form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
-                    <Styled.FormInner>
+                    <S.Inner>
                         <ReactHookFormTextField name="email" type="email" label="Эл. почта"/>
                         <ReactHookFormTextField name="password" type="password" label="Пароль"/>
+                        <Label control={<Checkbox defaultChecked/>} label="Запомнить меня"/>
                         <Button type="submit" variant="contained">Вход</Button>
-                        <Styled.RegistrationLink to="/new">
+                        <S.RegistrationLink to="/registration">
                             Ещё не зарегистрированы?
-                        </Styled.RegistrationLink>
+                        </S.RegistrationLink>
                         <SocialsButtons/>
-                    </Styled.FormInner>
+                    </S.Inner>
                 </form>
             </FormProvider>
-        </Styled.Wrapper>
+        </S.Wrapper>
     )
 }
 

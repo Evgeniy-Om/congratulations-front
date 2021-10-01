@@ -1,10 +1,10 @@
-import {FormControlLabel, styled, TextField} from "@mui/material"
+import {FormControlLabel, styled} from "@mui/material"
 import {Link} from "react-router-dom"
 
 export const Wrapper = styled("div")({
     textAlign: "center",
 })
-export const FormInner = styled("div")({
+export const Inner = styled("div")({
     display: "flex",
     flexDirection: "column",
 })
@@ -12,7 +12,7 @@ export const FormInner = styled("div")({
 export const Label = styled(FormControlLabel)({
     margin: "0 auto 10px",
 })
-export const ErrorLoginOrPassword = styled('div')(({theme}) => ({
+export const Error = styled('div')(({theme}) => ({
     marginBottom: "20px",
     color: theme.palette.error.main,
 }))
