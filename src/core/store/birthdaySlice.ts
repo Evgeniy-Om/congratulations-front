@@ -1,8 +1,7 @@
 import {createSlice, current, PayloadAction} from '@reduxjs/toolkit'
 import {SubmitPropsType} from '../../pages/New'
-import {BirthdayStateType} from '../types'
 
-const initialState: BirthdayStateType = {
+const initialState: InitialState = {
     list: [
         {_id: 1, name: 'Таня Грин (Олайнфарм)', date: 216080395000},
         {_id: 2, name: 'Антон Автовинил', date: 416080000000},
@@ -33,3 +32,12 @@ export const birthdaySlice = createSlice({
 export const {changeBirthdayItem, deleteBirthdayItem, addBirthdayItem} = birthdaySlice.actions
 
 export default birthdaySlice.reducer
+
+//Types
+type InitialState = {
+    list: {
+        _id: number,
+        name: string
+        date: number | null
+    }[]
+}

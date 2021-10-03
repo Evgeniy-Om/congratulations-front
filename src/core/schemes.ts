@@ -1,7 +1,7 @@
 import {bool, object, ref, SchemaOf, string} from "yup"
-import {LoginFormInputsTypes, RegistrationFormInputsTypes} from "../types"
+import {LoginFormInputs, RegistrationFormInputs} from "./global-types"
 
-export const loginValidationSchema: SchemaOf<LoginFormInputsTypes> = object().shape({
+export const loginValidationSchema: SchemaOf<LoginFormInputs> = object().shape({
     email: string()
         .required("Обязательное поле")
         .email("Неверный формат эл. почты"),
@@ -10,7 +10,7 @@ export const loginValidationSchema: SchemaOf<LoginFormInputsTypes> = object().sh
     rememberMe: bool(),
 })
 
-export const registrationValidationSchema: SchemaOf<RegistrationFormInputsTypes> = object().shape({
+export const registrationValidationSchema: SchemaOf<RegistrationFormInputs> = object().shape({
     email: string()
         .required("Обязательное поле")
         .max(100, 'Email должен быть меньше 100 символов')

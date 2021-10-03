@@ -1,11 +1,11 @@
 import React from 'react'
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
-import Edit from "../../pages/Edit"
-import New from "../../pages/New"
-import Login from "../../pages/Login"
-import Registration from "../../pages/Registration"
-import Agreement from "../../pages/Agreement"
-import Home from "../../pages/Home"
+import Edit from "../pages/Edit"
+import New from "../pages/New"
+import Login from "../pages/Login"
+import Registration from "../pages/Registration"
+import Agreement from "../pages/Agreement"
+import Home from "../pages/Home"
 
 function Routes() {
     return (
