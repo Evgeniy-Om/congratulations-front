@@ -7,6 +7,7 @@ const initialState: InitialState = {
         {_id: 2, name: 'Антон Автовинил', date: 416080000000},
         {_id: 3, name: 'Руслан Рефреш', date: 516080312345},
     ],
+    editId: null
 }
 
 export const birthdaySlice = createSlice({
@@ -25,11 +26,15 @@ export const birthdaySlice = createSlice({
         deleteBirthdayItem: (state, action: PayloadAction<number>) => {
             state.list.splice(action.payload, 1)
         },
+        changeIdOfEditItem: (state, action: PayloadAction<number>) => {
+            state.editId = action.payload
+            console.log(state.editId)
+        },
     },
 })
 
 // Action creators are generated for each case reducer function
-export const {changeBirthdayItem, deleteBirthdayItem, addBirthdayItem} = birthdaySlice.actions
+export const {changeBirthdayItem, deleteBirthdayItem, addBirthdayItem, changeIdOfEditItem} = birthdaySlice.actions
 
 export default birthdaySlice.reducer
 
@@ -39,5 +44,6 @@ type InitialState = {
         _id: number,
         name: string
         date: number | null
-    }[]
+    }[],
+    editId: number | null
 }

@@ -6,8 +6,8 @@ import {useAppDispatch, useAppSelector} from "../core/hooks"
 import format from 'date-fns/format'
 import {ru} from 'date-fns/locale'
 import {Button as MUIButton, IconButton as MUIIconButton, styled} from "@mui/material"
-import {Link as ReactRouterDomLink} from "react-router-dom"
-import {deleteBirthdayItem} from '../core/store/birthdaySlice'
+import {deleteBirthdayItem, changeIdOfEditItem} from '../core/store/birthdaySlice'
+import ReactRouterDomLink from '../components/ReactRouterDomLink'
 
 
 export default function Home() {
@@ -17,17 +17,17 @@ export default function Home() {
     return (
         <>
             <Styled.Header>
-                <Styled.Link to="/login">
+                <ReactRouterDomLink to="/login">
                     <MUIButton variant="outlined" startIcon={<MUIArrowBackIosIcon/>}>
                         Выйти из приложения
                     </MUIButton>
-                </Styled.Link>
+                </ReactRouterDomLink>
 
-                <Styled.Link to="/new">
+                <ReactRouterDomLink to="/new">
                     <MUIButton variant="outlined" component="span" endIcon={<MUIAddIcon/>}>
                         Новая запись
                     </MUIButton>
-                </Styled.Link>
+                </ReactRouterDomLink>
             </Styled.Header>
             <h2>Birthday book</h2>
             <hr/>
@@ -37,7 +37,7 @@ export default function Home() {
                         <span>{item.name}</span>
                         <span>{item.date && format(item.date, "d MMMM yyyy", {locale: ru})}</span>
                     </Styled.NameAndDateContainer>
-                    <MUIIconButton aria-label="edit">
+                    <MUIIconButton aria-label="edit" onClick={() => dispatch(changeIdOfEditItem(item._id))}>
                         <Styled.EditIcon/>
                     </MUIIconButton>
                     <MUIIconButton aria-label="delete" onClick={() => dispatch(deleteBirthdayItem(index))}>
@@ -55,9 +55,6 @@ const Styled = {
     Header: styled("div")({
         display: 'flex',
         justifyContent: 'space-between',
-    }),
-    Link: styled(ReactRouterDomLink)({
-        textDecoration: "none"
     }),
     ItemContainer: styled("div")({
         display: "flex",

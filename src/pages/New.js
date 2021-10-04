@@ -6,32 +6,33 @@ import ruLocale from "date-fns/locale/ru"
 import {addBirthdayItem, changeBirthdayItem} from "../core/store/birthdaySlice"
 import {Button, TextField} from "@mui/material"
 import {css} from "@emotion/css"
+import {Link} from "react-router-dom"
 import {Controller, useForm} from "react-hook-form"
-import ReactRouterDomLink from "../components/ReactRouterDomLink"
+import {LOGIN_FORM_DEFAULT_VALUES as DEFAULT_VALUES} from "../core/constants"
 
-export type SubmitPropsType = {
-    name: string,
-    date: number
-}
 
 export default function New() {
     const {list, editId} = useAppSelector((state) => state.birthdays)
-
-    const {register, handleSubmit, control} = useForm<Props>({
-        defaultValues: editId ? list.find(item => item._id === editId) : {date: null}
+    let defValues = {date: null}
+    if (editId) {
+        defValues = list.find(item => item._id === editId)
+        console.log(defValues)
+    }
+    const {register, handleSubmit, control} = useForm({
+        defaultValues: defValues
     })
     const dispatch = useAppDispatch()
 
-    const onSubmit = (data: SubmitPropsType) => {
+    const onSubmit = (data) => {
         dispatch(addBirthdayItem(data))
     }
     return (
         <div>
-            <ReactRouterDomLink to="/" className={css({textDecoration: "none"})}>
+            <Link to="/" className={css({textDecoration: "none"})}>
                 <Button variant="outlined" component="span" startIcon={<ArrowBackIosIcon/>}>
                     Назад
                 </Button>
-            </ReactRouterDomLink>
+            </Link>
 
             <h2>Новая запись</h2>
             <hr/>
@@ -72,10 +73,4 @@ export default function New() {
             </form>
         </div>
     )
-}
-
-type Props = {
-    _id?: number,
-    name?: string,
-    date: number | null
 }

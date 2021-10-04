@@ -1,26 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="удаление файла">
-      <change afterPath="$PROJECT_DIR$/src/components/PaperContainer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/global-types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/hooks.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Login.tsx" afterDir="false" />
+    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="вынесение стилей в styled components">
+      <change afterPath="$PROJECT_DIR$/src/components/ReactRouterDomLink.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/New.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RHookFormTextField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RHookFormTextField.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/hooks/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/routes/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/routes.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/schemes/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/schemes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/store/birthdaySlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/store/birthdaySlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/theme/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/theme.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/types/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login/styled.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login2.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Registration/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Registration/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Registration/styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Registration/styled.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/New.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/New.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,8 +63,8 @@
       <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\pages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\core" />
       <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\pages" />
+      <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\core" />
       <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\core\hooks" />
       <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\pages\Login" />
       <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\store" />
@@ -115,7 +102,7 @@
       <workItem from="1631957999160" duration="19288000" />
       <workItem from="1632113566784" duration="77733000" />
       <workItem from="1632823667201" duration="24095000" />
-      <workItem from="1633195201660" duration="11352000" />
+      <workItem from="1633195201660" duration="22330000" />
     </task>
     <task id="LOCAL-00001" summary="перенос на TS">
       <created>1632931433071</created>
@@ -152,11 +139,30 @@
       <option name="project" value="LOCAL" />
       <updated>1633196214119</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="удаление избыточных index файлов. Перенос стилей и типов внутрь компонентов">
+      <created>1633264752874</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1633264752874</updated>
+    </task>
+    <task id="LOCAL-00007" summary="вынесение стилей в styled components">
+      <created>1633269316305</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1633269316305</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/pages/New.js" />
+      </list>
+    </option>
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.env" />
@@ -180,7 +186,9 @@
     <MESSAGE value="добавлены роуты" />
     <MESSAGE value="создание и перенос логики в папки &quot;routes&quot; и &quot;theme&quot;" />
     <MESSAGE value="удаление файла" />
-    <option name="LAST_COMMIT_MESSAGE" value="удаление файла" />
+    <MESSAGE value="удаление избыточных index файлов. Перенос стилей и типов внутрь компонентов" />
+    <MESSAGE value="вынесение стилей в styled components" />
+    <option name="LAST_COMMIT_MESSAGE" value="вынесение стилей в styled components" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
