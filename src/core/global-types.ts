@@ -8,4 +8,4 @@ export type LoginFormInputs = {
     email: string
     password: string
     rememberMe: boolean | undefined
-};
+}

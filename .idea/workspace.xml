@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="вынесение стилей в styled components">
-      <change afterPath="$PROJECT_DIR$/src/components/ReactRouterDomLink.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/New.js" afterDir="false" />
+    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="Проброс ID записи со страницы Home на страницу New/Edit, которую нужно отредактировать">
+      <change afterPath="$PROJECT_DIR$/src/core/api.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/models/111.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/models/AuthResponse.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/models/CongratulationItem.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/models/CongratulationsResponse.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/services/AuthService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/services/CongratulationsService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/store/birthdaySlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/store/birthdaySlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/New.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/New.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/global-types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/global-types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/New.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,9 +24,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="TypeScript JSX File" />
         <option value="JavaScript File" />
         <option value="TypeScript File" />
-        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -47,19 +54,20 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/core/models" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.gutterIcons" />
     <property name="ts.external.directory.path" value="C:\Users\Evgeniy\Desktop\React-projects\birthday\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\core\models" />
       <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\pages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -102,7 +110,7 @@
       <workItem from="1631957999160" duration="19288000" />
       <workItem from="1632113566784" duration="77733000" />
       <workItem from="1632823667201" duration="24095000" />
-      <workItem from="1633195201660" duration="22330000" />
+      <workItem from="1633195201660" duration="41889000" />
     </task>
     <task id="LOCAL-00001" summary="перенос на TS">
       <created>1632931433071</created>
@@ -153,16 +161,18 @@
       <option name="project" value="LOCAL" />
       <updated>1633269316305</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Проброс ID записи со страницы Home на страницу New/Edit, которую нужно отредактировать">
+      <created>1633369696872</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1633369696872</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/src/pages/New.js" />
-      </list>
-    </option>
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.env" />
@@ -188,7 +198,8 @@
     <MESSAGE value="удаление файла" />
     <MESSAGE value="удаление избыточных index файлов. Перенос стилей и типов внутрь компонентов" />
     <MESSAGE value="вынесение стилей в styled components" />
-    <option name="LAST_COMMIT_MESSAGE" value="вынесение стилей в styled components" />
+    <MESSAGE value="Проброс ID записи со страницы Home на страницу New/Edit, которую нужно отредактировать" />
+    <option name="LAST_COMMIT_MESSAGE" value="Проброс ID записи со страницы Home на страницу New/Edit, которую нужно отредактировать" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
