@@ -9,3 +9,13 @@ export type LoginFormInputs = {
     password: string
     rememberMe: boolean | undefined
 }
+
+export type LoginRequest = {
+    email: string
+    password: string
+}
+
+export type LoginResponse = {
+    Success: string,
+    access_token: string
+}

@@ -10,7 +10,7 @@ import type {RegistrationFormInputs} from "../core/global-types"
 export default function Registration() {
     const history = useHistory()
     const methods = useForm<RegistrationFormInputs>({
-        mode: "onBlur",
+        mode: "onTouched",
         resolver: yupResolver(registrationValidationSchema),
     })
 

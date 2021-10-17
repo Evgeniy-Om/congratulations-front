@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="Проброс ID записи со страницы Home на страницу New/Edit, которую нужно отредактировать">
-      <change afterPath="$PROJECT_DIR$/src/core/api.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/models/111.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/models/AuthResponse.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/models/CongratulationItem.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/models/CongratulationsResponse.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/services/AuthService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/services/CongratulationsService.ts" afterDir="false" />
+    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="настройка связи с бекэндом">
+      <change afterPath="$PROJECT_DIR$/src/core/services/auth.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/services/congratulations.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/constants.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/global-types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/global-types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/New.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/schemes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/schemes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/services/AuthService.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/services/CongratulationsService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/CongratulationsService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/store/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Registration.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Registration.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +59,7 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.gutterIcons" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="C:\Users\Evgeniy\Desktop\React-projects\birthday\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -110,7 +108,10 @@
       <workItem from="1631957999160" duration="19288000" />
       <workItem from="1632113566784" duration="77733000" />
       <workItem from="1632823667201" duration="24095000" />
-      <workItem from="1633195201660" duration="41889000" />
+      <workItem from="1633195201660" duration="50904000" />
+      <workItem from="1634215393078" duration="341000" />
+      <workItem from="1634215761830" duration="142000" />
+      <workItem from="1634215913093" duration="43096000" />
     </task>
     <task id="LOCAL-00001" summary="перенос на TS">
       <created>1632931433071</created>
@@ -168,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633369696872</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="настройка связи с бекэндом">
+      <created>1633545941670</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1633545941670</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,7 +207,8 @@
     <MESSAGE value="удаление избыточных index файлов. Перенос стилей и типов внутрь компонентов" />
     <MESSAGE value="вынесение стилей в styled components" />
     <MESSAGE value="Проброс ID записи со страницы Home на страницу New/Edit, которую нужно отредактировать" />
-    <option name="LAST_COMMIT_MESSAGE" value="Проброс ID записи со страницы Home на страницу New/Edit, которую нужно отредактировать" />
+    <MESSAGE value="настройка связи с бекэндом" />
+    <option name="LAST_COMMIT_MESSAGE" value="настройка связи с бекэндом" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

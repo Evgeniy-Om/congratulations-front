@@ -10,11 +10,12 @@ export const loginValidationSchema: SchemaOf<LoginFormInputs> = object().shape({
     rememberMe: bool(),
 })
 
+
 export const registrationValidationSchema: SchemaOf<RegistrationFormInputs> = object().shape({
     email: string()
         .required("Обязательное поле")
         .max(100, 'Email должен быть меньше 100 символов')
-        .email("Неверный формат эл. почты"),
+        .matches(/^\w([\w\-.])+\w@([\w\-.])+\.[a-zA-Z]+$/, "Неверный формат эл. почты"),
     password: string()
         .required("Обязательное поле")
         .min(6, 'Пароль должен быть не менее 6 символов')

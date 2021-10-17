@@ -8,12 +8,16 @@ import {ru} from 'date-fns/locale'
 import {Button as MUIButton, IconButton as MUIIconButton, styled} from "@mui/material"
 import {deleteBirthdayItem, changeIdOfEditItem} from '../core/store/birthdaySlice'
 import ReactRouterDomLink from '../components/ReactRouterDomLink'
+import { useGetCongratulationsQuery } from '../core/services/congratulations'
+import {useEffect} from "react"
 
 
 export default function Home() {
+    const {data = [], isLoading} = useGetCongratulationsQuery()
     const {list} = useAppSelector((state) => state.birthdays)
     const dispatch = useAppDispatch()
 
+    useEffect(()=> console.log(data),[data])
     return (
         <>
             <Styled.Header>

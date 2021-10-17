@@ -1,16 +1,16 @@
 import {Button as MUIButton, Checkbox as MUICheckbox, FormControlLabel, styled} from "@mui/material"
 import {FormProvider, useForm} from "react-hook-form"
 import {yupResolver} from "@hookform/resolvers/yup"
-import {useState} from "react"
 import SocialsButtons from "../components/SocialsButtons"
 import ReactHookFormTextField from "../components/RHookFormTextField"
 import {LOGIN_FORM_DEFAULT_VALUES as DEFAULT_VALUES} from "../core/constants"
 import {loginValidationSchema} from "../core/schemes"
 import {Link, useHistory} from "react-router-dom"
-import type { LoginFormInputs } from "../core/global-types"
+import type {LoginFormInputs} from "../core/global-types"
+import {useLoginMutation} from "../core/services/auth"
 
 export default function Login() {
-    const [error, setError] = useState(false)
+    const [login, {isError}] = useLoginMutation()
     const history = useHistory()
     const methods = useForm<LoginFormInputs>({
         mode: "onBlur",
@@ -18,19 +18,22 @@ export default function Login() {
         defaultValues: DEFAULT_VALUES,
     })
 
-    const onSubmit = (data: LoginFormInputs) => {
-        setError(false) // Под вопросом нужно ли
-        console.log(data)
-        if (data.email !== DEFAULT_VALUES.email ||
-            data.password !== DEFAULT_VALUES.password) {
-            setError(true)
-        } else {
+    const onSubmit = async (credentials: LoginFormInputs) => {
+        const response = await login({
+            email: "sdfds@dsf.ru",
+            password: "123212d",
+            // email: credentials.email,
+            // password: credentials.password
+        })
+        if ("data" in response) {
+            console.log(response.data.access_token)
+            localStorage.setItem("access_token", response.data.access_token)
             history.push("/home")
         }
     }
     return (
         <Styled.Wrapper>
-            {error && <Styled.Error>Неверно указана почта или пароль</Styled.Error>}
+            {isError && <Styled.Error>Неверно указана почта или пароль</Styled.Error>}
             <FormProvider {...methods} >
                 <Styled.Form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
                     <ReactHookFormTextField name="email" type="email" label="Эл. почта"/>
