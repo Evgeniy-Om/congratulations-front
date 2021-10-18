@@ -8,16 +8,36 @@ import {ru} from 'date-fns/locale'
 import {Button as MUIButton, IconButton as MUIIconButton, styled} from "@mui/material"
 import {deleteBirthdayItem, changeIdOfEditItem} from '../core/store/birthdaySlice'
 import ReactRouterDomLink from '../components/ReactRouterDomLink'
-import { useGetCongratulationsQuery } from '../core/services/congratulations'
+import {useGetCongratulationsQuery} from '../core/services/congratulations'
 import {useEffect} from "react"
+import {useRefreshAccessTokenMutation} from "../core/services/auth"
 
 
 export default function Home() {
-    const {data = [], isLoading} = useGetCongratulationsQuery()
+    const {data = [], isError, isLoading, refetch} = useGetCongratulationsQuery()
+    const [refresh] = useRefreshAccessTokenMutation()
     const {list} = useAppSelector((state) => state.birthdays)
     const dispatch = useAppDispatch()
 
-    useEffect(()=> console.log(data),[data])
+    // if (isError) {
+    //     refresh({})
+    //     // refetch()
+    // }
+
+    useEffect(() => {
+        console.log(data)
+        // console.log(isError)
+    }, [data])
+
+    useEffect(() => {
+        refresh({})
+            .unwrap()
+            .then((payload) => {
+                console.log(payload)
+            })
+            .catch((error) => console.error('rejected', error))
+    }, [isError])
+
     return (
         <>
             <Styled.Header>

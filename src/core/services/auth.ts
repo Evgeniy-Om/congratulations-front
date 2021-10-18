@@ -9,9 +9,18 @@ export const authApi = emptySplitApi.injectEndpoints({
                 method: 'POST',
                 body: credentials,
             }),
+            // invalidatesTags: ['Access'],
             // transformResponse: (response: { data: LoginResponse }) => response.data,
+        }),
+        refreshAccessToken: builder.mutation({
+            query: () => ({
+                url: 'auth/token/refresh/',
+                method: 'POST',
+                credentials: "include"
+            }),
+            // invalidatesTags: ['Access'],
         }),
     }),
 })
 
-export const { useLoginMutation } = authApi
+export const { useLoginMutation, useRefreshAccessTokenMutation } = authApi

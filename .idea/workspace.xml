@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="попытка настроить RTK Query">
+    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="настроена авторизация и аутентификация">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/models/111.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/models/CongratulationItem.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/models/CongratulationsResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/models/CongratulationsResponse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/services/CongratulationsService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/CongratulationsService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/services/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/auth.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/services/congratulations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/congratulations.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/store/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +106,7 @@
       <workItem from="1633195201660" duration="50904000" />
       <workItem from="1634215393078" duration="341000" />
       <workItem from="1634215761830" duration="142000" />
-      <workItem from="1634215913093" duration="48613000" />
+      <workItem from="1634215913093" duration="61971000" />
     </task>
     <task id="LOCAL-00001" summary="перенос на TS">
       <created>1632931433071</created>
@@ -180,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634492382880</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="настроена авторизация и аутентификация">
+      <created>1634536846552</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1634536846552</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,7 +218,8 @@
     <MESSAGE value="Проброс ID записи со страницы Home на страницу New/Edit, которую нужно отредактировать" />
     <MESSAGE value="настройка связи с бекэндом" />
     <MESSAGE value="попытка настроить RTK Query" />
-    <option name="LAST_COMMIT_MESSAGE" value="попытка настроить RTK Query" />
+    <MESSAGE value="настроена авторизация и аутентификация" />
+    <option name="LAST_COMMIT_MESSAGE" value="настроена авторизация и аутентификация" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

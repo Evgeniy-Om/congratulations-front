@@ -19,17 +19,30 @@ export default function Login() {
     })
 
     const onSubmit = async (credentials: LoginFormInputs) => {
-        const response = await login({
+        // const response = await login({
+        //     email: "sdfds@dsf.ru",
+        //     password: "123212d",
+        //     // email: credentials.email,
+        //     // password: credentials.password
+        // })
+        // if ("data" in response) {
+        //     console.log(response.data.access_token)
+        //     localStorage.setItem("access_token", response.data.access_token)
+        //     history.push("/home")
+        // }
+
+        login({
             email: "sdfds@dsf.ru",
             password: "123212d",
             // email: credentials.email,
             // password: credentials.password
-        })
-        if ("data" in response) {
-            console.log(response.data.access_token)
-            localStorage.setItem("access_token", response.data.access_token)
-            history.push("/home")
-        }
+        }).unwrap()
+            .then((payload) => {
+                console.log(payload.access_token)
+                localStorage.setItem("access_token", payload.access_token)
+                // history.push("/home")
+            })
+            .catch((error) => console.error('rejected', error))
     }
     return (
         <Styled.Wrapper>

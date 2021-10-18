@@ -16,6 +16,7 @@ export const congratulationsApi = emptySplitApi.injectEndpoints({
             query: () => ({
                 url: "congratulations/",
                 headers: getAuthorizationHeader(),
+                // providesTags: ['Post']
             }),
         })
     }),
