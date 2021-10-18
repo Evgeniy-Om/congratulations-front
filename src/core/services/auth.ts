@@ -1,16 +1,11 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import {LoginRequest, LoginResponse} from "../global-types"
+import { emptySplitApi } from '../store/store'
 
-
-export const authApi = createApi({
-    baseQuery: fetchBaseQuery({
-        baseUrl: 'https://birthdayappremainder.herokuapp.com/auth',
-        }),
-
+export const authApi = emptySplitApi.injectEndpoints({
     endpoints: (builder) => ({
         login: builder.mutation<LoginResponse, LoginRequest>({
             query: (credentials) => ({
-                url: '/login/',
+                url: 'auth/login/',
                 method: 'POST',
                 body: credentials,
             }),
@@ -19,5 +14,4 @@ export const authApi = createApi({
     }),
 })
 
-// Export hooks for usage in functional components
 export const { useLoginMutation } = authApi

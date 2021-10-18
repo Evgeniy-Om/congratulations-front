@@ -1,16 +1,21 @@
 import {configureStore} from '@reduxjs/toolkit'
 import birthdayReducer from './birthdaySlice'
-import {authApi} from "../services/auth"
-import {congratulationsApi} from "../services/congratulations"
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
+
+export const emptySplitApi = createApi({
+    baseQuery: fetchBaseQuery({
+        baseUrl: 'https://birthdayappremainder.herokuapp.com/'
+    }),
+    endpoints: () => ({}),
+})
 
 export const store = configureStore({
     reducer: {
         birthdays: birthdayReducer,
-        [authApi.reducerPath]: authApi.reducer,
-        [congratulationsApi.reducerPath]: congratulationsApi.reducer,
+        [emptySplitApi.reducerPath]: emptySplitApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat([ congratulationsApi.middleware]),
+        getDefaultMiddleware().concat(emptySplitApi.middleware),
 })
 
 export type RootState = ReturnType<typeof store.getState>

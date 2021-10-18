@@ -1,24 +1,24 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import {LoginResponse} from "../global-types"
 import {CongratulationsResponse} from "../models/CongratulationsResponse"
+import {emptySplitApi} from "../store/store"
 
-export const congratulationsApi = createApi({
-    baseQuery: fetchBaseQuery({
-        baseUrl: 'https://birthdayappremainder.herokuapp.com/congratulations',
-        prepareHeaders: (headers) => {
-            const token = localStorage.getItem("access_token")
-            if (token) {
-                headers.set('authorization', `Bearer ${token}`)
-            }
-            return headers
-        },}),
+function getAuthorizationHeader () {
+    const token = localStorage.getItem("access_token")
+    if (token) {
+        return {Authorization: `Bearer ${token}`}
+    }
+    return {}
+}
 
+export const congratulationsApi = emptySplitApi.injectEndpoints({
     endpoints: (builder) => ({
         getCongratulations: builder.query<CongratulationsResponse, void>({
-            query: () => "/",
+            query: () => ({
+                url: "congratulations/",
+                headers: getAuthorizationHeader(),
+            }),
         })
     }),
 })
 
-// Export hooks for usage in functional components
 export const { useGetCongratulationsQuery } = congratulationsApi
