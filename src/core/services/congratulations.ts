@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import {CongratulationsResponse} from "../models/CongratulationsResponse"
+import {CongratulationItem, CongratulationsResponse} from "../models/CongratulationsResponse"
 import {emptySplitApi} from "../store/store"
 
 function getAuthorizationHeader () {
-    const token = localStorage.getItem("access_token")
+    const token = sessionStorage.getItem("access_token") ?? localStorage.getItem("access_token")
     if (token) {
         return {Authorization: `Bearer ${token}`}
     }
@@ -16,10 +16,23 @@ export const congratulationsApi = emptySplitApi.injectEndpoints({
             query: () => ({
                 url: "congratulations/",
                 headers: getAuthorizationHeader(),
-                // providesTags: ['Post']
+                // providesTags: (result, error, arg) =>
+                //     result
+                //         ? [...result.map(({ id }) => ({ type: 'Congratulations' as const, id })), 'Congratulations']
+                //         : ['Post'],
+                keepUnusedDataFor: 300
             }),
-        })
+            // transformResponse: (response: { data: CongratulationsResponse }) => response.data.results,
+        }),
+        deleteCongratulation: builder.mutation({
+            query: (id: number) => ({
+                url: `/congratulations/${id}`,
+                method: 'DELETE',
+                headers: getAuthorizationHeader(),
+            }),
+            invalidatesTags: ['Congratulations'],
+        }),
     }),
 })
 
-export const { useGetCongratulationsQuery } = congratulationsApi
+export const { useGetCongratulationsQuery, useDeleteCongratulationMutation } = congratulationsApi

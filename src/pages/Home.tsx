@@ -8,35 +8,31 @@ import {ru} from 'date-fns/locale'
 import {Button as MUIButton, IconButton as MUIIconButton, styled} from "@mui/material"
 import {deleteBirthdayItem, changeIdOfEditItem} from '../core/store/birthdaySlice'
 import ReactRouterDomLink from '../components/ReactRouterDomLink'
-import {useGetCongratulationsQuery} from '../core/services/congratulations'
+import {useDeleteCongratulationMutation, useGetCongratulationsQuery} from '../core/services/congratulations'
 import {useEffect} from "react"
-import {useRefreshAccessTokenMutation} from "../core/services/auth"
+import {useLoginMutation, useRefreshAccessTokenMutation} from "../core/services/auth"
 
 
 export default function Home() {
-    const {data = [], isError, isLoading, refetch} = useGetCongratulationsQuery()
+    const {data, isError, isLoading, isSuccess, refetch} = useGetCongratulationsQuery()
+    const [deleteCongratulation] = useDeleteCongratulationMutation()
     const [refresh] = useRefreshAccessTokenMutation()
     const {list} = useAppSelector((state) => state.birthdays)
     const dispatch = useAppDispatch()
 
-    // if (isError) {
-    //     refresh({})
-    //     // refetch()
-    // }
-
     useEffect(() => {
-        console.log(data)
+        isSuccess && console.log(data)
         // console.log(isError)
-    }, [data])
+    }, [isSuccess])
 
-    useEffect(() => {
-        refresh({})
-            .unwrap()
-            .then((payload) => {
-                console.log(payload)
-            })
-            .catch((error) => console.error('rejected', error))
-    }, [isError])
+    // useEffect(() => {
+    //     refresh({})
+    //         .unwrap()
+    //         .then((payload) => {
+    //             console.log(payload)
+    //         })
+    //         .catch((error) => console.error('rejected', error))
+    // }, [isError])
 
     return (
         <>
@@ -55,16 +51,16 @@ export default function Home() {
             </Styled.Header>
             <h2>Birthday book</h2>
             <hr/>
-            {list.map((item, index) =>
+            {data?.results.map((item, index) =>
                 <Styled.ItemContainer key={index + Number(new Date())}>
                     <Styled.NameAndDateContainer>
-                        <span>{item.name}</span>
-                        <span>{item.date && format(item.date, "d MMMM yyyy", {locale: ru})}</span>
+                        <span>{item.bday_name}</span>
+                        <span>{item.alert_datetime && format(new Date(item.alert_datetime), "d MMMM yyyy", {locale: ru})}</span>
                     </Styled.NameAndDateContainer>
-                    <MUIIconButton aria-label="edit" onClick={() => dispatch(changeIdOfEditItem(item._id))}>
+                    <MUIIconButton aria-label="edit" onClick={() => dispatch(changeIdOfEditItem(item.id))}>
                         <Styled.EditIcon/>
                     </MUIIconButton>
-                    <MUIIconButton aria-label="delete" onClick={() => dispatch(deleteBirthdayItem(index))}>
+                    <MUIIconButton aria-label="delete" onClick={() => deleteCongratulation(item.id)}>
                         <Styled.DeleteIcon/>
                     </MUIIconButton>
                 </Styled.ItemContainer>,

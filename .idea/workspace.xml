@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="настроена авторизация и аутентификация">
+    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="настройка логики чекбокса &quot;Запомнить меня&quot;">
+      <change afterPath="$PROJECT_DIR$/src/components/RHookFormCheckbox.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/services/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/models/CongratulationsResponse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/models/CongratulationsResponse.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/services/congratulations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/services/congratulations.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/store/store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.tsx" afterDir="false" />
@@ -47,7 +48,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/core/models" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -60,6 +61,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\components" />
       <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\core\models" />
       <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\pages" />
     </key>
@@ -106,7 +108,7 @@
       <workItem from="1633195201660" duration="50904000" />
       <workItem from="1634215393078" duration="341000" />
       <workItem from="1634215761830" duration="142000" />
-      <workItem from="1634215913093" duration="61971000" />
+      <workItem from="1634215913093" duration="72534000" />
     </task>
     <task id="LOCAL-00001" summary="перенос на TS">
       <created>1632931433071</created>
@@ -185,7 +187,28 @@
       <option name="project" value="LOCAL" />
       <updated>1634536846552</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="настройка обновления Access токена (в процессе)">
+      <created>1634576006728</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1634576006728</updated>
+    </task>
+    <task id="LOCAL-00013" summary="настроен localhost на https">
+      <created>1634637561894</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1634637561894</updated>
+    </task>
+    <task id="LOCAL-00014" summary="настроен localhost на https">
+      <created>1634637581956</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1634637581956</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,7 +242,10 @@
     <MESSAGE value="настройка связи с бекэндом" />
     <MESSAGE value="попытка настроить RTK Query" />
     <MESSAGE value="настроена авторизация и аутентификация" />
-    <option name="LAST_COMMIT_MESSAGE" value="настроена авторизация и аутентификация" />
+    <MESSAGE value="настройка обновления Access токена (в процессе)" />
+    <MESSAGE value="настроен localhost на https" />
+    <MESSAGE value="настройка логики чекбокса &quot;Запомнить меня&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="настройка логики чекбокса &quot;Запомнить меня&quot;" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

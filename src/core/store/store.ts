@@ -6,7 +6,7 @@ export const emptySplitApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: 'https://birthdayappremainder.herokuapp.com/',
     }),
-    // tagTypes: ["Access"],
+    tagTypes: ["Access", "Congratulations"],
     endpoints: () => ({}),
 })
 

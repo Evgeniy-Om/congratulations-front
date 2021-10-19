@@ -1,4 +1,5 @@
-type CongratulationItem = {
+export type CongratulationItem = {
+    id: number
     bday_name: string
     alert_datetime: string
     notify_by_email: boolean
