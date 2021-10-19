@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="Завершение настройки кнопки-корзины у Item'ов">
+    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="удаление .env">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +103,7 @@
       <workItem from="1634215393078" duration="341000" />
       <workItem from="1634215761830" duration="142000" />
       <workItem from="1634215913093" duration="75923000" />
-      <workItem from="1634654496229" duration="3164000" />
+      <workItem from="1634654496229" duration="4445000" />
     </task>
     <task id="LOCAL-00001" summary="перенос на TS">
       <created>1632931433071</created>
@@ -225,7 +224,21 @@
       <option name="project" value="LOCAL" />
       <updated>1634640943056</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="удаление папки server">
+      <created>1634661662121</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1634661662121</updated>
+    </task>
+    <task id="LOCAL-00019" summary="удаление .env">
+      <created>1634662516816</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1634662516816</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,7 +277,9 @@
     <MESSAGE value="настройка логики чекбокса &quot;Запомнить меня&quot;" />
     <MESSAGE value="Удаление на сервере поздравления при нажатии кнопки-корзины" />
     <MESSAGE value="Завершение настройки кнопки-корзины у Item'ов" />
-    <option name="LAST_COMMIT_MESSAGE" value="Завершение настройки кнопки-корзины у Item'ов" />
+    <MESSAGE value="удаление папки server" />
+    <MESSAGE value="удаление .env" />
+    <option name="LAST_COMMIT_MESSAGE" value="удаление .env" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
