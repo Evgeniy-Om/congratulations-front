@@ -1,8 +1,7 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import {CongratulationItem, CongratulationsResponse} from "../models/CongratulationsResponse"
+import {CongratulationsResponse} from "../models/CongratulationsResponse"
 import {emptySplitApi} from "../store/store"
 
-function getAuthorizationHeader () {
+function getAuthorizationHeader() {
     const token = sessionStorage.getItem("access_token") ?? localStorage.getItem("access_token")
     if (token) {
         return {Authorization: `Bearer ${token}`}
@@ -16,14 +15,16 @@ export const congratulationsApi = emptySplitApi.injectEndpoints({
             query: () => ({
                 url: "congratulations/",
                 headers: getAuthorizationHeader(),
-                // providesTags: (result, error, arg) =>
-                //     result
-                //         ? [...result.map(({ id }) => ({ type: 'Congratulations' as const, id })), 'Congratulations']
-                //         : ['Post'],
-                keepUnusedDataFor: 300
+                keepUnusedDataFor: 300,
             }),
-            // transformResponse: (response: { data: CongratulationsResponse }) => response.data.results,
+            // providesTags: (result, error, arg) =>
+            //     result?.results
+            //         ? [...result.results.map(({id}) => ({type: 'Congratulations' as const, id})), 'Congratulations']
+            //         : ['Post'],
+            // // transformResponse: (response: { data: CongratulationsResponse }) => response.data.results,
+            providesTags: ['Congratulations']
         }),
+
         deleteCongratulation: builder.mutation({
             query: (id: number) => ({
                 url: `/congratulations/${id}`,
@@ -35,4 +36,4 @@ export const congratulationsApi = emptySplitApi.injectEndpoints({
     }),
 })
 
-export const { useGetCongratulationsQuery, useDeleteCongratulationMutation } = congratulationsApi
+export const {useGetCongratulationsQuery, useDeleteCongratulationMutation} = congratulationsApi
