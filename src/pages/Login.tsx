@@ -45,7 +45,7 @@ export default function Login() {
                     ? localStorage.setItem("access_token", payload.access_token)
                     : sessionStorage.setItem("access_token", payload.access_token)
 
-                history.push("/home")
+                // history.push("/home")
             })
             .catch((error) => console.error('rejected', error))
     }
