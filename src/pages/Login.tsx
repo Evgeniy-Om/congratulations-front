@@ -1,4 +1,4 @@
-import {Button as MUIButton, Checkbox as MUICheckbox, FormControlLabel, styled} from "@mui/material"
+import {Button as MUIButton, FormControlLabel, styled} from "@mui/material"
 import {FormProvider, useForm} from "react-hook-form"
 import {yupResolver} from "@hookform/resolvers/yup"
 import SocialsButtons from "../components/SocialsButtons"
@@ -8,6 +8,7 @@ import {loginValidationSchema} from "../core/schemes"
 import {Link, useHistory} from "react-router-dom"
 import type {LoginFormInputs} from "../core/global-types"
 import {useLoginMutation} from "../core/services/auth"
+import ReactHookFormCheckbox from "../components/RHookFormCheckbox"
 
 export default function Login() {
     const [login, {isError}] = useLoginMutation()
@@ -19,6 +20,7 @@ export default function Login() {
     })
 
     const onSubmit = async (credentials: LoginFormInputs) => {
+        console.log(credentials.rememberMe)
         // const response = await login({
         //     email: "sdfds@dsf.ru",
         //     password: "123212d",
@@ -39,8 +41,11 @@ export default function Login() {
         }).unwrap()
             .then((payload) => {
                 console.log(payload.access_token)
-                localStorage.setItem("access_token", payload.access_token)
-                // history.push("/home")
+                credentials.rememberMe
+                    ? localStorage.setItem("access_token", payload.access_token)
+                    : sessionStorage.setItem("access_token", payload.access_token)
+
+                history.push("/home")
             })
             .catch((error) => console.error('rejected', error))
     }
@@ -51,7 +56,7 @@ export default function Login() {
                 <Styled.Form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
                     <ReactHookFormTextField name="email" type="email" label="Эл. почта"/>
                     <ReactHookFormTextField name="password" type="password" label="Пароль"/>
-                    <Styled.Label control={<MUICheckbox defaultChecked/>} label="Запомнить меня"/>
+                    <ReactHookFormCheckbox name="rememberMe" label="Запомнить меня"/>
                     <MUIButton type="submit" variant="contained">Вход</MUIButton>
                     <Styled.RegistrationLink to="/registration">
                         Ещё не зарегистрированы?
