@@ -1,21 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="настройка автообновления access токена">
-      <change afterPath="$PROJECT_DIR$/src/core/api/api.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/api/types/RequestTypes.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/api/types/ResponseTypes.ts" afterDir="false" />
+    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="настройка страницы New (готово)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/api.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/global-types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/global-types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/models/CongratulationsResponse.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/models/LoginResponse.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/models/RefreshResponse.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/services/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api/services/auth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/services/congratulations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api/services/congratulations.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/store/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/api/services/congratulations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api/services/congratulations.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/api/types/RequestTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api/types/RequestTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/New.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/New.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +106,7 @@
       <workItem from="1634215393078" duration="341000" />
       <workItem from="1634215761830" duration="142000" />
       <workItem from="1634215913093" duration="75923000" />
-      <workItem from="1634654496229" duration="19191000" />
+      <workItem from="1634654496229" duration="24417000" />
     </task>
     <task id="LOCAL-00001" summary="перенос на TS">
       <created>1632931433071</created>
@@ -279,7 +269,35 @@
       <option name="project" value="LOCAL" />
       <updated>1634737901914</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="добавление endpoint addCongratulation">
+      <created>1634744093174</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1634744093174</updated>
+    </task>
+    <task id="LOCAL-00025" summary="изменение структуры папок и файлов">
+      <created>1634744113408</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1634744113408</updated>
+    </task>
+    <task id="LOCAL-00026" summary="настройка страницы New (в процессе)">
+      <created>1634749676987</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1634749676987</updated>
+    </task>
+    <task id="LOCAL-00027" summary="правка типов">
+      <created>1634749699042</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1634749699042</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,8 +320,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="перенос на TS" />
-    <MESSAGE value="изменение архитектуры проекта" />
     <MESSAGE value="добавлены роуты" />
     <MESSAGE value="создание и перенос логики в папки &quot;routes&quot; и &quot;theme&quot;" />
     <MESSAGE value="удаление файла" />
@@ -323,7 +339,13 @@
     <MESSAGE value="удаление сертификатов ssl" />
     <MESSAGE value="fix bag" />
     <MESSAGE value="настройка автообновления access токена" />
-    <option name="LAST_COMMIT_MESSAGE" value="настройка автообновления access токена" />
+    <MESSAGE value="добавление endpoint addCongratulation" />
+    <MESSAGE value="изменение структуры папок и файлов" />
+    <MESSAGE value="настройка страницы New" />
+    <MESSAGE value="настройка страницы New (в процессе)" />
+    <MESSAGE value="правка типов" />
+    <MESSAGE value="настройка страницы New (готово)" />
+    <option name="LAST_COMMIT_MESSAGE" value="настройка страницы New (готово)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

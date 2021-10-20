@@ -1,15 +1,12 @@
-import {useAppDispatch, useAppSelector} from "../core/hooks"
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos"
 import {DatePicker, LocalizationProvider} from "@mui/lab"
 import AdapterDateFns from "@mui/lab/AdapterDateFns"
 import ruLocale from "date-fns/locale/ru"
-import {addBirthdayItem, changeBirthdayItem} from "../core/store/birthdaySlice"
 import {Button, Checkbox as MUICheckbox, FormControlLabel, styled, TextField} from "@mui/material"
-import {css} from "@emotion/css"
 import {Controller, useForm} from "react-hook-form"
 import ReactRouterDomLink from "../components/ReactRouterDomLink"
-import {Link} from "react-router-dom"
 import {NewCongratulationInputs} from "../core/global-types"
+import {useAddCongratulationMutation} from "../core/api/services/congratulations"
 
 export type SubmitPropsType = {
     name: string
@@ -18,17 +15,18 @@ export type SubmitPropsType = {
 }
 
 export default function New() {
-    // const {list, editId} = useAppSelector((state) => state.birthdays)
-
+    const [addCongratulation] = useAddCongratulationMutation()
     const {register, handleSubmit, control} = useForm<NewCongratulationInputs>({
-        // defaultValues: editId ? list.find(item => item._id === editId) : {date: null}
         defaultValues: {alert_datetime: null}
     })
-    // const dispatch = useAppDispatch()
 
     const onSubmit = (data: NewCongratulationInputs) => {
-        // dispatch(addBirthdayItem(data))
-        console.log(data)
+        addCongratulation(data)
+            .unwrap()
+            .then((payload) => {
+                console.log(payload)
+            })
+            .catch((error) => console.error('rejected', error))
     }
     return (
         <div>

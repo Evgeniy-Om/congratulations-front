@@ -1,4 +1,4 @@
-import { emptySplitApi } from "../api"
+import {emptySplitApi} from "../api"
 import {getCongratulationsResponse} from "../types/ResponseTypes"
 import {addCongratulationRequest} from "../types/RequestTypes"
 
@@ -24,7 +24,7 @@ export const congratulationsApi = emptySplitApi.injectEndpoints({
             //         ? [...result.results.map(({id}) => ({type: 'Congratulations' as const, id})), 'Congratulations']
             //         : ['Post'],
             // // transformResponse: (response: { data: CongratulationsResponse }) => response.data.results,
-            providesTags: ['Congratulations', 'Refresh']
+            providesTags: ['Congratulations', 'Refresh'],
         }),
 
         addCongratulation: builder.mutation<void, addCongratulationRequest>({
@@ -32,7 +32,7 @@ export const congratulationsApi = emptySplitApi.injectEndpoints({
                 url: `/congratulations/`,
                 method: 'POST',
                 headers: getAccessToken(),
-                body: congratulationItem
+                body: congratulationItem,
             }),
             invalidatesTags: ['Congratulations'],
         }),
@@ -48,4 +48,8 @@ export const congratulationsApi = emptySplitApi.injectEndpoints({
     }),
 })
 
-export const {useGetCongratulationsQuery, useDeleteCongratulationMutation} = congratulationsApi
+export const {
+    useGetCongratulationsQuery,
+    useAddCongratulationMutation,
+    useDeleteCongratulationMutation,
+} = congratulationsApi

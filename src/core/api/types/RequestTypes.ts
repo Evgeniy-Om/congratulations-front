@@ -1,10 +1,6 @@
-export type addCongratulationRequest = {
-    bday_name: string
-    alert_datetime: string
-    notify_by_email: boolean
-    notify_by_push: boolean
-    comment: string
-}
+import {NewCongratulationInputs} from "../../global-types"
+
+export type addCongratulationRequest = NewCongratulationInputs
 
 export type LoginRequest = {
     email: string
