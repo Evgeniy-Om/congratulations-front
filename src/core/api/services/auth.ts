@@ -1,7 +1,6 @@
-import {LoginRequest} from "../global-types"
-import { LoginResponse } from "../models/LoginResponse"
-import { emptySplitApi } from '../store/store'
-import {RefreshResponse} from "../models/RefreshResponse"
+import { emptySplitApi } from "../api"
+import { LoginRequest } from "../types/RequestTypes"
+import { LoginResponse, RefreshResponse } from "../types/ResponseTypes"
 
 function getRefreshToken() {
     const token = localStorage.getItem("refresh_token")

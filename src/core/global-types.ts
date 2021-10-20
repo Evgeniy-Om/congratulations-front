@@ -9,8 +9,3 @@ export type LoginFormInputs = {
     password: string
     rememberMe: boolean | undefined
 }
-
-export type LoginRequest = {
-    email: string
-    password: string
-}

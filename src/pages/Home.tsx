@@ -8,9 +8,9 @@ import {ru} from 'date-fns/locale'
 import {Button as MUIButton, IconButton as MUIIconButton, styled} from "@mui/material"
 import {changeIdOfEditItem} from '../core/store/birthdaySlice'
 import ReactRouterDomLink from '../components/ReactRouterDomLink'
-import {useDeleteCongratulationMutation, useGetCongratulationsQuery} from '../core/services/congratulations'
+import {useDeleteCongratulationMutation, useGetCongratulationsQuery} from '../core/api/services/congratulations'
 import {useEffect} from "react"
-import {useRefreshAccessTokenMutation} from "../core/services/auth"
+import {useRefreshAccessTokenMutation} from "../core/api/services/auth"
 import {useHistory} from "react-router-dom"
 
 
