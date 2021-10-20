@@ -1,5 +1,6 @@
-import {CongratulationsResponse} from "../models/CongratulationsResponse"
-import {emptySplitApi} from "../store/store"
+import { emptySplitApi } from "../api"
+import {getCongratulationsResponse} from "../types/ResponseTypes"
+import {addCongratulationRequest} from "../types/RequestTypes"
 
 
 function getAccessToken() {
@@ -12,7 +13,7 @@ function getAccessToken() {
 
 export const congratulationsApi = emptySplitApi.injectEndpoints({
     endpoints: (builder) => ({
-        getCongratulations: builder.query<CongratulationsResponse[], void>({
+        getCongratulations: builder.query<getCongratulationsResponse[], void>({
             query: () => ({
                 url: "congratulations/",
                 headers: getAccessToken(),
@@ -24,6 +25,16 @@ export const congratulationsApi = emptySplitApi.injectEndpoints({
             //         : ['Post'],
             // // transformResponse: (response: { data: CongratulationsResponse }) => response.data.results,
             providesTags: ['Congratulations', 'Refresh']
+        }),
+
+        addCongratulation: builder.mutation<void, addCongratulationRequest>({
+            query: (congratulationItem) => ({
+                url: `/congratulations/`,
+                method: 'POST',
+                headers: getAccessToken(),
+                body: congratulationItem
+            }),
+            invalidatesTags: ['Congratulations'],
         }),
 
         deleteCongratulation: builder.mutation({
