@@ -40,11 +40,11 @@ export default function Login() {
             // password: credentials.password
         }).unwrap()
             .then((payload) => {
-                console.log(payload.access_token)
+                console.log(payload)
                 credentials.rememberMe
-                    ? localStorage.setItem("access_token", payload.access_token)
-                    : sessionStorage.setItem("access_token", payload.access_token)
-
+                    ? localStorage.setItem("access_token", payload.tokens.access)
+                    : sessionStorage.setItem("access_token", payload.tokens.access)
+                localStorage.setItem("refresh_token", payload.tokens.refresh)
                 // history.push("/home")
             })
             .catch((error) => console.error('rejected', error))

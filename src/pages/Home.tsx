@@ -10,13 +10,15 @@ import {changeIdOfEditItem} from '../core/store/birthdaySlice'
 import ReactRouterDomLink from '../components/ReactRouterDomLink'
 import {useDeleteCongratulationMutation, useGetCongratulationsQuery} from '../core/services/congratulations'
 import {useEffect} from "react"
-// import {useRefreshAccessTokenMutation} from "../core/services/auth"
+import {useRefreshAccessTokenMutation} from "../core/services/auth"
+import {useHistory} from "react-router-dom"
 
 
 export default function Home() {
-    const {data, isSuccess, } = useGetCongratulationsQuery()
+    const {data, isSuccess, isError, isLoading, refetch} = useGetCongratulationsQuery()
     const [deleteCongratulation] = useDeleteCongratulationMutation()
-    // const [refresh] = useRefreshAccessTokenMutation()
+    const [refresh] = useRefreshAccessTokenMutation()
+    const history = useHistory()
     const dispatch = useAppDispatch()
 
     useEffect(() => {
@@ -24,14 +26,22 @@ export default function Home() {
         // console.log(isError)
     }, [isSuccess])
 
-    // useEffect(() => {
-    //     refresh({})
-    //         .unwrap()
-    //         .then((payload) => {
-    //             console.log(payload)
-    //         })
-    //         .catch((error) => console.error('rejected', error))
-    // }, [isError])
+    useEffect(() => {
+        if (isError) {
+            if (localStorage.getItem("refresh_token")) {
+                refresh()
+                    .unwrap()
+                    .then((payload) => {
+                        console.log(payload.access)
+                        localStorage.setItem("access_token", payload.access)
+                        refetch()
+                    })
+                    .catch((error) => console.error('rejected3', error))
+            } else {
+                history.push("/login")
+            }
+        }
+    }, [isError])
 
     return (
         <>
@@ -50,6 +60,7 @@ export default function Home() {
             </Styled.Header>
             <h2>Birthday book</h2>
             <hr/>
+            {isLoading && <div>Loading...</div>}
             {isSuccess && data?.map((item, index) =>
                 <Styled.ItemContainer key={index + Number(new Date())}>
                     <Styled.NameAndDateContainer>

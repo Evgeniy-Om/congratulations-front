@@ -14,8 +14,3 @@ export type LoginRequest = {
     email: string
     password: string
 }
-
-export type LoginResponse = {
-    Success: string,
-    access_token: string
-}

@@ -1,7 +1,8 @@
 import {CongratulationsResponse} from "../models/CongratulationsResponse"
 import {emptySplitApi} from "../store/store"
 
-function getAuthorizationHeader() {
+
+function getAccessToken() {
     const token = sessionStorage.getItem("access_token") ?? localStorage.getItem("access_token")
     if (token) {
         return {Authorization: `Bearer ${token}`}
@@ -14,7 +15,7 @@ export const congratulationsApi = emptySplitApi.injectEndpoints({
         getCongratulations: builder.query<CongratulationsResponse[], void>({
             query: () => ({
                 url: "congratulations/",
-                headers: getAuthorizationHeader(),
+                headers: getAccessToken(),
                 keepUnusedDataFor: 300,
             }),
             // providesTags: (result, error, arg) =>
@@ -22,14 +23,14 @@ export const congratulationsApi = emptySplitApi.injectEndpoints({
             //         ? [...result.results.map(({id}) => ({type: 'Congratulations' as const, id})), 'Congratulations']
             //         : ['Post'],
             // // transformResponse: (response: { data: CongratulationsResponse }) => response.data.results,
-            providesTags: ['Congratulations']
+            providesTags: ['Congratulations', 'Refresh']
         }),
 
         deleteCongratulation: builder.mutation({
             query: (id: number) => ({
                 url: `/congratulations/${id}`,
                 method: 'DELETE',
-                headers: getAuthorizationHeader(),
+                headers: getAccessToken(),
             }),
             invalidatesTags: ['Congratulations'],
         }),
