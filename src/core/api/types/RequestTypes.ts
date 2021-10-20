@@ -1,5 +1,4 @@
 export type addCongratulationRequest = {
-    id: number
     bday_name: string
     alert_datetime: string
     notify_by_email: boolean

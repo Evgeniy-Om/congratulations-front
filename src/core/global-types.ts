@@ -9,3 +9,11 @@ export type LoginFormInputs = {
     password: string
     rememberMe: boolean | undefined
 }
+
+export type NewCongratulationInputs = {
+    bday_name: string
+    alert_datetime: string | null
+    notify_by_email: boolean
+    notify_by_push: boolean
+    comment: string
+}
