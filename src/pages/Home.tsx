@@ -2,22 +2,21 @@ import MUIArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 import MUIAddIcon from '@mui/icons-material/Add'
 import MUIDeleteIcon from '@mui/icons-material/Delete'
 import MUIEditIcon from '@mui/icons-material/Edit'
-import {useAppDispatch, useAppSelector} from "../core/hooks"
+import {useAppDispatch} from "../core/hooks"
 import format from 'date-fns/format'
 import {ru} from 'date-fns/locale'
 import {Button as MUIButton, IconButton as MUIIconButton, styled} from "@mui/material"
-import {deleteBirthdayItem, changeIdOfEditItem} from '../core/store/birthdaySlice'
+import {changeIdOfEditItem} from '../core/store/birthdaySlice'
 import ReactRouterDomLink from '../components/ReactRouterDomLink'
 import {useDeleteCongratulationMutation, useGetCongratulationsQuery} from '../core/services/congratulations'
 import {useEffect} from "react"
-import {useLoginMutation, useRefreshAccessTokenMutation} from "../core/services/auth"
+// import {useRefreshAccessTokenMutation} from "../core/services/auth"
 
 
 export default function Home() {
-    const {data, isError, isLoading, isSuccess, refetch} = useGetCongratulationsQuery()
+    const {data, isSuccess, } = useGetCongratulationsQuery()
     const [deleteCongratulation] = useDeleteCongratulationMutation()
-    const [refresh] = useRefreshAccessTokenMutation()
-    const {list} = useAppSelector((state) => state.birthdays)
+    // const [refresh] = useRefreshAccessTokenMutation()
     const dispatch = useAppDispatch()
 
     useEffect(() => {
@@ -51,7 +50,7 @@ export default function Home() {
             </Styled.Header>
             <h2>Birthday book</h2>
             <hr/>
-            {data?.results.map((item, index) =>
+            {isSuccess && data?.results.map((item, index) =>
                 <Styled.ItemContainer key={index + Number(new Date())}>
                     <Styled.NameAndDateContainer>
                         <span>{item.bday_name}</span>
