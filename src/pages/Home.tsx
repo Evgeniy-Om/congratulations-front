@@ -50,7 +50,7 @@ export default function Home() {
             </Styled.Header>
             <h2>Birthday book</h2>
             <hr/>
-            {isSuccess && data?.results.map((item, index) =>
+            {isSuccess && data?.map((item, index) =>
                 <Styled.ItemContainer key={index + Number(new Date())}>
                     <Styled.NameAndDateContainer>
                         <span>{item.bday_name}</span>

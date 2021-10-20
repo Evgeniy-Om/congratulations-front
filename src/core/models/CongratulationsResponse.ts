@@ -8,8 +8,10 @@ export type CongratulationItem = {
 }
 
 export type CongratulationsResponse = {
-    count: number
-    next: string
-    previous: string
-    results: CongratulationItem[]
+    id: number
+    bday_name: string
+    alert_datetime: string
+    notify_by_email: boolean
+    notify_by_push: boolean
+    comment: string
 }

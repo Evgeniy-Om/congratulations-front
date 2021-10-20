@@ -11,7 +11,7 @@ function getAuthorizationHeader() {
 
 export const congratulationsApi = emptySplitApi.injectEndpoints({
     endpoints: (builder) => ({
-        getCongratulations: builder.query<CongratulationsResponse, void>({
+        getCongratulations: builder.query<CongratulationsResponse[], void>({
             query: () => ({
                 url: "congratulations/",
                 headers: getAuthorizationHeader(),
