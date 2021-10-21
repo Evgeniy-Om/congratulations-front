@@ -75,8 +75,6 @@ export default function Home() {
                     </MUIIconButton>
                 </Styled.ItemContainer>,
             )}
-            <br/>
-            <br/>
         </>
     )
 }

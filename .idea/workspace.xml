@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="настройка страницы New (готово)">
+    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="настройка отправки данных на сервер со страницы New">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/api/services/congratulations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api/services/congratulations.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/api/types/RequestTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api/types/RequestTypes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/New.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/New.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PaperContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PaperContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +105,7 @@
       <workItem from="1634215393078" duration="341000" />
       <workItem from="1634215761830" duration="142000" />
       <workItem from="1634215913093" duration="75923000" />
-      <workItem from="1634654496229" duration="24417000" />
+      <workItem from="1634654496229" duration="28245000" />
     </task>
     <task id="LOCAL-00001" summary="перенос на TS">
       <created>1632931433071</created>
@@ -297,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634749699042</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="настройка отправки данных на сервер со страницы New">
+      <created>1634750504955</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1634750504955</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,7 +326,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="добавлены роуты" />
     <MESSAGE value="создание и перенос логики в папки &quot;routes&quot; и &quot;theme&quot;" />
     <MESSAGE value="удаление файла" />
     <MESSAGE value="удаление избыточных index файлов. Перенос стилей и типов внутрь компонентов" />
@@ -345,7 +350,8 @@
     <MESSAGE value="настройка страницы New (в процессе)" />
     <MESSAGE value="правка типов" />
     <MESSAGE value="настройка страницы New (готово)" />
-    <option name="LAST_COMMIT_MESSAGE" value="настройка страницы New (готово)" />
+    <MESSAGE value="настройка отправки данных на сервер со страницы New" />
+    <option name="LAST_COMMIT_MESSAGE" value="настройка отправки данных на сервер со страницы New" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

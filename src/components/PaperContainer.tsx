@@ -15,7 +15,6 @@ export default function PaperContainer({children}: Props) {
 const Styled = {
     Container: styled('div')({
         display: 'flex',
-        height: '100vh',
         backgroundColor: '#f5f5f5',
     }),
     Paper: styled(MUIPaper)({
@@ -23,8 +22,7 @@ const Styled = {
         flexDirection: 'column',
         justifyContent: "center",
         minWidth: 500,
-        margin: 'auto',
-        marginTop: 'calc(100vh * 0.3)',
+        margin: "100px auto",
         padding: '20px',
     })
 }
