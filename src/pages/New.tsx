@@ -7,6 +7,7 @@ import {Controller, useForm} from "react-hook-form"
 import ReactRouterDomLink from "../components/ReactRouterDomLink"
 import {NewCongratulationInputs} from "../core/global-types"
 import {useAddCongratulationMutation} from "../core/api/services/congratulations"
+import {Link} from "react-router-dom"
 
 export type SubmitPropsType = {
     name: string
@@ -15,7 +16,7 @@ export type SubmitPropsType = {
 }
 
 export default function New() {
-    const [addCongratulation] = useAddCongratulationMutation()
+    const [addCongratulation, {isSuccess, isLoading, isError}] = useAddCongratulationMutation()
     const {register, handleSubmit, control} = useForm<NewCongratulationInputs>({
         defaultValues: {alert_datetime: null}
     })
@@ -41,7 +42,7 @@ export default function New() {
 
             <br/>
             <br/>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <Styled.Form onSubmit={handleSubmit(onSubmit)}>
                 {/*React Hook Form контролирует DatePicker из Material UI, который в свою очередь рендерит TextField*/}
                 <Controller
                     name="alert_datetime"
@@ -76,14 +77,39 @@ export default function New() {
                     control={<MUICheckbox {...register("notify_by_push")} disabled/>}
                     label="Отправить push-уведомление"/>
                 <Button type="submit">Отправить</Button>
-            </form>
+            </Styled.Form>
+            <Styled.Info>
+                {isSuccess && <div>Данные успешно сохранены!</div>}
+                {isLoading && <div>Сохраняем ....</div>}
+                {isError && <div>Автоматическую авторизацию на этой странице ещё не настроил. Залогинься</div>}
+            </Styled.Info>
+
         </div>
     )
 }
 
 // Styled Components
 const Styled = {
+    Wrapper: styled("div")({
+        textAlign: "center",
+    }),
+    Form: styled("form")({
+        display: "flex",
+        flexDirection: "column",
+    }),
     Label: styled(FormControlLabel)({
         margin: "0 auto 10px",
+    }),
+    RegistrationLink: styled(Link)(({theme}) => ({
+        margin: "15px 0",
+        color: theme.palette.text.primary,
+    })),
+    Info: styled("div")({
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100%",
+        height: 50,
+
     }),
 }
