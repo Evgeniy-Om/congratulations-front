@@ -8,6 +8,8 @@ import ReactRouterDomLink from "../components/ReactRouterDomLink"
 import {NewCongratulationInputs} from "../core/global-types"
 import {useAddCongratulationMutation} from "../core/api/services/congratulations"
 import {Link} from "react-router-dom"
+import {yupResolver} from "@hookform/resolvers/yup"
+import {loginValidationSchema, NewCongratulationValidationSchema} from "../core/yupValidastionSchemes"
 
 export type SubmitPropsType = {
     name: string
@@ -18,6 +20,8 @@ export type SubmitPropsType = {
 export default function New() {
     const [addCongratulation, {isSuccess, isLoading, isError}] = useAddCongratulationMutation()
     const {register, handleSubmit, control} = useForm<NewCongratulationInputs>({
+        mode: "onTouched",
+        // resolver: yupResolver(NewCongratulationValidationSchema),
         defaultValues: {alert_datetime: null}
     })
 
@@ -42,7 +46,7 @@ export default function New() {
 
             <br/>
             <br/>
-            <Styled.Form onSubmit={handleSubmit(onSubmit)}>
+            <Styled.Form noValidate onSubmit={handleSubmit(onSubmit)}>
                 {/*React Hook Form контролирует DatePicker из Material UI, который в свою очередь рендерит TextField*/}
                 <Controller
                     name="alert_datetime"
@@ -69,7 +73,10 @@ export default function New() {
                         </LocalizationProvider>
                     }
                 />
-                <TextField {...register("bday_name")} variant="outlined" placeholder="Кого поздравить?"/>
+                <TextField
+                    {...register("bday_name")}
+                    variant="outlined"
+                    placeholder="Кого поздравить?"/>
                 <Styled.Label
                     control={<MUICheckbox {...register("notify_by_email")} defaultChecked/>}
                     label="Уведомить по e-mail"/>

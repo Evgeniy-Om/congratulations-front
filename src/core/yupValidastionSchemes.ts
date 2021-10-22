@@ -1,5 +1,5 @@
 import {bool, object, ref, SchemaOf, string} from "yup"
-import {LoginFormInputs, RegistrationFormInputs} from "./global-types"
+import {LoginFormInputs, NewCongratulationInputs, RegistrationFormInputs} from "./global-types"
 
 export const loginValidationSchema: SchemaOf<LoginFormInputs> = object().shape({
     email: string()
@@ -23,4 +23,14 @@ export const registrationValidationSchema: SchemaOf<RegistrationFormInputs> = ob
     repeat: string()
         .required("Обязательное поле")
         .oneOf([ref('password'), null], 'Пароль не совпадает'),
+})
+
+export const NewCongratulationValidationSchema: SchemaOf<NewCongratulationInputs> = object().shape({
+    bday_name: string()
+        .required("Обязательное поле"),
+    alert_datetime: string()
+        .required("Обязательное поле"),
+    notify_by_email: bool(),
+    notify_by_push: bool(),
+    comment: string(),
 })
