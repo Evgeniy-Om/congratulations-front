@@ -9,45 +9,27 @@ import {Button as MUIButton, IconButton as MUIIconButton, styled} from "@mui/mat
 import {changeIdOfEditItem} from '../core/store/birthdaySlice'
 import ReactRouterDomLink from '../components/ReactRouterDomLink'
 import {useDeleteCongratulationMutation, useGetCongratulationsQuery} from '../core/api/services/congratulations'
-import {useEffect} from "react"
-import {useRefreshAccessTokenMutation} from "../core/api/services/auth"
-import {useHistory} from "react-router-dom"
 
 
 export default function Home() {
     const {data, isSuccess, isError, isLoading, refetch} = useGetCongratulationsQuery()
     const [deleteCongratulation] = useDeleteCongratulationMutation()
-    const [refresh] = useRefreshAccessTokenMutation()
-    const history = useHistory()
     const dispatch = useAppDispatch()
-
-    useEffect(() => {
-        isSuccess && console.log(data)
-        // console.log(isError)
-    }, [isSuccess])
-
-    useEffect(() => {
-        if (isError) {
-            if (localStorage.getItem("refresh_token")) {
-                refresh()
-                    .unwrap()
-                    .then((payload) => {
-                        console.log(payload.access)
-                        localStorage.setItem("access_token", payload.access)
-                        refetch()
-                    })
-                    .catch((error) => console.error('rejected3', error))
-            } else {
-                history.push("/login")
-            }
-        }
-    }, [isError])
 
     return (
         <>
             <Styled.Header>
                 <ReactRouterDomLink to="/login">
-                    <MUIButton variant="outlined" startIcon={<MUIArrowBackIosIcon/>}>
+                    <MUIButton
+                        variant="outlined"
+                        startIcon={<MUIArrowBackIosIcon/>}
+                        onClick={
+                            () => {
+                                localStorage.removeItem("access_token")
+                                localStorage.removeItem("refresh_token")
+                                sessionStorage.removeItem("access_token")
+                            }
+                        }>
                         Выйти из приложения
                     </MUIButton>
                 </ReactRouterDomLink>

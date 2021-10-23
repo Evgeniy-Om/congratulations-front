@@ -24,7 +24,7 @@ export const congratulationsApi = emptySplitApi.injectEndpoints({
             //         ? [...result.results.map(({id}) => ({type: 'Congratulations' as const, id})), 'Congratulations']
             //         : ['Post'],
             // // transformResponse: (response: { data: CongratulationsResponse }) => response.data.results,
-            providesTags: ['Congratulations', 'Refresh'],
+            providesTags: ['Congratulations', 'Refresh', 'Access'],
         }),
 
         addCongratulation: builder.mutation<void, addCongratulationRequest>({

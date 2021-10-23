@@ -4,7 +4,7 @@ import {yupResolver} from "@hookform/resolvers/yup"
 import SocialsButtons from "../components/SocialsButtons"
 import ReactHookFormTextField from "../components/RHookFormTextField"
 import {LOGIN_FORM_DEFAULT_VALUES as DEFAULT_VALUES} from "../core/constants"
-import {loginValidationSchema} from "../core/schemes"
+import {loginValidationSchema} from "../core/yupValidastionSchemes"
 import {Link, useHistory} from "react-router-dom"
 import type {LoginFormInputs} from "../core/global-types"
 import {useLoginMutation} from "../core/api/services/auth"
@@ -32,7 +32,7 @@ export default function Login() {
                     ? localStorage.setItem("access_token", payload.tokens.access)
                     : sessionStorage.setItem("access_token", payload.tokens.access)
                 localStorage.setItem("refresh_token", payload.tokens.refresh)
-                history.push("/home")
+                history.push("/")
             })
             .catch((error) => console.error('rejected', error))
     }

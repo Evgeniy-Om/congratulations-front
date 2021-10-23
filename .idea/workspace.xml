@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="настройка отправки данных на сервер со страницы New">
+    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="определение авторизован ли пользователь при первом входе в приложение">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PaperContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PaperContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/api/services/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api/services/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/api/services/congratulations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api/services/congratulations.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/global-types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/global-types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/routes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Registration.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Registration.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +112,7 @@
       <workItem from="1634215393078" duration="341000" />
       <workItem from="1634215761830" duration="142000" />
       <workItem from="1634215913093" duration="75923000" />
-      <workItem from="1634654496229" duration="28245000" />
+      <workItem from="1634654496229" duration="47953000" />
     </task>
     <task id="LOCAL-00001" summary="перенос на TS">
       <created>1632931433071</created>
@@ -303,7 +310,35 @@
       <option name="project" value="LOCAL" />
       <updated>1634750504955</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="правка стилей">
+      <created>1634829089770</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1634829089770</updated>
+    </task>
+    <task id="LOCAL-00030" summary="правка стилей">
+      <created>1634829616166</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1634829616166</updated>
+    </task>
+    <task id="LOCAL-00031" summary="правка стилей">
+      <created>1634831060023</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1634831060023</updated>
+    </task>
+    <task id="LOCAL-00032" summary="добавление схемы валидации нового ДР">
+      <created>1634911150826</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1634911150826</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,9 +361,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="создание и перенос логики в папки &quot;routes&quot; и &quot;theme&quot;" />
-    <MESSAGE value="удаление файла" />
-    <MESSAGE value="удаление избыточных index файлов. Перенос стилей и типов внутрь компонентов" />
     <MESSAGE value="вынесение стилей в styled components" />
     <MESSAGE value="Проброс ID записи со страницы Home на страницу New/Edit, которую нужно отредактировать" />
     <MESSAGE value="настройка связи с бекэндом" />
@@ -351,7 +383,10 @@
     <MESSAGE value="правка типов" />
     <MESSAGE value="настройка страницы New (готово)" />
     <MESSAGE value="настройка отправки данных на сервер со страницы New" />
-    <option name="LAST_COMMIT_MESSAGE" value="настройка отправки данных на сервер со страницы New" />
+    <MESSAGE value="правка стилей" />
+    <MESSAGE value="добавление схемы валидации нового ДР" />
+    <MESSAGE value="определение авторизован ли пользователь при первом входе в приложение" />
+    <option name="LAST_COMMIT_MESSAGE" value="определение авторизован ли пользователь при первом входе в приложение" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
