@@ -1,8 +1,8 @@
-import Routes from "./core/routes"
 import PaperContainer from "./components/PaperContainer"
 import {useGetCongratulationsQuery} from "./core/api/services/congratulations"
 import {useEffect, useState} from "react"
 import {useRefreshAccessTokenMutation} from "./core/api/services/auth"
+import Routes from "./core/routes/Routes"
 
 
 export default function App() {

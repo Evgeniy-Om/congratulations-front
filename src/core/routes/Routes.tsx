@@ -1,11 +1,11 @@
 import React from 'react'
 import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom"
-import Edit from "../pages/Edit"
-import New from "../pages/New"
-import Login from "../pages/Login"
-import Registration from "../pages/Registration"
-import Agreement from "../pages/Agreement"
-import Home from "../pages/Home"
+import Edit from "../../pages/Edit"
+import New from "../../pages/New"
+import Login from "../../pages/Login"
+import Registration from "../../pages/Registration"
+import Agreement from "../../pages/Agreement"
+import Home from "../../pages/Home"
 
 function Routes(props: { auth: boolean }) {
     return (
@@ -14,25 +14,26 @@ function Routes(props: { auth: boolean }) {
                 {props.auth
                     ?
                     <>
-                        <Route path="/login">
+                        <Route path="/login" exact>
                             <Login/>
                         </Route>
-                        <Route path="/edit">
+                        <Route path="/edit" exact>
                             <Edit/>
                         </Route>
-                        <Route path="/new">
+                        <Route path="/new" exact>
                             <New/>
                         </Route>
-                        <Route path="/registration">
+                        <Route path="/registration" exact>
                             <Registration/>
                         </Route>
-                        <Route path="/agreement">
+                        <Route path="/agreement" exact>
                             <Agreement/>
                         </Route>
                         <Route path="/" exact>
                             <Home/>
                         </Route>
                         <Redirect to="/"/>
+
                     </>
                     :
                     <>
