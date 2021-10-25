@@ -1,14 +1,7 @@
+import getRefreshToken from "../../features/getRefreshToken"
 import { emptySplitApi } from "../api"
-import { LoginRequest } from "../types/RequestTypes"
-import { LoginResponse, RefreshResponse } from "../types/ResponseTypes"
-
-function getRefreshToken() {
-    const token = localStorage.getItem("refresh_token")
-    if (token) {
-        return {refresh: `${token}`}
-    }
-    return {}
-}
+import type { LoginRequest } from "../types/RequestTypes"
+import type { LoginResponse, RefreshResponse } from "../types/ResponseTypes"
 
 export const authApi = emptySplitApi.injectEndpoints({
     endpoints: (builder) => ({
@@ -19,7 +12,6 @@ export const authApi = emptySplitApi.injectEndpoints({
                 body: credentials,
             }),
             invalidatesTags: ['Access'],
-            // transformResponse: (response: { data: LoginResponse }) => response.data,
         }),
         refreshAccessToken: builder.mutation<RefreshResponse, void>({
             query: () => ({

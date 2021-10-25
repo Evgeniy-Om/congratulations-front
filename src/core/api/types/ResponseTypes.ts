@@ -12,9 +12,12 @@ export type LoginResponse = {
     tokens: {
         access: string
         refresh: string
+        access_live: string
+        refresh_live: string
     }
 }
 
 export type RefreshResponse = {
     access: string
+    access_live: string
 }

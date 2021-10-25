@@ -9,10 +9,13 @@ import {Link, useHistory} from "react-router-dom"
 import type {LoginFormInputs} from "../core/global-types"
 import {useLoginMutation} from "../core/api/services/auth"
 import ReactHookFormCheckbox from "../components/RHookFormCheckbox"
+import {useAppDispatch} from "../core/hooks"
+import {changeAuthStatus} from "../core/store/congratulationsSlice"
 
 export default function Login() {
     const [login, {isError}] = useLoginMutation()
     const history = useHistory()
+    const dispatch = useAppDispatch()
     const methods = useForm<LoginFormInputs>({
         mode: "onBlur",
         resolver: yupResolver(loginValidationSchema),
@@ -28,10 +31,15 @@ export default function Login() {
         }).unwrap()
             .then((payload) => {
                 console.log(payload)
-                credentials.rememberMe
-                    ? localStorage.setItem("access_token", payload.tokens.access)
-                    : sessionStorage.setItem("access_token", payload.tokens.access)
+                if (credentials.rememberMe) {
+                    localStorage.setItem("access_token", payload.tokens.access)
+                    localStorage.setItem("exp_access", `${payload.tokens.access_live}UTC`)
+                } else {
+                    sessionStorage.setItem("access_token", payload.tokens.access)
+                    sessionStorage.setItem("exp_access", `${payload.tokens.access_live}UTC`)
+                }
                 localStorage.setItem("refresh_token", payload.tokens.refresh)
+                dispatch(changeAuthStatus("private"))
                 history.push("/")
             })
             .catch((error) => console.error('rejected', error))

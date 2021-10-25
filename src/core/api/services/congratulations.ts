@@ -1,29 +1,16 @@
 import {emptySplitApi} from "../api"
-import {getCongratulationsResponse} from "../types/ResponseTypes"
-import {addCongratulationRequest} from "../types/RequestTypes"
-
-
-function getAccessToken() {
-    const token = sessionStorage.getItem("access_token") ?? localStorage.getItem("access_token")
-    if (token) {
-        return {Authorization: `Bearer ${token}`}
-    }
-    return {}
-}
+import getAccessToken from "../../features/getAccessToken"
+import type {getCongratulationsResponse} from "../types/ResponseTypes"
+import type {addCongratulationRequest} from "../types/RequestTypes"
 
 export const congratulationsApi = emptySplitApi.injectEndpoints({
     endpoints: (builder) => ({
-        getCongratulations: builder.query<getCongratulationsResponse[], void>({
+        getCongratulations: builder.query<getCongratulationsResponse[], null | void>({
             query: () => ({
                 url: "congratulations/",
                 headers: getAccessToken(),
                 keepUnusedDataFor: 300,
             }),
-            // providesTags: (result, error, arg) =>
-            //     result?.results
-            //         ? [...result.results.map(({id}) => ({type: 'Congratulations' as const, id})), 'Congratulations']
-            //         : ['Post'],
-            // // transformResponse: (response: { data: CongratulationsResponse }) => response.data.results,
             providesTags: ['Congratulations', 'Refresh', 'Access'],
         }),
 

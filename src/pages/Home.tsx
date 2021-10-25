@@ -6,7 +6,6 @@ import {useAppDispatch} from "../core/hooks"
 import format from 'date-fns/format'
 import {ru} from 'date-fns/locale'
 import {Button as MUIButton, IconButton as MUIIconButton, styled} from "@mui/material"
-import {changeIdOfEditItem} from '../core/store/birthdaySlice'
 import ReactRouterDomLink from '../components/ReactRouterDomLink'
 import {useDeleteCongratulationMutation, useGetCongratulationsQuery} from '../core/api/services/congratulations'
 
@@ -49,7 +48,7 @@ export default function Home() {
                         <span>{item.bday_name}</span>
                         <span>{item.alert_datetime && format(new Date(item.alert_datetime), "d MMMM yyyy", {locale: ru})}</span>
                     </Styled.NameAndDateContainer>
-                    <MUIIconButton aria-label="edit" onClick={() => dispatch(changeIdOfEditItem(item.id))}>
+                    <MUIIconButton aria-label="edit" onClick={() => {}}>
                         <Styled.EditIcon/>
                     </MUIIconButton>
                     <MUIIconButton aria-label="delete" onClick={() => deleteCongratulation(item.id)}>

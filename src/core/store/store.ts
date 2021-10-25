@@ -1,11 +1,11 @@
 import {configureStore} from '@reduxjs/toolkit'
 import { emptySplitApi } from '../api/api'
-import birthdayReducer from './birthdaySlice'
+ import congratulationsReducer from './congratulationsSlice'
 
 
 export const store = configureStore({
     reducer: {
-        birthdays: birthdayReducer,
+        congratulations: congratulationsReducer,
         [emptySplitApi.reducerPath]: emptySplitApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>
