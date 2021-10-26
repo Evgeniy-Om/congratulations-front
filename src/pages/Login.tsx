@@ -3,31 +3,33 @@ import {FormProvider, useForm} from "react-hook-form"
 import {yupResolver} from "@hookform/resolvers/yup"
 import SocialsButtons from "../components/SocialsButtons"
 import ReactHookFormTextField from "../components/RHookFormTextField"
-import {LOGIN_FORM_DEFAULT_VALUES as DEFAULT_VALUES} from "../core/constants"
 import {loginValidationSchema} from "../core/yupValidastionSchemes"
 import {Link, useHistory} from "react-router-dom"
-import type {LoginFormInputs} from "../core/global-types"
+import type {LoginFormInputs} from "../core/types/globalTypes"
 import {useLoginMutation} from "../core/api/services/auth"
 import ReactHookFormCheckbox from "../components/RHookFormCheckbox"
 import {useAppDispatch} from "../core/hooks"
 import {changeAuthStatus} from "../core/store/congratulationsSlice"
+import {useState} from "react"
 
 export default function Login() {
     const [login, {isError}] = useLoginMutation()
+    const [errorMessage, setErrorMessage] = useState("Неверно указана почта или пароль")
     const history = useHistory()
     const dispatch = useAppDispatch()
     const methods = useForm<LoginFormInputs>({
         mode: "onBlur",
         resolver: yupResolver(loginValidationSchema),
-        defaultValues: DEFAULT_VALUES,
+        defaultValues: {
+            email: "sdfds@dsf.ru",
+            password: "123212d",
+        },
     })
 
     const onSubmit = async (credentials: LoginFormInputs) => {
         login({
-            email: "sdfds@dsf.ru",
-            password: "123212d",
-            // email: credentials.email,
-            // password: credentials.password
+            email: credentials.email,
+            password: credentials.password
         }).unwrap()
             .then((payload) => {
                 console.log(payload)
@@ -42,11 +44,16 @@ export default function Login() {
                 dispatch(changeAuthStatus("private"))
                 history.push("/")
             })
-            .catch((error) => console.error('rejected', error))
+            .catch((error) => {
+                if (error.data.detail === "Email is not verified") {
+                    setErrorMessage("Подтвердите свой емейл")
+                }
+                console.error('rejected', error)
+            })
     }
     return (
         <Styled.Wrapper>
-            {isError && <Styled.Error>Неверно указана почта или пароль</Styled.Error>}
+            {isError && <Styled.Error>{errorMessage}</Styled.Error>}
             <FormProvider {...methods} >
                 <Styled.Form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
                     <ReactHookFormTextField name="email" type="email" label="Эл. почта"/>
