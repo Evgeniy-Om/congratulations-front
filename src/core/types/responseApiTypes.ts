@@ -17,6 +17,12 @@ export type LoginResponse = {
     }
 }
 
+export type RegistrationResponse = {
+    data: {
+        email: string
+    }
+}
+
 export type RefreshResponse = {
     access: string
     access_live: string
