@@ -1,5 +1,5 @@
 import {bool, object, ref, SchemaOf, string} from "yup"
-import {LoginFormInputs, NewCongratulationInputs, RegistrationFormInputs} from "./global-types"
+import {LoginFormInputs, NewCongratulationInputs, RegistrationFormInputs} from "./types/globalTypes"
 
 export const loginValidationSchema: SchemaOf<LoginFormInputs> = object().shape({
     email: string()

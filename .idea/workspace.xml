@@ -1,23 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="устранение багов автоматической авторазации">
-      <change afterPath="$PROJECT_DIR$/src/core/features/getAccessToken.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/features/getRefreshToken.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/features/isActiveAccessToken.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/routes/PrivateRoutes.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/routes/PublicRoutes.tsx" afterDir="false" />
+    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="связь формы регистрации и бэкенда">
+      <change afterPath="$PROJECT_DIR$/src/core/constants.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/api/services/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api/services/auth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/api/services/congratulations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api/services/congratulations.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/api/types/ResponseTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api/types/ResponseTypes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/routes/Routes.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/store/birthdaySlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/store/congratulationsSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/store/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Edit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Edit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/constants.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/global-types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/types/globalTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/routes/PublicRoutes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/routes/PublicRoutes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/yupValidastionSchemes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/yupValidastionSchemes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/New.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/New.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Registration.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Registration.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +49,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/core/routes" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -70,17 +62,17 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\pages" />
       <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\core\routes" />
       <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\components" />
       <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\core\models" />
-      <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\pages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\core\types" />
+      <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\core" />
       <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\core\routes" />
       <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\core\api" />
       <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\pages" />
-      <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\core" />
-      <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\core\hooks" />
     </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
@@ -119,7 +111,7 @@
       <workItem from="1634215393078" duration="341000" />
       <workItem from="1634215761830" duration="142000" />
       <workItem from="1634215913093" duration="75923000" />
-      <workItem from="1634654496229" duration="78810000" />
+      <workItem from="1634654496229" duration="88810000" />
     </task>
     <task id="LOCAL-00001" summary="перенос на TS">
       <created>1632931433071</created>
@@ -359,7 +351,35 @@
       <option name="project" value="LOCAL" />
       <updated>1635011188733</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="устранение багов автоматической авторазации">
+      <created>1635180272621</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1635180272621</updated>
+    </task>
+    <task id="LOCAL-00036" summary="связь формы регистрации и бэкенда">
+      <created>1635266611117</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1635266611117</updated>
+    </task>
+    <task id="LOCAL-00037" summary="изменение условий вывода ошибки ответа сервера на странице">
+      <created>1635266641384</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1635266641384</updated>
+    </task>
+    <task id="LOCAL-00038" summary="указание типов для эндпоинта Registration">
+      <created>1635266719927</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1635266719927</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -382,9 +402,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Проброс ID записи со страницы Home на страницу New/Edit, которую нужно отредактировать" />
-    <MESSAGE value="настройка связи с бекэндом" />
-    <MESSAGE value="попытка настроить RTK Query" />
     <MESSAGE value="настроена авторизация и аутентификация" />
     <MESSAGE value="настройка обновления Access токена (в процессе)" />
     <MESSAGE value="настроен localhost на https" />
@@ -407,7 +424,10 @@
     <MESSAGE value="определение авторизован ли пользователь при первом входе в приложение" />
     <MESSAGE value="fix bag" />
     <MESSAGE value="устранение багов автоматической авторазации" />
-    <option name="LAST_COMMIT_MESSAGE" value="устранение багов автоматической авторазации" />
+    <MESSAGE value="изменение условий вывода ошибки ответа сервера на странице" />
+    <MESSAGE value="указание типов для эндпоинта Registration" />
+    <MESSAGE value="связь формы регистрации и бэкенда" />
+    <option name="LAST_COMMIT_MESSAGE" value="связь формы регистрации и бэкенда" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
