@@ -8,12 +8,36 @@ import {ru} from 'date-fns/locale'
 import {Button as MUIButton, IconButton as MUIIconButton, styled} from "@mui/material"
 import ReactRouterDomLink from '../components/ReactRouterDomLink'
 import {useDeleteCongratulationMutation, useGetCongratulationsQuery} from '../core/api/services/congratulations'
+import {useUpdateAccessTokenMutation} from "../core/api/services/auth"
+import {useEffect} from "react"
+import {changeAuthStatus} from "../core/store/congratulationsSlice"
 
 
 export default function Home() {
     const {data, isSuccess, isError, isLoading, refetch} = useGetCongratulationsQuery()
     const [deleteCongratulation] = useDeleteCongratulationMutation()
+    const [refresh] = useUpdateAccessTokenMutation()
     const dispatch = useAppDispatch()
+
+    useEffect(() => {
+        if (isError) {
+            if (localStorage.getItem("refresh_token")) {
+                refresh()
+                    .unwrap()
+                    .then((payload) => {
+                        localStorage.setItem("access_token", payload.access)
+                        localStorage.setItem("exp_access", `${payload.access_live}UTC`)
+                        refetch()
+                    })
+                    .catch((error) => {
+                        console.error('rejected3', error)
+                        dispatch(changeAuthStatus("public"))
+                    })
+            } else {
+                dispatch(changeAuthStatus("public"))
+            }
+        }
+    }, [isError])
 
     return (
         <>

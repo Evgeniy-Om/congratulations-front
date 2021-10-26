@@ -1,5 +1,5 @@
 import {useEffect} from "react"
-import {useRefreshAccessTokenMutation} from "./core/api/services/auth"
+import {useUpdateAccessTokenMutation} from "./core/api/services/auth"
 import PrivateRoutes from "./core/routes/PrivateRoutes"
 import PublicRoutes from "./core/routes/PublicRoutes"
 import PaperContainer from "./components/PaperContainer"
@@ -14,7 +14,7 @@ export default function App() {
     // const {isError, isSuccess, refetch} = useGetCongratulationsQuery(null, {skip})
     const {authStatus} = useAppSelector((state) => state.congratulations)
     const dispatch = useAppDispatch()
-    const [refresh] = useRefreshAccessTokenMutation()
+    const [refresh] = useUpdateAccessTokenMutation()
 
     // useEffect(() => {
     //     if (isError) {
@@ -52,6 +52,7 @@ export default function App() {
                     })
                     .catch((error) => {
                         console.error('rejected3', error)
+                        dispatch(changeAuthStatus("public"))
                     })
             } else {
                 dispatch(changeAuthStatus("public"))

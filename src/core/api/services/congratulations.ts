@@ -1,7 +1,7 @@
 import {emptySplitApi} from "../api"
 import getAccessToken from "../../features/getAccessToken"
-import type {getCongratulationsResponse} from "../types/ResponseTypes"
-import type {addCongratulationRequest} from "../types/RequestTypes"
+import type {getCongratulationsResponse} from "../../types/responseApiTypes"
+import type {addCongratulationRequest} from "../../types/requestApiTypes"
 
 export const congratulationsApi = emptySplitApi.injectEndpoints({
     endpoints: (builder) => ({

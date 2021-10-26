@@ -1,7 +1,7 @@
 import getRefreshToken from "../../features/getRefreshToken"
 import { emptySplitApi } from "../api"
-import type { LoginRequest } from "../types/RequestTypes"
-import type { LoginResponse, RefreshResponse } from "../types/ResponseTypes"
+import type { LoginRequest, RegistrationRequest } from "../../types/requestApiTypes"
+import type { LoginResponse, RefreshResponse, RegistrationResponse } from "../../types/responseApiTypes"
 
 export const authApi = emptySplitApi.injectEndpoints({
     endpoints: (builder) => ({
@@ -13,7 +13,14 @@ export const authApi = emptySplitApi.injectEndpoints({
             }),
             invalidatesTags: ['Access'],
         }),
-        refreshAccessToken: builder.mutation<RefreshResponse, void>({
+        registration: builder.mutation<RegistrationResponse, RegistrationRequest>({
+            query: (credentials) => ({
+                url: 'auth/register/',
+                method: 'POST',
+                body: credentials,
+            }),
+        }),
+        updateAccessToken: builder.mutation<RefreshResponse, void>({
             query: () => ({
                 url: 'auth/token/refresh/',
                 method: 'POST',
@@ -25,4 +32,4 @@ export const authApi = emptySplitApi.injectEndpoints({
     }),
 })
 
-export const { useLoginMutation, useRefreshAccessTokenMutation } = authApi
+export const { useLoginMutation, useRegistrationMutation, useUpdateAccessTokenMutation } = authApi
