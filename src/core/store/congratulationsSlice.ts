@@ -1,14 +1,14 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 
 const initialState: InitialState = {
-    authStatus: "none"
+    authStatus: "public"
 }
 
 export const congratulationsSlice = createSlice({
     name: 'congratulations',
     initialState,
     reducers: {
-        changeAuthStatus: (state, action: PayloadAction<"none" | "public" | "private">) => {
+        changeAuthStatus: (state, action: PayloadAction<"public" | "private">) => {
             state.authStatus = action.payload
         },
     },
@@ -21,5 +21,5 @@ export default congratulationsSlice.reducer
 
 //Types
 type InitialState = {
-    authStatus: "none" | "public" | "private"
+    authStatus: "public" | "private"
 }

@@ -14,7 +14,7 @@ export default function App() {
     // const {isError, isSuccess, refetch} = useGetCongratulationsQuery(null, {skip})
     const {authStatus} = useAppSelector((state) => state.congratulations)
     const dispatch = useAppDispatch()
-    const [refresh] = useUpdateAccessTokenMutation()
+    const [refresh, {isLoading}] = useUpdateAccessTokenMutation()
 
     // useEffect(() => {
     //     if (isError) {
@@ -62,7 +62,7 @@ export default function App() {
 
     return (
         <PaperContainer>
-            {authStatus === "none" && <CircularProgress/>}
+            {isLoading && <CircularProgress/>}
             {authStatus === "public" && <PublicRoutes/>}
             {authStatus === "private" && <PrivateRoutes/>}
         </PaperContainer>
