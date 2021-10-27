@@ -42,7 +42,7 @@ export default function Login() {
                 }
                 localStorage.setItem("refresh_token", payload.tokens.refresh)
                 dispatch(changeAuthStatus("private"))
-                history.push("/")
+                // history.push("/")
             })
             .catch((error) => {
                 if (error.data.detail === "Email is not verified") {
