@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="связь формы регистрации и бэкенда">
-      <change afterPath="$PROJECT_DIR$/src/core/constants.js" afterDir="false" />
+    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="рефакторинг">
+      <change afterPath="$PROJECT_DIR$/src/pages/New2.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/constants.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/global-types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/types/globalTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RHookFormTextField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RHookFormTextField.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/routes/PublicRoutes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/routes/PublicRoutes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/types/globalTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/types/globalTypes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/yupValidastionSchemes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/yupValidastionSchemes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/New.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/New.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Registration.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Registration.tsx" afterDir="false" />
     </list>
@@ -111,7 +112,7 @@
       <workItem from="1634215393078" duration="341000" />
       <workItem from="1634215761830" duration="142000" />
       <workItem from="1634215913093" duration="75923000" />
-      <workItem from="1634654496229" duration="88810000" />
+      <workItem from="1634654496229" duration="101531000" />
     </task>
     <task id="LOCAL-00001" summary="перенос на TS">
       <created>1632931433071</created>
@@ -379,7 +380,56 @@
       <option name="project" value="LOCAL" />
       <updated>1635266719927</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="связь формы регистрации и бэкенда">
+      <created>1635266802469</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1635266802469</updated>
+    </task>
+    <task id="LOCAL-00040" summary="добавление роута ConfirmEmail">
+      <created>1635266825243</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1635266825243</updated>
+    </task>
+    <task id="LOCAL-00041" summary="рефакторинг">
+      <created>1635266867115</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1635266867115</updated>
+    </task>
+    <task id="LOCAL-00042" summary="удаление роутов Login и Registration из приватных">
+      <created>1635319732180</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1635319732180</updated>
+    </task>
+    <task id="LOCAL-00043" summary="удаление history.push(&quot;/&quot;) после входа">
+      <created>1635319772591</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1635319772591</updated>
+    </task>
+    <task id="LOCAL-00044" summary="настройка очистки Storege'й на ПК">
+      <created>1635319809570</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1635319809570</updated>
+    </task>
+    <task id="LOCAL-00045" summary="рефакторинг">
+      <created>1635319828002</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1635319828002</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -402,11 +452,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="настроена авторизация и аутентификация" />
-    <MESSAGE value="настройка обновления Access токена (в процессе)" />
-    <MESSAGE value="настроен localhost на https" />
-    <MESSAGE value="настройка логики чекбокса &quot;Запомнить меня&quot;" />
-    <MESSAGE value="Удаление на сервере поздравления при нажатии кнопки-корзины" />
     <MESSAGE value="Завершение настройки кнопки-корзины у Item'ов" />
     <MESSAGE value="удаление папки server" />
     <MESSAGE value="удаление .env" />
@@ -427,7 +472,12 @@
     <MESSAGE value="изменение условий вывода ошибки ответа сервера на странице" />
     <MESSAGE value="указание типов для эндпоинта Registration" />
     <MESSAGE value="связь формы регистрации и бэкенда" />
-    <option name="LAST_COMMIT_MESSAGE" value="связь формы регистрации и бэкенда" />
+    <MESSAGE value="добавление роута ConfirmEmail" />
+    <MESSAGE value="удаление роутов Login и Registration из приватных" />
+    <MESSAGE value="удаление history.push(&quot;/&quot;) после входа" />
+    <MESSAGE value="настройка очистки Storege'й на ПК" />
+    <MESSAGE value="рефакторинг" />
+    <option name="LAST_COMMIT_MESSAGE" value="рефакторинг" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

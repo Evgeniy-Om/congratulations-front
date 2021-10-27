@@ -42,9 +42,9 @@ export default function Registration() {
             <FormProvider {...methods} >
                 <form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
                     <Styled.Inner>
-                        <ReactHookFormTextField name="email" type="email" label="Эл. почта"/>
-                        <ReactHookFormTextField name="password" type="password" label="Пароль"/>
-                        <ReactHookFormTextField name="repeat" type="password" label="Повторите пароль"/>
+                        <ReactHookFormTextField name="email" type="email" label="Эл. почта" required/>
+                        <ReactHookFormTextField name="password" type="password" label="Пароль" required/>
+                        <ReactHookFormTextField name="repeat" type="password" label="Повторите пароль" required/>
                         <Button type="submit" variant="contained">Регистрация</Button>
                         <Styled.AgreementLinkContainer>
                             Регистрируясь вы принимаете условия <Styled.AgreementLink to="/agreement">пользовательского

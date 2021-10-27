@@ -2,14 +2,15 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos"
 import {DatePicker, LocalizationProvider} from "@mui/lab"
 import AdapterDateFns from "@mui/lab/AdapterDateFns"
 import ruLocale from "date-fns/locale/ru"
-import {Button, Checkbox as MUICheckbox, FormControlLabel, styled, TextField} from "@mui/material"
-import {Controller, useForm} from "react-hook-form"
+import {Button, Checkbox as MUICheckbox, FormControlLabel, styled, TextareaAutosize, TextField} from "@mui/material"
+import {Controller, FormProvider, useForm} from "react-hook-form"
 import ReactRouterDomLink from "../components/ReactRouterDomLink"
 import {NewCongratulationInputs} from "../core/types/globalTypes"
 import {useAddCongratulationMutation} from "../core/api/services/congratulations"
 import {Link} from "react-router-dom"
 import {yupResolver} from "@hookform/resolvers/yup"
 import {loginValidationSchema, NewCongratulationValidationSchema} from "../core/yupValidastionSchemes"
+import ReactHookFormTextField from "../components/RHookFormTextField"
 
 export type SubmitPropsType = {
     name: string
@@ -19,10 +20,10 @@ export type SubmitPropsType = {
 
 export default function New() {
     const [addCongratulation, {isSuccess, isLoading, isError}] = useAddCongratulationMutation()
-    const {register, handleSubmit, control} = useForm<NewCongratulationInputs>({
+    const methods = useForm<NewCongratulationInputs>({
         mode: "onTouched",
-        // resolver: yupResolver(NewCongratulationValidationSchema),
-        defaultValues: {alert_datetime: null}
+        resolver: yupResolver(NewCongratulationValidationSchema),
+        defaultValues: {alert_datetime: null},
     })
 
     const onSubmit = (data: NewCongratulationInputs) => {
@@ -46,45 +47,59 @@ export default function New() {
 
             <br/>
             <br/>
-            <Styled.Form noValidate onSubmit={handleSubmit(onSubmit)}>
-                {/*React Hook Form контролирует DatePicker из Material UI, который в свою очередь рендерит TextField*/}
-                <Controller
-                    name="alert_datetime"
-                    rules={{required: true}}
-                    control={control}
-                    render={({field: {value = "", onChange}}) =>
-                        <LocalizationProvider dateAdapter={AdapterDateFns} locale={ruLocale}>
-                            <DatePicker
-                                disableFuture
-                                label="Когда поздравить?"
-                                openTo="year"
-                                mask="__.__.____"
-                                views={['year', 'month', 'day']}
-                                value={value}
-                                onChange={(e) => onChange(e)}
-                                renderInput={({...params}) => {
-                                    return (
-                                    <TextField
-                                        {...params}
-                                        inputProps={{...params.inputProps, placeholder: 'dd/mm/yyyy', required: true}}
-                                    />
-                                )}}
-                            />
-                        </LocalizationProvider>
-                    }
-                />
-                <TextField
-                    {...register("bday_name")}
-                    variant="outlined"
-                    placeholder="Кого поздравить?"/>
-                <Styled.Label
-                    control={<MUICheckbox {...register("notify_by_email")} defaultChecked/>}
-                    label="Уведомить по e-mail"/>
-                <Styled.Label
-                    control={<MUICheckbox {...register("notify_by_push")} disabled/>}
-                    label="Отправить push-уведомление"/>
-                <Button type="submit">Отправить</Button>
-            </Styled.Form>
+            <FormProvider {...methods} >
+                <Styled.Form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
+                    {/*React Hook Form контролирует DatePicker из Material UI, который в свою очередь рендерит TextField*/}
+                    <Controller
+                        name="alert_datetime"
+                        rules={{required: true}}
+                        control={methods.control}
+                        render={({field: {value = "", onChange}}) =>
+                            <LocalizationProvider dateAdapter={AdapterDateFns} locale={ruLocale}>
+                                <DatePicker
+                                    disableFuture
+                                    openTo="year"
+                                    mask="__.__.____"
+                                    views={['year', 'month', 'day']}
+                                    value={value}
+                                    onChange={(e) => onChange(e)}
+                                    renderInput={({...params}) => {
+                                        return (
+                                            <ReactHookFormTextField
+                                                {...params}
+                                                name="alert_datetime"
+                                                label="Когда поздравить?"
+                                                inputProps={{
+                                                    ...params.inputProps,
+                                                    placeholder: 'dd/mm/yyyy',
+                                                }}
+                                                required
+                                            />
+                                        )
+                                    }}
+                                />
+                            </LocalizationProvider>
+                        }
+                    />
+                    <ReactHookFormTextField
+                        name = "bday_name"
+                        type="text"
+                        label="Кого поздравить?"
+                        required/>
+                    <ReactHookFormTextField
+                        name = "comment"
+                        type="text"
+                        label="Комментарии"
+                        multiline
+                        rows={4}
+                    />
+                    <Styled.Label
+                        control={<MUICheckbox name = "notify_by_email" defaultChecked/>}
+                        label="Уведомить по e-mail"/>
+
+                    <Button type="submit">Отправить</Button>
+                </Styled.Form>
+            </FormProvider>
             <Styled.Info>
                 {isSuccess && <div>Данные успешно сохранены!</div>}
                 {isLoading && <div>Сохраняем ....</div>}

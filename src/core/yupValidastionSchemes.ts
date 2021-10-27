@@ -31,6 +31,5 @@ export const NewCongratulationValidationSchema: SchemaOf<NewCongratulationInputs
     alert_datetime: string()
         .required("Обязательное поле"),
     notify_by_email: bool(),
-    notify_by_push: bool(),
     comment: string(),
 })

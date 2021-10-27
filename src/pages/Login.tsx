@@ -56,8 +56,8 @@ export default function Login() {
             {isError && <Styled.Error>{errorMessage}</Styled.Error>}
             <FormProvider {...methods} >
                 <Styled.Form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
-                    <ReactHookFormTextField name="email" type="email" label="Эл. почта"/>
-                    <ReactHookFormTextField name="password" type="password" label="Пароль"/>
+                    <ReactHookFormTextField name="email" type="email" label="Эл. почта" required/>
+                    <ReactHookFormTextField name="password" type="password" label="Пароль" required/>
                     <ReactHookFormCheckbox name="rememberMe" label="Запомнить меня"/>
                     <MUIButton type="submit" variant="contained">Вход</MUIButton>
                     <Styled.RegistrationLink to="/registration">
