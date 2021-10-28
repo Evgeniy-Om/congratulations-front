@@ -9,18 +9,9 @@ export default function PrivateRoutes() {
     return (
         <Router>
             <Switch>
-                {/*<Route path="/login">*/}
-                {/*    <Login/>*/}
-                {/*</Route>*/}
-                {/*<Route path="/edit">*/}
-                {/*    <Edit/>*/}
-                {/*</Route>*/}
                 <Route path="/new">
                     <New/>
                 </Route>
-                {/*<Route path="/registration">*/}
-                {/*    <Registration/>*/}
-                {/*</Route>*/}
                 <Route path="/agreement">
                     <Agreement/>
                 </Route>

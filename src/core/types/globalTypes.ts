@@ -16,3 +16,5 @@ export type NewCongratulationInputs = {
     notify_by_email: boolean | undefined
     comment: string | undefined
 }
+
+export type AuthStatus = "none" | "public" | "private"

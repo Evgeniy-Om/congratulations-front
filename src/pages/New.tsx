@@ -23,7 +23,7 @@ export default function New() {
     const methods = useForm<NewCongratulationInputs>({
         mode: "onTouched",
         resolver: yupResolver(NewCongratulationValidationSchema),
-        defaultValues: {alert_datetime: null},
+        defaultValues: {alert_datetime: ""},
     })
 
     const onSubmit = (data: NewCongratulationInputs) => {
