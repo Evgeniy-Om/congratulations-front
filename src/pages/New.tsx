@@ -23,11 +23,12 @@ export default function New() {
     const methods = useForm<NewCongratulationInputs>({
         mode: "onTouched",
         resolver: yupResolver(NewCongratulationValidationSchema),
-        defaultValues: {alert_datetime: ""},
+        // defaultValues: {alert_datetime: ""},
     })
 
     const onSubmit = (data: NewCongratulationInputs) => {
-        addCongratulation(data)
+        const modifyData = {...data, alert_datetime: new Date(data.alert_datetime).toJSON()}
+        addCongratulation(modifyData)
             .unwrap()
             .then((payload) => {
                 console.log(payload)
@@ -71,7 +72,7 @@ export default function New() {
                                                 label="Когда поздравить?"
                                                 inputProps={{
                                                     ...params.inputProps,
-                                                    placeholder: 'dd/mm/yyyy',
+                                                    placeholder: 'dd.mm.yyyy',
                                                 }}
                                                 required
                                             />
