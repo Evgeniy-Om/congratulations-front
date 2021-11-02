@@ -1,4 +1,4 @@
-import {bool, object, ref, SchemaOf, string} from "yup"
+import {bool, object, ref, SchemaOf, string, date} from "yup"
 import {LoginFormInputs, NewCongratulationInputs, RegistrationFormInputs} from "./types/globalTypes"
 
 export const loginValidationSchema: SchemaOf<LoginFormInputs> = object().shape({
@@ -31,8 +31,10 @@ export const registrationValidationSchema: SchemaOf<RegistrationFormInputs> = ob
 export const NewCongratulationValidationSchema: SchemaOf<NewCongratulationInputs> = object().shape({
     bday_name: string()
         .required("Обязательное поле"),
-    alert_datetime: string()
+    alert_datetime: date()
+        // .typeError("Неверный формат даты")
         .required("Обязательное поле"),
+        // .min(new Date(),"Дата поздравления должна быть в будущем"),
     notify_by_email: bool(),
     comment: string(),
 })
