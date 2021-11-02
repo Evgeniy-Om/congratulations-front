@@ -1,7 +1,7 @@
 import {emptySplitApi} from "../api"
 import getAccessToken from "../../features/getAccessToken"
 import type {getCongratulationsResponse} from "../../types/responseApiTypes"
-import type {addCongratulationRequest} from "../../types/requestApiTypes"
+import type {AddCongratulationRequest} from "../../types/requestApiTypes"
 
 export const congratulationsApi = emptySplitApi.injectEndpoints({
     endpoints: (builder) => ({
@@ -14,7 +14,7 @@ export const congratulationsApi = emptySplitApi.injectEndpoints({
             providesTags: ['Congratulations', 'Refresh', 'Access'],
         }),
 
-        addCongratulation: builder.mutation<void, addCongratulationRequest>({
+        addCongratulation: builder.mutation<void, AddCongratulationRequest>({
             query: (congratulationItem) => ({
                 url: `/congratulations/`,
                 method: 'POST',

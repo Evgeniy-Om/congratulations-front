@@ -12,7 +12,7 @@ export type LoginFormInputs = {
 
 export type NewCongratulationInputs = {
     bday_name: string
-    alert_datetime: string | null
+    alert_datetime: Date
     notify_by_email: boolean | undefined
     comment: string | undefined
 }
