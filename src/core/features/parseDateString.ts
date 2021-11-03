@@ -9,10 +9,9 @@ export default function parseDateString(value: any, originalValue: unknown) {
     if (typeof originalValue === "string") {
         const splitDate = originalValue.split(/[.\s]/)
         const resultDate = new Date(`${splitDate[1]}.${splitDate[0]}.${splitDate[2]} ${splitDate[3]}`)
-
-        console.log(splitDate)
-        console.log(resultDate)
-        console.log(new Date(resultDate).getDate() === Number(splitDate[0]))
+        // console.log(splitDate)
+        // console.log(resultDate)
+        // console.log(new Date(resultDate).getDate() === Number(splitDate[0]))
         if (isDate(new Date(resultDate)) && resultDate.getDate() === Number(splitDate[0])) {
             return resultDate
         }
