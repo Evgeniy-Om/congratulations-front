@@ -12,6 +12,7 @@ import {yupResolver} from "@hookform/resolvers/yup"
 import {NewCongratulationValidationSchema} from "../core/yupValidastionSchemes"
 import ReactHookFormTextField from "../components/RHookFormTextField"
 import {getMaxDateCalendar} from "../core/features/getMaxDateCalendar"
+import getDefaultDate from "../core/features/getDefaultDate"
 
 export default function New() {
     const [addCongratulation, {isSuccess, isLoading, isError}] = useAddCongratulationMutation()
@@ -52,7 +53,7 @@ export default function New() {
                         name="alert_datetime"
                         rules={{required: true}}
                         control={methods.control}
-                        render={({field: {value = new Date, onChange}}) =>
+                        render={({field: {value = getDefaultDate(), onChange}}) =>
                             <LocalizationProvider dateAdapter={AdapterDateFns} locale={ruLocale}>
                                 <DateTimePicker
                                     openTo="year"
