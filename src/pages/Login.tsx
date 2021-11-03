@@ -14,7 +14,7 @@ import {useState} from "react"
 
 export default function Login() {
     const [login, {isError}] = useLoginMutation()
-    const [errorMessage, setErrorMessage] = useState("Неверно указана почта или пароль")
+    const [errorMessage, setErrorMessage] = useState("")
     const history = useHistory()
     const dispatch = useAppDispatch()
     const methods = useForm<LoginFormInputs>({
@@ -47,6 +47,9 @@ export default function Login() {
             .catch((error) => {
                 if (error.data.detail === "Email is not verified") {
                     setErrorMessage("Подтвердите свой емейл")
+                }
+                if (error.data.detail === "Invalid credentials, try again") {
+                    setErrorMessage("Неверно указана почта или пароль")
                 }
                 console.error('rejected', error)
             })
