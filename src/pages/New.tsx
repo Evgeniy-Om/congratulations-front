@@ -16,8 +16,6 @@ import getDefaultDate from "../core/features/getDefaultDate"
 
 export default function New() {
     const [addCongratulation, {isSuccess, isLoading, isError}] = useAddCongratulationMutation()
-    const fff = getDefaultDate()
-    console.log(fff)
     const methods = useForm<NewCongratulationInputs>({
         mode: "onBlur",
         resolver: yupResolver(NewCongratulationValidationSchema),
