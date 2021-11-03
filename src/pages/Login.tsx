@@ -21,7 +21,7 @@ export default function Login() {
         mode: "onBlur",
         resolver: yupResolver(loginValidationSchema),
         defaultValues: {
-            email: "sdfds@dsf.ru",
+            email: "evgenicuss@gmail.com",
             password: "123212d",
         },
     })

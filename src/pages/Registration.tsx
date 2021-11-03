@@ -18,7 +18,7 @@ export default function Registration() {
         mode: "onTouched",
         resolver: yupResolver(registrationValidationSchema),
         defaultValues: {
-            email: "sdfds@dsf.ru",
+            email: "evgenicuss@gmail.com",
             password: "123212d",
             repeat: "123212d"
         },
