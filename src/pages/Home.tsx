@@ -73,7 +73,7 @@ export default function Home() {
                 <Styled.ItemContainer key={index + Number(new Date())}>
                     <Styled.NameAndDateContainer>
                         <span>{item.bday_name}</span>
-                        <span>{item.alert_datetime && format(new Date(item.alert_datetime), "d MMMM yyyy в hh:ss", {locale: ru})}</span>
+                        <span>{item.alert_datetime && format(new Date(item.alert_datetime), "d MMMM yyyy в hh:mm", {locale: ru})}</span>
                     </Styled.NameAndDateContainer>
                     <MUIIconButton aria-label="edit" onClick={() => {}}>
                         <Styled.EditIcon/>
