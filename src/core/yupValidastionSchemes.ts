@@ -1,5 +1,6 @@
 import {bool, object, ref, SchemaOf, string, date} from "yup"
 import {LoginFormInputs, NewCongratulationInputs, RegistrationFormInputs} from "./types/globalTypes"
+import parseDateString from "./features/parseDateString"
 
 export const loginValidationSchema: SchemaOf<LoginFormInputs> = object().shape({
     email: string()
@@ -32,9 +33,11 @@ export const NewCongratulationValidationSchema: SchemaOf<NewCongratulationInputs
     bday_name: string()
         .required("Обязательное поле"),
     alert_datetime: date()
-        // .typeError("Неверный формат даты")
-        .required("Обязательное поле"),
-        // .min(new Date(),"Дата поздравления должна быть в будущем"),
+        .transform(parseDateString)
+        .nullable()
+        .typeError("Неверный формат даты")
+        .required("Обязательное поле")
+        .min(new Date(),"Дата поздравления должна быть в будущем"),
     notify_by_email: bool(),
     comment: string(),
 })
