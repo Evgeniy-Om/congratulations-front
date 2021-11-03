@@ -16,10 +16,12 @@ import getDefaultDate from "../core/features/getDefaultDate"
 
 export default function New() {
     const [addCongratulation, {isSuccess, isLoading, isError}] = useAddCongratulationMutation()
+    const fff = getDefaultDate()
+    console.log(fff)
     const methods = useForm<NewCongratulationInputs>({
         mode: "onBlur",
         resolver: yupResolver(NewCongratulationValidationSchema),
-        // defaultValues: {notify_by_email: true},
+        defaultValues: {alert_datetime: getDefaultDate()},
     })
 
     const onSubmit = (data: NewCongratulationInputs) => {
@@ -53,8 +55,8 @@ export default function New() {
                         name="alert_datetime"
                         rules={{required: true}}
                         control={methods.control}
-                        render={({field: {value = getDefaultDate(), onChange}}) =>
-                            <LocalizationProvider dateAdapter={AdapterDateFns} locale={ruLocale}>
+                        render={({field: {value, onChange}}) => {
+                            return <LocalizationProvider dateAdapter={AdapterDateFns} locale={ruLocale}>
                                 <DateTimePicker
                                     openTo="year"
                                     mask="__.__.____ __:__"
@@ -64,7 +66,7 @@ export default function New() {
                                     maxDate={getMaxDateCalendar(10)}
                                     onChange={(e) => onChange(e)}
                                     minutesStep={5}
-                                    inputFormat="dd.MM.yyyy hh:mm"
+                                    inputFormat="dd.MM.yyyy HH:mm"
                                     renderInput={({...params}) => {
                                         return (
                                             <ReactHookFormTextField
@@ -81,6 +83,7 @@ export default function New() {
                                     }}
                                 />
                             </LocalizationProvider>
+                        }
                         }
                     />
 
