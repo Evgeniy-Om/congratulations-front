@@ -2,7 +2,7 @@ import MUIArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 import MUIAddIcon from '@mui/icons-material/Add'
 import MUIDeleteIcon from '@mui/icons-material/Delete'
 import MUIEditIcon from '@mui/icons-material/Edit'
-import {useAppDispatch} from "../core/hooks"
+import {useAppDispatch, useAppSelector} from "../core/hooks"
 import format from 'date-fns/format'
 import {ru} from 'date-fns/locale'
 import {Button as MUIButton, IconButton as MUIIconButton, styled} from "@mui/material"
@@ -14,6 +14,7 @@ import {changeAuthStatus} from "../core/store/congratulationsSlice"
 
 
 export default function Home() {
+    const {rememberMe} = useAppSelector((state) => state.congratulations)
     const {data, isSuccess, isError, isLoading, refetch} = useGetCongratulationsQuery()
     const [deleteCongratulation] = useDeleteCongratulationMutation()
     const [refresh] = useUpdateAccessTokenMutation()
@@ -21,12 +22,17 @@ export default function Home() {
 
     useEffect(() => {
         if (isError) {
-            if (localStorage.getItem("refresh_token")) {
+            if (sessionStorage.getItem("refresh_token") || localStorage.getItem("refresh_token")) {
                 refresh()
                     .unwrap()
                     .then((payload) => {
-                        localStorage.setItem("access_token", payload.access)
-                        localStorage.setItem("exp_access", `${payload.access_live}UTC`)
+                        if (rememberMe) {
+                            localStorage.setItem("access_token", payload.access)
+                            localStorage.setItem("exp_access", `${payload.access_live}UTC`)
+                        } else {
+                            sessionStorage.setItem("access_token", payload.access)
+                            sessionStorage.setItem("exp_access", `${payload.access_live}UTC`)
+                        }
                         refetch()
                     })
                     .catch((error) => {
