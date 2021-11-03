@@ -34,7 +34,9 @@ export default function Registration() {
                 console.log(authStatus)
                 history.push("/confirm")
             })
-            .catch((error) => console.error('rejected', error))
+            .catch((error) => {
+                console.error('rejected', error)
+            })
     }
     return (
         <Styled.Wrapper>
