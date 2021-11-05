@@ -1,11 +1,11 @@
 import React from 'react'
-import {styled, TextField as MUITextField} from "@mui/material"
+import {styled, TextField} from "@mui/material"
 import { useFormContext } from 'react-hook-form'
 
 export default function ReactHookFormTextField<T extends Record<string, unknown>> ({name, label, ...rest}: Props & T) {
     const { register, formState: {errors} } = useFormContext()
     return (
-        <TextField
+        <Styled.TextField
             {...rest}
             {...register(name)}
             variant="outlined"
@@ -23,6 +23,8 @@ type Props = {
 }
 
 // Styled Components
-const TextField = styled(MUITextField)({
-    marginBottom: "20px",
-})
+const Styled = {
+    TextField: styled(TextField)({
+        marginBottom: "20px",
+    }),
+}
