@@ -21,7 +21,7 @@ export default function Edit({ match }: RouteComponentProps<TParams>) {
     let defValues = {}
     if (editItem) {
         defValues = {
-            alert_datetime: editItem.alert_datetime,
+            alert_datetime: new Date(editItem.alert_datetime),
             bday_name: editItem.bday_name,
             comment: editItem.comment,
             notify_by_email: editItem.notify_by_email
