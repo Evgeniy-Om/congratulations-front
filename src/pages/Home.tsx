@@ -78,8 +78,11 @@ export default function Home() {
             {isSuccess && data?.map((item, index) =>
                 <Styled.ItemContainer key={index + Number(new Date())}>
                     <Styled.CongratulationContainer disabled={new Date(item.alert_datetime) < new Date()}>
-                        <span>{item.bday_name}</span>
-                        <span>{item.alert_datetime && format(new Date(item.alert_datetime), "d MMMM yyyy в hh:mm", {locale: ru})}</span>
+                        <Styled.NameAndDate>
+                            <span>{item.bday_name}</span>
+                            <span>{item.alert_datetime && format(new Date(item.alert_datetime), "d MMMM yyyy в hh:mm", {locale: ru})}</span>
+                        </Styled.NameAndDate>
+                        <div>Комментарий: <span>{item.comment}</span></div>
                     </Styled.CongratulationContainer>
                     <ReactRouterDomLink to={`/edit/${item.id}`}>
                         <MUIIconButton aria-label="edit">
@@ -105,27 +108,26 @@ const Styled = {
         alignItems: "center",
         marginBottom: "10px",
     }),
-    CongratulationContainer: styled("div")<Props>(({theme , ...props}) => ({
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        height: "40px",
+    CongratulationContainer: styled("div")<any>(({theme , ...props}) => ({
+        minHeight: "40px",
         width: "100%",
         marginRight: '5px',
-        padding: "0px 10px",
+        padding: "10px",
         border: "1px solid",
         color: props.disabled ? theme.palette.grey[500] : theme.palette.common.black,
         borderColor: props.disabled ? theme.palette.grey[500] : theme.palette.primary.light,
         borderRadius: theme.shape.borderRadius,
     })),
+    NameAndDate: styled("div")({
+        display: "flex",
+        marginBottom: "10px",
+        justifyContent: "space-between",
+        alignItems: "center",
+    }),
     EditIcon: styled(MUIEditIcon)(({theme}) => ({
         color: theme.palette.primary.light,
     })),
     DeleteIcon: styled(MUIDeleteIcon)(({theme}) => ({
         color: theme.palette.primary.light,
     })),
-}
-
-type Props = {
-    disabled?: boolean
 }

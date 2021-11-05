@@ -23,7 +23,8 @@ const Styled = {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: "center",
-        minWidth: 500,
+        minWidth: "500px",
+        maxWidth: "700px",
         margin: "auto",
         padding: '20px',
     })
