@@ -10,7 +10,7 @@ export type LoginFormInputs = {
     rememberMe: boolean | undefined
 }
 
-export type NewCongratulationInputs = {
+export type CongratulationItem = {
     bday_name: string
     alert_datetime: Date
     notify_by_email: boolean | undefined

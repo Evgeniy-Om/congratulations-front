@@ -2,10 +2,10 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos"
 import {DateTimePicker, LocalizationProvider} from "@mui/lab"
 import AdapterDateFns from "@mui/lab/AdapterDateFns"
 import ruLocale from "date-fns/locale/ru"
-import {Button, Checkbox as MUICheckbox, FormControlLabel, styled} from "@mui/material"
+import {Button, FormControlLabel, styled} from "@mui/material"
 import {Controller, FormProvider, useForm} from "react-hook-form"
 import ReactRouterDomLink from "../components/ReactRouterDomLink"
-import {NewCongratulationInputs} from "../core/types/globalTypes"
+import {CongratulationItem} from "../core/types/globalTypes"
 import {useAddCongratulationMutation} from "../core/api/services/congratulations"
 import {Link} from "react-router-dom"
 import {yupResolver} from "@hookform/resolvers/yup"
@@ -13,16 +13,17 @@ import {NewCongratulationValidationSchema} from "../core/yupValidastionSchemes"
 import ReactHookFormTextField from "../components/RHookFormTextField"
 import {getMaxDateCalendar} from "../core/features/getMaxDateCalendar"
 import getDefaultDate from "../core/features/getDefaultDate"
+import ReactHookFormCheckbox from "../components/RHookFormCheckbox"
 
 export default function New() {
     const [addCongratulation, {isSuccess, isLoading, isError}] = useAddCongratulationMutation()
-    const methods = useForm<NewCongratulationInputs>({
+    const methods = useForm<CongratulationItem>({
         mode: "onBlur",
         resolver: yupResolver(NewCongratulationValidationSchema),
         defaultValues: {alert_datetime: getDefaultDate()},
     })
 
-    const onSubmit = (data: NewCongratulationInputs) => {
+    const onSubmit = (data: CongratulationItem) => {
         console.log(data)
         const modifyData = {...data, alert_datetime: new Date(data.alert_datetime).toJSON()}
         addCongratulation(modifyData)
@@ -48,13 +49,12 @@ export default function New() {
             <FormProvider {...methods} >
                 <Styled.Form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
                     {/*React Hook Form контролирует DatePicker из Material UI, который в свою очередь рендерит TextField*/}
-
                     <Controller
                         name="alert_datetime"
                         rules={{required: true}}
                         control={methods.control}
-                        render={({field: {value, onChange}}) => {
-                            return <LocalizationProvider dateAdapter={AdapterDateFns} locale={ruLocale}>
+                        render={({field: {value, onChange}}) =>
+                            <LocalizationProvider dateAdapter={AdapterDateFns} locale={ruLocale}>
                                 <DateTimePicker
                                     openTo="year"
                                     mask="__.__.____ __:__"
@@ -82,14 +82,14 @@ export default function New() {
                                 />
                             </LocalizationProvider>
                         }
-                        }
                     />
 
                     <ReactHookFormTextField
                         name="bday_name"
                         type="text"
                         label="Кого поздравить?"
-                        required/>
+                        required
+                    />
                     <ReactHookFormTextField
                         name="comment"
                         type="text"
@@ -97,9 +97,10 @@ export default function New() {
                         multiline
                         rows={4}
                     />
-                    <Styled.Label
-                        control={<MUICheckbox name="notify_by_email" defaultChecked/>}
-                        label="Уведомить по e-mail"/>
+                    <ReactHookFormCheckbox
+                        name="notify_by_email"
+                        label="Уведомить по e-mail"
+                    />
 
                     <Button type="submit">Отправить</Button>
                 </Styled.Form>
@@ -107,7 +108,7 @@ export default function New() {
             <Styled.Info>
                 {isSuccess && <div>Данные успешно сохранены!</div>}
                 {isLoading && <div>Сохраняем ....</div>}
-                {isError && <div>Автоматическую авторизацию на этой странице ещё не настроил. Залогинься</div>}
+                {isError && <div>Какая-то ошибка</div>}
             </Styled.Info>
 
         </div>
