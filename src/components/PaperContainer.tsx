@@ -1,4 +1,4 @@
-import {Paper as MUIPaper, styled} from "@mui/material"
+import {Paper, styled} from "@mui/material"
 import React from "react"
 
 export default function PaperContainer({children}: Props) {
@@ -19,7 +19,7 @@ const Styled = {
         padding: "100px 0",
         backgroundColor: '#f5f5f5',
     }),
-    Paper: styled(MUIPaper)({
+    Paper: styled(Paper)({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: "center",

@@ -102,7 +102,7 @@ export default function New() {
                         label="Уведомить по e-mail"
                     />
 
-                    <Button type="submit">Отправить</Button>
+                    <Button type="submit">Создать</Button>
                 </Styled.Form>
             </FormProvider>
             <Styled.Info>

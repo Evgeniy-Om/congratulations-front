@@ -120,7 +120,7 @@ export default function Edit({ match }: RouteComponentProps<TParams>) {
                         label="Уведомить по e-mail"
                     />
 
-                    <Button type="submit">Отправить</Button>
+                    <Button type="submit">Изменить</Button>
                 </Styled.Form>
             </FormProvider>
             <Styled.Info>

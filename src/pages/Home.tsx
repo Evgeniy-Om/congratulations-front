@@ -82,7 +82,7 @@ export default function Home() {
                             <span>{item.bday_name}</span>
                             <span>{item.alert_datetime && format(new Date(item.alert_datetime), "d MMMM yyyy в hh:mm", {locale: ru})}</span>
                         </Styled.NameAndDate>
-                        <div>Комментарий: <span>{item.comment}</span></div>
+                        <Styled.Comment>Комментарий: <span>{item.comment}</span></Styled.Comment>
                     </Styled.CongratulationContainer>
                     <ReactRouterDomLink to={`/edit/${item.id}`}>
                         <MUIIconButton aria-label="edit">
@@ -114,6 +114,7 @@ const Styled = {
         marginRight: '5px',
         padding: "10px",
         border: "1px solid",
+        overflow: "hidden",
         color: props.disabled ? theme.palette.grey[500] : theme.palette.common.black,
         borderColor: props.disabled ? theme.palette.grey[500] : theme.palette.primary.light,
         borderRadius: theme.shape.borderRadius,
@@ -123,6 +124,9 @@ const Styled = {
         marginBottom: "10px",
         justifyContent: "space-between",
         alignItems: "center",
+    }),
+    Comment: styled("div")({
+        wordBreak: "break-all"
     }),
     EditIcon: styled(MUIEditIcon)(({theme}) => ({
         color: theme.palette.primary.light,
