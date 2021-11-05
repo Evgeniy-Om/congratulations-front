@@ -2,6 +2,7 @@ import {emptySplitApi} from "../api"
 import getAccessToken from "../../features/getAccessToken"
 import type {getCongratulationsResponse} from "../../types/responseApiTypes"
 import type {AddCongratulationRequest} from "../../types/requestApiTypes"
+import {EditCongratulationRequest} from "../../types/requestApiTypes"
 
 export const congratulationsApi = emptySplitApi.injectEndpoints({
     endpoints: (builder) => ({
@@ -32,6 +33,18 @@ export const congratulationsApi = emptySplitApi.injectEndpoints({
             }),
             invalidatesTags: ['Congratulations'],
         }),
+        editCongratulation: builder.mutation<void, EditCongratulationRequest>({
+            query: (data) => {
+                const { id, ...body } = data
+                return {
+                    url: `/congratulations/${id}`,
+                    method: 'PUT',
+                    headers: getAccessToken(),
+                    body,
+                }
+            },
+            invalidatesTags: ['Congratulations'],
+        }),
     }),
 })
 
@@ -39,4 +52,5 @@ export const {
     useGetCongratulationsQuery,
     useAddCongratulationMutation,
     useDeleteCongratulationMutation,
+    useEditCongratulationMutation
 } = congratulationsApi

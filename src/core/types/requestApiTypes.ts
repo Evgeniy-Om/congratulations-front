@@ -14,3 +14,11 @@ export type AddCongratulationRequest = {
     notify_by_email: boolean | undefined
     comment: string | undefined
 }
+
+export type EditCongratulationRequest = {
+    id: number
+    bday_name: string
+    alert_datetime: string
+    notify_by_email: boolean | undefined
+    comment: string | undefined
+}

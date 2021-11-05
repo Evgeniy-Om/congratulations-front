@@ -81,9 +81,11 @@ export default function Home() {
                         <span>{item.bday_name}</span>
                         <span>{item.alert_datetime && format(new Date(item.alert_datetime), "d MMMM yyyy в hh:mm", {locale: ru})}</span>
                     </Styled.NameAndDateContainer>
-                    <MUIIconButton aria-label="edit" onClick={() => {}}>
-                        <Styled.EditIcon/>
-                    </MUIIconButton>
+                    <ReactRouterDomLink to={`/edit/${item.id}`}>
+                        <MUIIconButton aria-label="edit">
+                            <Styled.EditIcon/>
+                        </MUIIconButton>
+                    </ReactRouterDomLink>
                     <MUIIconButton aria-label="delete" onClick={() => deleteCongratulation(item.id)}>
                         <Styled.DeleteIcon/>
                     </MUIIconButton>
