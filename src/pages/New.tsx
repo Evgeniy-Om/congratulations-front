@@ -36,9 +36,9 @@ export default function New() {
     return (
         <div>
             <ReactRouterDomLink to="/">
-                <Button variant="outlined" component="span" startIcon={<ArrowBackIosIcon/>}>
+                <MUIButton variant="outlined" component="span" startIcon={<ArrowBackIosIcon/>}>
                     Назад
-                </Button>
+                </MUIButton>
             </ReactRouterDomLink>
 
             <h2>Новая запись</h2>
