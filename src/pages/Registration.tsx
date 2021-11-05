@@ -8,6 +8,7 @@ import {Link, useHistory} from "react-router-dom"
 import type {RegistrationFormInputs} from "../core/types/globalTypes"
 import { useRegistrationMutation } from "../core/api/services/auth"
 import {useAppSelector} from "../core/hooks"
+import {EMAIL_DEFAULT, PASSWORD_DEFAULT} from "../core/constants"
 
 export default function Registration() {
     const [registration, {isError}] = useRegistrationMutation()
@@ -18,9 +19,9 @@ export default function Registration() {
         mode: "onTouched",
         resolver: yupResolver(registrationValidationSchema),
         defaultValues: {
-            email: "evgenicuss@gmail.com",
-            password: "123212d",
-            repeat: "123212d"
+            email: EMAIL_DEFAULT,
+            password: PASSWORD_DEFAULT,
+            repeat: PASSWORD_DEFAULT
         },
     })
 

@@ -11,6 +11,7 @@ import ReactHookFormCheckbox from "../components/RHookFormCheckbox"
 import {useAppDispatch} from "../core/hooks"
 import {changeAuthStatus} from "../core/store/congratulationsSlice"
 import {useState} from "react"
+import {EMAIL_DEFAULT, PASSWORD_DEFAULT} from "../core/constants"
 
 export default function Login() {
     const [login, {isError}] = useLoginMutation()
@@ -21,8 +22,8 @@ export default function Login() {
         mode: "onBlur",
         resolver: yupResolver(loginValidationSchema),
         defaultValues: {
-            email: "evgenicuss@gmail.com",
-            password: "123212d",
+            email: EMAIL_DEFAULT,
+            password: PASSWORD_DEFAULT,
         },
     })
 
