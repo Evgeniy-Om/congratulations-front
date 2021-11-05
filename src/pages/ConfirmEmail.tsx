@@ -5,7 +5,7 @@ import ReactRouterDomLink from "../components/ReactRouterDomLink"
 function ConfirmEmail() {
     return (
         <>
-            <div>Вам на почту отправлено письмо со ссылкой на подтверждение емейла</div>
+            <div>Вам на почту отправлено письмо с ссылкой для подтверждения регистрации. Не получили письмо? Проверьте папку "Спам</div>
             <ReactRouterDomLink to="/login">
                 <MUIButton
                     variant="outlined"

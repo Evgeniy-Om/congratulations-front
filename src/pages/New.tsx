@@ -2,7 +2,7 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos"
 import {DateTimePicker, LocalizationProvider} from "@mui/lab"
 import AdapterDateFns from "@mui/lab/AdapterDateFns"
 import ruLocale from "date-fns/locale/ru"
-import {Button, FormControlLabel, styled} from "@mui/material"
+import {Button as MUIButton, Button, FormControlLabel, styled} from "@mui/material"
 import {Controller, FormProvider, useForm} from "react-hook-form"
 import ReactRouterDomLink from "../components/ReactRouterDomLink"
 import {CongratulationItem} from "../core/types/globalTypes"
@@ -102,7 +102,7 @@ export default function New() {
                         label="Уведомить по e-mail"
                     />
 
-                    <Button type="submit">Отправить</Button>
+                    <MUIButton type="submit" variant="contained">Создать</MUIButton>
                 </Styled.Form>
             </FormProvider>
             <Styled.Info>

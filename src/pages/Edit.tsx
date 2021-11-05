@@ -2,7 +2,7 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos"
 import {DateTimePicker, LocalizationProvider} from "@mui/lab"
 import AdapterDateFns from "@mui/lab/AdapterDateFns"
 import ruLocale from "date-fns/locale/ru"
-import {Button, FormControlLabel, styled} from "@mui/material"
+import {Button as MUIButton, FormControlLabel, styled} from "@mui/material"
 import {Controller, FormProvider, useForm} from "react-hook-form"
 import ReactRouterDomLink from "../components/ReactRouterDomLink"
 import {CongratulationItem} from "../core/types/globalTypes"
@@ -52,11 +52,10 @@ export default function Edit({ match }: RouteComponentProps<TParams>) {
     }
     return (
         <div>
-            <div>{match.params.id}</div>
             <ReactRouterDomLink to="/">
-                <Button variant="outlined" component="span" startIcon={<ArrowBackIosIcon/>}>
+                <MUIButton variant="outlined" component="span" startIcon={<ArrowBackIosIcon/>}>
                     Назад
-                </Button>
+                </MUIButton>
             </ReactRouterDomLink>
 
             <h2>Новая запись</h2>
@@ -120,7 +119,7 @@ export default function Edit({ match }: RouteComponentProps<TParams>) {
                         label="Уведомить по e-mail"
                     />
 
-                    <Button type="submit">Отправить</Button>
+                    <MUIButton type="submit" variant="contained">Изменить</MUIButton>
                 </Styled.Form>
             </FormProvider>
             <Styled.Info>
