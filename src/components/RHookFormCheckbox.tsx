@@ -6,7 +6,8 @@ export default function ReactHookFormCheckbox({name, label}: Props) {
     const {register} = useFormContext()
     return (
         <Styled.Label
-            control={<MUICheckbox {...register(name)} defaultChecked/>}
+            {...register(name)}
+            control={<MUICheckbox defaultChecked/>}
             label={label}/>
     )
 }
