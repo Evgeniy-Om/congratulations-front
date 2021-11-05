@@ -77,10 +77,10 @@ export default function Home() {
             {isLoading && <div>Loading...</div>}
             {isSuccess && data?.map((item, index) =>
                 <Styled.ItemContainer key={index + Number(new Date())}>
-                    <Styled.NameAndDateContainer>
+                    <Styled.CongratulationContainer disabled={new Date(item.alert_datetime) < new Date()}>
                         <span>{item.bday_name}</span>
                         <span>{item.alert_datetime && format(new Date(item.alert_datetime), "d MMMM yyyy в hh:mm", {locale: ru})}</span>
-                    </Styled.NameAndDateContainer>
+                    </Styled.CongratulationContainer>
                     <ReactRouterDomLink to={`/edit/${item.id}`}>
                         <MUIIconButton aria-label="edit">
                             <Styled.EditIcon/>
@@ -105,7 +105,7 @@ const Styled = {
         alignItems: "center",
         marginBottom: "10px",
     }),
-    NameAndDateContainer: styled("div")(({theme}) => ({
+    CongratulationContainer: styled("div")<Props>(({theme , ...props}) => ({
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
@@ -114,7 +114,8 @@ const Styled = {
         marginRight: '5px',
         padding: "0px 10px",
         border: "1px solid",
-        borderColor: theme.palette.primary.light,
+        color: props.disabled ? theme.palette.grey[500] : theme.palette.common.black,
+        borderColor: props.disabled ? theme.palette.grey[500] : theme.palette.primary.light,
         borderRadius: theme.shape.borderRadius,
     })),
     EditIcon: styled(MUIEditIcon)(({theme}) => ({
@@ -123,5 +124,8 @@ const Styled = {
     DeleteIcon: styled(MUIDeleteIcon)(({theme}) => ({
         color: theme.palette.primary.light,
     })),
+}
 
+type Props = {
+    disabled?: boolean
 }
