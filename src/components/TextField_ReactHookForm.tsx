@@ -14,7 +14,12 @@ function TextField_ReactHookForm<T extends Record<string, unknown>>({name, isWat
                 error={Boolean(errors[name])}
                 helperText={errors[name]?.message}
             />
-            {isWatch && <Styled.Counter error={Boolean(errors[name])}>{watch(name)?.length}/20</Styled.Counter>}
+            {
+                isWatch &&
+                <Styled.Counter error={Boolean(errors[name])}>
+                    {watch(name)?.length ?? 0}/20
+                </Styled.Counter>
+            }
         </Styled.Wrapper>
     )
 }
