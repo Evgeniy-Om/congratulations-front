@@ -2,7 +2,7 @@ import {Button as MUIButton, FormControlLabel, styled} from "@mui/material"
 import {FormProvider, useForm} from "react-hook-form"
 import {yupResolver} from "@hookform/resolvers/yup"
 import SocialsButtons from "../components/SocialsButtons"
-import ReactHookFormTextField from "../components/RHookFormTextField"
+import TextField_ReactHookForm from "../components/TextField_ReactHookForm"
 import {loginValidationSchema} from "../core/yupValidastionSchemes"
 import {Link, useHistory} from "react-router-dom"
 import type {LoginFormInputs} from "../core/types/globalTypes"
@@ -64,8 +64,8 @@ export default function Login() {
             {isError && <Styled.Error>{errorMessage}</Styled.Error>}
             <FormProvider {...methods} >
                 <Styled.Form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
-                    <ReactHookFormTextField name="email" type="email" label="Эл. почта" required/>
-                    <ReactHookFormTextField name="password" type="password" label="Пароль" required/>
+                    <TextField_ReactHookForm name="email" type="email" label="Эл. почта" required/>
+                    <TextField_ReactHookForm name="password" type="password" label="Пароль" required/>
                     <ReactHookFormCheckbox name="rememberMe" label="Запомнить меня"/>
                     <MUIButton type="submit" variant="contained">Вход</MUIButton>
                     <Styled.RegistrationLink to="/registration">

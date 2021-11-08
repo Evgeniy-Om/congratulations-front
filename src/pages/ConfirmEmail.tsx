@@ -1,18 +1,18 @@
 import React from 'react'
 import {Button as MUIButton} from "@mui/material"
-import ReactRouterDomLink from "../components/ReactRouterDomLink"
+import Link_ReactRouterDom from "../components/Link_ReactRouterDom"
 
 function ConfirmEmail() {
     return (
         <>
             <div>Вам на почту отправлено письмо с ссылкой для подтверждения регистрации. Не получили письмо? Проверьте папку "Спам</div>
-            <ReactRouterDomLink to="/login">
+            <Link_ReactRouterDom to="/login">
                 <MUIButton
                     variant="outlined"
                     >
                     Войти в приложение
                 </MUIButton>
-            </ReactRouterDomLink>
+            </Link_ReactRouterDom>
         </>
     )
 }

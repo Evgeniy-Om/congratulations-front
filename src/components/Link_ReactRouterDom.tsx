@@ -1,8 +1,8 @@
 import {styled} from "@mui/material"
 import {Link} from "react-router-dom"
 
-const ReactRouterDomLink = styled(Link)({
+const Link_ReactRouterDom = styled(Link)({
     textDecoration: "none"
 })
 
-export default ReactRouterDomLink
+export default Link_ReactRouterDom

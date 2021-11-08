@@ -3,14 +3,15 @@ import {DateTimePicker, LocalizationProvider} from "@mui/lab"
 import AdapterDateFns from "@mui/lab/AdapterDateFns"
 import ruLocale from "date-fns/locale/ru"
 import {getMaxDateCalendar} from "../core/features/getMaxDateCalendar"
-import ReactHookFormTextField from "./RHookFormTextField"
+import TextField_ReactHookForm from "./TextField_ReactHookForm"
 import ReactHookFormCheckbox from "./RHookFormCheckbox"
 import {Button as MUIButton, FormControlLabel, styled} from "@mui/material"
 import {Link} from "react-router-dom"
 
 export default function FormNewOrEdit({page}: PropsTypes) {
     const {control, watch} = useFormContext()
-    const watchAllFields = watch("bday_name")
+    const watchNameFields = watch("bday_name")
+    const watchCommentFields = watch("comment")
     return (
         <Styled.Wrapper>
             {/*React Hook Form контролирует DatePicker из Material UI, который в свою очередь рендерит TextField*/}
@@ -32,7 +33,7 @@ export default function FormNewOrEdit({page}: PropsTypes) {
                             inputFormat="dd.MM.yyyy HH:mm"
                             renderInput={({...params}) => {
                                 return (
-                                    <ReactHookFormTextField
+                                    <TextField_ReactHookForm
                                         {...params}
                                         name="alert_datetime"
                                         label="Когда поздравить?"
@@ -50,22 +51,22 @@ export default function FormNewOrEdit({page}: PropsTypes) {
             />
 
             {/*<TextField {...register("comment")}/>*/}
-            <ReactHookFormTextField
+            <TextField_ReactHookForm
                 name="bday_name"
                 type="text"
                 label="Кого поздравить?"
+                isWatch={true}
                 // inputProps={{
                 //     maxlength: 10
                 // }}
                 required
             />
-            <div>
-                {watchAllFields ? watchAllFields.length : 0}
-            </div>
-            <ReactHookFormTextField
+
+            <TextField_ReactHookForm
                 name="comment"
                 type="text"
                 label="Комментарии"
+                isWatch={true}
                 multiline
                 rows={4}
             />

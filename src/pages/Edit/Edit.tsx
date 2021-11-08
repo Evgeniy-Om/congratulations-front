@@ -3,7 +3,7 @@ import {FormProvider, SubmitHandler} from "react-hook-form"
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos"
 import {Button as MUIButton, styled} from "@mui/material"
 import {useForm} from "react-hook-form"
-import ReactRouterDomLink from "../../components/ReactRouterDomLink"
+import Link_ReactRouterDom from "../../components/Link_ReactRouterDom"
 import {useEditCongratulationMutation, useGetCongratulationsQuery} from "../../core/api/services/congratulations"
 import {RouteComponentProps} from "react-router-dom"
 import {yupResolver} from "@hookform/resolvers/yup"
@@ -38,11 +38,11 @@ export default function Edit({match}: RouteComponentProps<{ id: string }>) {
     }
     return (
         <div>
-            <ReactRouterDomLink to="/">
+            <Link_ReactRouterDom to="/">
                 <MUIButton variant="outlined" component="span" startIcon={<ArrowBackIosIcon/>}>
                     Назад
                 </MUIButton>
-            </ReactRouterDomLink>
+            </Link_ReactRouterDom>
 
             <h2>Новая запись</h2>
             <hr/>

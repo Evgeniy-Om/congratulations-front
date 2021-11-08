@@ -4,7 +4,7 @@
 // import ruLocale from "date-fns/locale/ru"
 // import {Button, Checkbox as MUICheckbox, FormControlLabel, styled, TextareaAutosize, TextField} from "@mui/material"
 // import {Controller, useForm} from "react-hook-form"
-// import ReactRouterDomLink from "../components/ReactRouterDomLink"
+// import Link_ReactRouterDom from "../components/Link_RRD"
 // import {NewCongratulationInputs} from "../core/types/globalTypes"
 // import {useAddCongratulationMutation} from "../core/api/services/congratulations"
 // import {Link} from "react-router-dom"
@@ -35,11 +35,11 @@
 //     }
 //     return (
 //         <div>
-//             <ReactRouterDomLink to="/">
+//             <Link_ReactRouterDom to="/">
 //                 <Button variant="outlined" component="span" startIcon={<ArrowBackIosIcon/>}>
 //                     Назад
 //                 </Button>
-//             </ReactRouterDomLink>
+//             </Link_ReactRouterDom>
 //
 //             <h2>Новая запись</h2>
 //             <hr/>

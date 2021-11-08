@@ -1,7 +1,7 @@
 import {FormProvider, useForm} from "react-hook-form"
 import {yupResolver} from "@hookform/resolvers/yup"
 import SocialsButtons from "../components/SocialsButtons"
-import ReactHookFormTextField from "../components/RHookFormTextField"
+import TextField_ReactHookForm from "../components/TextField_ReactHookForm"
 import {registrationValidationSchema} from "../core/yupValidastionSchemes"
 import {Button, styled} from "@mui/material"
 import {Link, useHistory} from "react-router-dom"
@@ -45,9 +45,9 @@ export default function Registration() {
             <FormProvider {...methods} >
                 <form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
                     <Styled.Inner>
-                        <ReactHookFormTextField name="email" type="email" label="Эл. почта" required/>
-                        <ReactHookFormTextField name="password" type="password" label="Пароль" required/>
-                        <ReactHookFormTextField name="repeat" type="password" label="Повторите пароль" required/>
+                        <TextField_ReactHookForm name="email" type="email" label="Эл. почта" required/>
+                        <TextField_ReactHookForm name="password" type="password" label="Пароль" required/>
+                        <TextField_ReactHookForm name="repeat" type="password" label="Повторите пароль" required/>
                         <Button type="submit" variant="contained">Регистрация</Button>
                         <Styled.AgreementLinkContainer>
                             Регистрируясь вы принимаете условия <Styled.AgreementLink to="/agreement">пользовательского

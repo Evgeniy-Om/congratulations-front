@@ -6,7 +6,7 @@ import {useAppDispatch, useAppSelector} from "../core/hooks"
 import format from 'date-fns/format'
 import {ru} from 'date-fns/locale'
 import {Button as MUIButton, IconButton as MUIIconButton, styled} from "@mui/material"
-import ReactRouterDomLink from '../components/ReactRouterDomLink'
+import Link_ReactRouterDom from '../components/Link_ReactRouterDom'
 import {useDeleteCongratulationMutation, useGetCongratulationsQuery} from '../core/api/services/congratulations'
 import {useUpdateAccessTokenMutation} from "../core/api/services/auth"
 import {useEffect} from "react"
@@ -48,7 +48,7 @@ export default function Home() {
     return (
         <>
             <Styled.Header>
-                <ReactRouterDomLink to="/login">
+                <Link_ReactRouterDom to="/login">
                     <MUIButton
                         variant="outlined"
                         startIcon={<MUIArrowBackIosIcon/>}
@@ -64,13 +64,13 @@ export default function Home() {
                         }>
                         Выйти из приложения
                     </MUIButton>
-                </ReactRouterDomLink>
+                </Link_ReactRouterDom>
 
-                <ReactRouterDomLink to="/new">
+                <Link_ReactRouterDom to="/new">
                     <MUIButton variant="outlined" component="span" endIcon={<MUIAddIcon/>}>
                         Новая запись
                     </MUIButton>
-                </ReactRouterDomLink>
+                </Link_ReactRouterDom>
             </Styled.Header>
             <h2>Birthday book</h2>
             <hr/>
@@ -84,11 +84,11 @@ export default function Home() {
                         </Styled.NameAndDate>
                         <Styled.Comment>Комментарий: <span>{item.comment}</span></Styled.Comment>
                     </Styled.CongratulationContainer>
-                    <ReactRouterDomLink to={`/edit/${item.id}`}>
+                    <Link_ReactRouterDom to={`/edit/${item.id}`}>
                         <MUIIconButton aria-label="edit">
                             <Styled.EditIcon/>
                         </MUIIconButton>
-                    </ReactRouterDomLink>
+                    </Link_ReactRouterDom>
                     <MUIIconButton aria-label="delete" onClick={() => deleteCongratulation(item.id)}>
                         <Styled.DeleteIcon/>
                     </MUIIconButton>
