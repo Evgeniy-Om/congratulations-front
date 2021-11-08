@@ -4,6 +4,7 @@ import { useFormContext } from 'react-hook-form'
 
 export default function ReactHookFormTextField<T extends Record<string, unknown>> ({name, label, ...rest}: Props & T) {
     const { register, formState: {errors} } = useFormContext()
+    console.log(`Render ${name}`)
     return (
         <Styled.TextField
             {...rest}

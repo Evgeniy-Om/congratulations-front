@@ -1,29 +1,38 @@
-import type {CongratulationItem} from "../core/types/globalTypes"
-import type {SubmitHandler} from "react-hook-form"
+import type {CongratulationItem} from "../../core/types/globalTypes"
+import {FormProvider, SubmitHandler} from "react-hook-form"
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos"
 import {Button as MUIButton, styled} from "@mui/material"
-import {FormProvider, useForm} from "react-hook-form"
-import ReactRouterDomLink from "../components/ReactRouterDomLink"
-import {useAddCongratulationMutation} from "../core/api/services/congratulations"
+import {useForm} from "react-hook-form"
+import ReactRouterDomLink from "../../components/ReactRouterDomLink"
+import {useEditCongratulationMutation, useGetCongratulationsQuery} from "../../core/api/services/congratulations"
+import {RouteComponentProps} from "react-router-dom"
 import {yupResolver} from "@hookform/resolvers/yup"
-import {NewCongratulationValidationSchema} from "../core/yupValidastionSchemes"
-import getDefaultDate from "../core/features/getDefaultDate"
-import FormNewOrEdit from "../components/FormNewOrEdit"
+import {NewCongratulationValidationSchema} from "../../core/yupValidastionSchemes"
+import {getDefaultValues} from "./getDefaultValues"
+import getId from "./getId"
+import getModifiedData from "./getModifiedData"
+import FormNewOrEdit from "../../components/FormNewOrEdit"
 
-export default function New() {
-    const [addCongratulation, {isSuccess, isLoading, isError}] = useAddCongratulationMutation()
+export default function Edit({match}: RouteComponentProps<{ id: string }>) {
+    const idEditableItem = getId(match)
+    const {editableItem} = useGetCongratulationsQuery(undefined, {
+        selectFromResult: ({data}) => ({
+            editableItem: data?.find((item) => item.id === idEditableItem),
+        }),
+    })
     const methods = useForm<CongratulationItem>({
         mode: "onBlur",
         resolver: yupResolver(NewCongratulationValidationSchema),
-        defaultValues: {alert_datetime: getDefaultDate()},
+        defaultValues: getDefaultValues(editableItem),
     })
+    const [editCongratulation, {isSuccess, isLoading, isError}] = useEditCongratulationMutation()
 
     const onSubmit: SubmitHandler<CongratulationItem> = (data) => {
-        const modifyData = {...data, alert_datetime: new Date(data.alert_datetime).toJSON()}
-        addCongratulation(modifyData)
+        const modifiedData = getModifiedData(data, idEditableItem)
+        editCongratulation(modifiedData)
             .unwrap()
             .then((payload) => {
-                console.log(payload)
+                // console.log(payload)
             })
             .catch((error) => console.error('rejected', error))
     }
@@ -43,24 +52,25 @@ export default function New() {
 
             <FormProvider {...methods} >
                 <form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
-                    <FormNewOrEdit page="New" />
+                    <FormNewOrEdit page="Edit"/>
                 </form>
-
             </FormProvider>
-
 
             <Styled.Info>
                 {isSuccess && <div>Данные успешно сохранены!</div>}
                 {isLoading && <div>Сохраняем ....</div>}
                 {isError && <div>Какая-то ошибка</div>}
             </Styled.Info>
-
         </div>
     )
 }
 
 // Styled Components
 const Styled = {
+    Form: styled("form")({
+        display: "flex",
+        flexDirection: "column",
+    }),
     Info: styled("div")({
         display: "flex",
         justifyContent: "center",

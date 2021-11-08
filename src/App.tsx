@@ -17,28 +17,6 @@ export default function App() {
     const dispatch = useAppDispatch()
     const [refresh] = useUpdateAccessTokenMutation()
 
-    // useEffect(() => {
-    //     if (isError) {
-    //         if (localStorage.getItem("refresh_token")) {
-    //             refresh()
-    //                 .unwrap()
-    //                 .then((payload) => {
-    //                     localStorage.setItem("access_token", payload.access)
-    //                     refetch()
-    //                     setAuth(true)
-    //                 })
-    //                 .catch((error) => {
-    //                     console.error('rejected3', error)
-    //                     setAuth(false)
-    //                 })
-    //         } else {
-    //             setAuth(false)
-    //         }
-    //     } else {
-    //         setAuth(true)
-    //     }
-    // }, [isError])
-
     useEffect(() => {
         if (isActiveAccessToken()) {
             dispatch(changeAuthStatus("private"))

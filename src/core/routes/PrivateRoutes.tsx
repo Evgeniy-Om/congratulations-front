@@ -4,7 +4,7 @@ import {Redirect, Route} from "react-router-dom"
 import New from "../../pages/New"
 import Agreement from "../../pages/Agreement"
 import Home from "../../pages/Home"
-import Edit from '../../pages/Edit'
+import Edit from '../../pages/Edit/Edit'
 
 export default function PrivateRoutes() {
     return (
