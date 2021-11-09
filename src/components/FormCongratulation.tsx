@@ -4,14 +4,14 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns"
 import ruLocale from "date-fns/locale/ru"
 import {getMaxDateCalendar} from "../core/features/getMaxDateCalendar"
 import TextField_ReactHookForm from "./TextField_ReactHookForm"
-import ReactHookFormCheckbox from "./RHookFormCheckbox"
+import Checkbox_ReactHookForm from "./Checkbox_ReactHookForm"
 import {Button as MUIButton, FormControlLabel, styled} from "@mui/material"
 import {Link} from "react-router-dom"
+import TextFieldComment from "./TextFieldComment"
+import TextFieldName from "./TextFieldName"
 
-export default function FormNewOrEdit({page}: PropsTypes) {
-    const {control, watch} = useFormContext()
-    const watchNameFields = watch("bday_name")
-    const watchCommentFields = watch("comment")
+export default function FormCongratulation({page}: PropsTypes) {
+    const {control} = useFormContext()
     return (
         <Styled.Wrapper>
             {/*React Hook Form контролирует DatePicker из Material UI, который в свою очередь рендерит TextField*/}
@@ -50,27 +50,11 @@ export default function FormNewOrEdit({page}: PropsTypes) {
                 }
             />
 
-            {/*<TextField {...register("comment")}/>*/}
-            <TextField_ReactHookForm
-                name="bday_name"
-                type="text"
-                label="Кого поздравить?"
-                isWatch={true}
-                // inputProps={{
-                //     maxlength: 10
-                // }}
-                required
-            />
+            <TextFieldName/>
 
-            <TextField_ReactHookForm
-                name="comment"
-                type="text"
-                label="Комментарии"
-                isWatch={true}
-                multiline
-                rows={4}
-            />
-            <ReactHookFormCheckbox
+            <TextFieldComment/>
+
+            <Checkbox_ReactHookForm
                 name="notify_by_email"
                 label="Уведомить по e-mail"
             />
