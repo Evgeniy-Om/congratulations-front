@@ -30,7 +30,7 @@ export const registrationValidationSchema: SchemaOf<RegistrationFormInputs> = ob
         .oneOf([ref('password'), null], 'Пароль не совпадает'),
 })
 
-export const NewCongratulationValidationSchema: SchemaOf<CongratulationItem> = object().shape({
+export const FormCongratulationValidationSchema: SchemaOf<CongratulationItem> = object().shape({
     bday_name: string()
         .required("Обязательное поле"),
     alert_datetime: date()

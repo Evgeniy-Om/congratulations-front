@@ -1,6 +1,6 @@
 import {IconButton, Typography} from "@mui/material"
 
-function SocialsButtons() {
+function ButtonsSocials() {
     return (
         <>
             <Typography>Войти через соц. сети</Typography>
@@ -28,4 +28,4 @@ function SocialsButtons() {
     )
 }
 
-export default SocialsButtons
+export default ButtonsSocials

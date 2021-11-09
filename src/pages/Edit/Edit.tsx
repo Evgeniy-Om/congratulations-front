@@ -4,14 +4,14 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos"
 import {Button as MUIButton, styled} from "@mui/material"
 import {useForm} from "react-hook-form"
 import Link_ReactRouterDom from "../../components/Link_ReactRouterDom"
-import {useEditCongratulationMutation, useGetCongratulationsQuery} from "../../core/api/services/congratulations"
+import {useEditCongratulationMutation, useGetCongratulationsQuery} from "../../core/api/services/congratulationsService"
 import {RouteComponentProps} from "react-router-dom"
 import {yupResolver} from "@hookform/resolvers/yup"
-import {NewCongratulationValidationSchema} from "../../core/yupValidastionSchemes"
+import {FormCongratulationValidationSchema} from "../../core/yupValidastionSchemes"
 import {getDefaultValues} from "./getDefaultValues"
 import getId from "./getId"
 import getModifiedData from "./getModifiedData"
-import FormNewOrEdit from "../../components/FormNewOrEdit"
+import FormCongratulation from "../../components/FormCongratulation"
 
 export default function Edit({match}: RouteComponentProps<{ id: string }>) {
     const idEditableItem = getId(match)
@@ -22,7 +22,7 @@ export default function Edit({match}: RouteComponentProps<{ id: string }>) {
     })
     const methods = useForm<CongratulationItem>({
         mode: "onBlur",
-        resolver: yupResolver(NewCongratulationValidationSchema),
+        resolver: yupResolver(FormCongratulationValidationSchema),
         defaultValues: getDefaultValues(editableItem),
     })
     const [editCongratulation, {isSuccess, isLoading, isError}] = useEditCongratulationMutation()
@@ -52,7 +52,7 @@ export default function Edit({match}: RouteComponentProps<{ id: string }>) {
 
             <FormProvider {...methods} >
                 <form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
-                    <FormNewOrEdit page="Edit"/>
+                    <FormCongratulation page="Edit"/>
                 </form>
             </FormProvider>
 

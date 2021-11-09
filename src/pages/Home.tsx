@@ -7,8 +7,8 @@ import format from 'date-fns/format'
 import {ru} from 'date-fns/locale'
 import {Button as MUIButton, IconButton as MUIIconButton, styled} from "@mui/material"
 import Link_ReactRouterDom from '../components/Link_ReactRouterDom'
-import {useDeleteCongratulationMutation, useGetCongratulationsQuery} from '../core/api/services/congratulations'
-import {useUpdateAccessTokenMutation} from "../core/api/services/auth"
+import {useDeleteCongratulationMutation, useGetCongratulationsQuery} from '../core/api/services/congratulationsService'
+import {useUpdateAccessTokenMutation} from "../core/api/services/authService"
 import {useEffect} from "react"
 import {changeAuthStatus} from "../core/store/congratulationsSlice"
 

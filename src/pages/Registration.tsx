@@ -1,12 +1,12 @@
 import {FormProvider, useForm} from "react-hook-form"
 import {yupResolver} from "@hookform/resolvers/yup"
-import SocialsButtons from "../components/SocialsButtons"
+import ButtonsSocials from "../components/ButtonsSocials"
 import TextField_ReactHookForm from "../components/TextField_ReactHookForm"
 import {registrationValidationSchema} from "../core/yupValidastionSchemes"
 import {Button, styled} from "@mui/material"
 import {Link, useHistory} from "react-router-dom"
 import type {RegistrationFormInputs} from "../core/types/globalTypes"
-import { useRegistrationMutation } from "../core/api/services/auth"
+import { useRegistrationMutation } from "../core/api/services/authService"
 import {useAppSelector} from "../core/hooks"
 import {EMAIL_DEFAULT, PASSWORD_DEFAULT} from "../core/constants"
 
@@ -56,7 +56,7 @@ export default function Registration() {
                         <Styled.RegistrationLink to="/login">
                             Уже зарегистрированы?
                         </Styled.RegistrationLink>
-                        <SocialsButtons/>
+                        <ButtonsSocials/>
                     </Styled.Inner>
                 </form>
             </FormProvider>

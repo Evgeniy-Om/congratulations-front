@@ -1,13 +1,13 @@
 import {Button as MUIButton, FormControlLabel, styled} from "@mui/material"
 import {FormProvider, useForm} from "react-hook-form"
 import {yupResolver} from "@hookform/resolvers/yup"
-import SocialsButtons from "../components/SocialsButtons"
+import ButtonsSocials from "../components/ButtonsSocials"
 import TextField_ReactHookForm from "../components/TextField_ReactHookForm"
 import {loginValidationSchema} from "../core/yupValidastionSchemes"
 import {Link, useHistory} from "react-router-dom"
 import type {LoginFormInputs} from "../core/types/globalTypes"
-import {useLoginMutation} from "../core/api/services/auth"
-import ReactHookFormCheckbox from "../components/RHookFormCheckbox"
+import {useLoginMutation} from "../core/api/services/authService"
+import Checkbox_ReactHookForm from "../components/Checkbox_ReactHookForm"
 import {useAppDispatch} from "../core/hooks"
 import {changeAuthStatus} from "../core/store/congratulationsSlice"
 import {useState} from "react"
@@ -66,12 +66,12 @@ export default function Login() {
                 <Styled.Form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
                     <TextField_ReactHookForm name="email" type="email" label="Эл. почта" required/>
                     <TextField_ReactHookForm name="password" type="password" label="Пароль" required/>
-                    <ReactHookFormCheckbox name="rememberMe" label="Запомнить меня"/>
+                    <Checkbox_ReactHookForm name="rememberMe" label="Запомнить меня"/>
                     <MUIButton type="submit" variant="contained">Вход</MUIButton>
                     <Styled.RegistrationLink to="/registration">
                         Ещё не зарегистрированы?
                     </Styled.RegistrationLink>
-                    <SocialsButtons/>
+                    <ButtonsSocials/>
                 </Styled.Form>
             </FormProvider>
         </Styled.Wrapper>

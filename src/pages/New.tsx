@@ -4,17 +4,17 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos"
 import {Button as MUIButton, styled} from "@mui/material"
 import {FormProvider, useForm} from "react-hook-form"
 import Link_ReactRouterDom from "../components/Link_ReactRouterDom"
-import {useAddCongratulationMutation} from "../core/api/services/congratulations"
+import {useAddCongratulationMutation} from "../core/api/services/congratulationsService"
 import {yupResolver} from "@hookform/resolvers/yup"
-import {NewCongratulationValidationSchema} from "../core/yupValidastionSchemes"
+import {FormCongratulationValidationSchema} from "../core/yupValidastionSchemes"
 import getDefaultDate from "../core/features/getDefaultDate"
-import FormNewOrEdit from "../components/FormNewOrEdit"
+import FormCongratulation from "../components/FormCongratulation"
 
 export default function New() {
     const [addCongratulation, {isSuccess, isLoading, isError}] = useAddCongratulationMutation()
     const methods = useForm<CongratulationItem>({
         mode: "onBlur",
-        resolver: yupResolver(NewCongratulationValidationSchema),
+        resolver: yupResolver(FormCongratulationValidationSchema),
         defaultValues: {alert_datetime: getDefaultDate()},
     })
 
@@ -43,7 +43,7 @@ export default function New() {
 
             <FormProvider {...methods} >
                 <form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
-                    <FormNewOrEdit page="New" />
+                    <FormCongratulation page="New" />
                 </form>
 
             </FormProvider>

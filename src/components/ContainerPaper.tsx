@@ -1,7 +1,7 @@
 import {Paper, styled} from "@mui/material"
 import React from "react"
 
-export default function PaperContainer({children}: Props) {
+export default function ContainerPaper({children}: Props) {
     return (
         <Styled.Container>
             <Styled.Paper>
