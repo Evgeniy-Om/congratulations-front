@@ -12,6 +12,8 @@ import {useUpdateAccessTokenMutation} from "../core/api/services/authService"
 import {useEffect} from "react"
 import {changeAuthStatus} from "../core/store/congratulationsSlice"
 import MUICommentIcon from '@mui/icons-material/Comment'
+import MUIDeleteSweepIcon from '@mui/icons-material/DeleteSweep'
+import MUIElderlyIcon from '@mui/icons-material/Elderly'
 import clearStorages from "../core/features/clearStorages"
 
 
@@ -21,6 +23,7 @@ export default function Home() {
     const [deleteCongratulation] = useDeleteCongratulationMutation()
     const [refresh] = useUpdateAccessTokenMutation()
     const dispatch = useAppDispatch()
+    console.log(window.innerWidth)
 
     useEffect(() => {
         if (isError) {
@@ -49,6 +52,8 @@ export default function Home() {
 
     return (
         <>
+
+            <_.Title>Birthday book</_.Title>
             <_.Header>
                 <Link to="/login">
                     <MUIButton
@@ -61,14 +66,41 @@ export default function Home() {
                         Выйти из приложения
                     </MUIButton>
                 </Link>
-
-                <Link to="/new">
-                    <MUIButton variant="outlined" component="span" endIcon={<MUIAddIcon/>}>
-                        Новая запись
+                <_.Icons>
+                    <MUIButton
+                        variant="outlined"
+                        endIcon={<MUIElderlyIcon/>}
+                    >
+                        Удалить прошедшие
                     </MUIButton>
-                </Link>
+                    <MUIButton
+                        variant="outlined"
+                        endIcon={<MUIDeleteSweepIcon/>}
+                    >
+                        Удалить все
+                    </MUIButton>
+                    <Link to="/new">
+                        <MUIButton
+                            variant="outlined"
+                            endIcon={<_.AddIcon/>}
+                        >
+                            Новая запись
+                        </MUIButton>
+                    </Link>
+                    {/*<Tooltip title="Удалить прошедшие ДР" placement="bottom-end">*/}
+                    {/*    <MUIElderlyIcon/>*/}
+                    {/*</Tooltip>*/}
+                    {/*<Tooltip title="Удалить все ДР" placement="bottom-end">*/}
+                    {/*    <MUIDeleteSweepIcon/>*/}
+                    {/*</Tooltip>*/}
+                    {/*<Link to="/new">*/}
+                    {/*    <Tooltip title="Добавить новую запись" placement="bottom-end">*/}
+                    {/*        <_.AddIcon/>*/}
+                    {/*    </Tooltip>*/}
+                    {/*</Link>*/}
+                </_.Icons>
             </_.Header>
-            <h2>Birthday book</h2>
+
             <hr/>
             {isLoading && <div>Loading...</div>}
             <_.Wrapper>
@@ -110,16 +142,33 @@ export default function Home() {
 
 // Styled Components
 const _ = {
+    Title: styled("h2")({
+        textAlign: "center",
+        marginBottom: "40px"
+    }),
     Header: styled("div")({
         display: 'flex',
         justifyContent: 'space-between',
+        alignItems: "center",
     }),
     Wrapper: styled("div")({
         display: "flex",
         // justifyContent: 'space-between',
         flexWrap: "wrap",
-        marginRight: "-20px"
+        marginRight: "-20px",
     }),
+    Icons: styled("div")(({theme}) => ({
+        display: "flex",
+        justifyContent: "space-between",
+        // width: "100px",
+        color: theme.palette.primary.light,
+        "& > *": {
+            marginLeft: "10px"
+        },
+        '@media(max-width: 1040px)': {
+            display: "none",
+        },
+    })),
     ItemWrapper: styled("div")({
         display: "flex",
         alignItems: "center",
@@ -127,8 +176,8 @@ const _ = {
         marginRight: "10px",
         width: "475px",
         '@media(max-width: 1040px)': {
-            width: '480px'
-        }
+            width: '480px',
+        },
     }),
     ItemInner: styled("div")<any>(({theme, ...props}) => ({
         display: "flex",
@@ -160,6 +209,9 @@ const _ = {
     Comment: styled("div")({
         wordBreak: "break-all",
     }),
+    AddIcon: styled(MUIAddIcon)(({theme}) => ({
+        color: theme.palette.primary.light,
+    })),
     EditIcon: styled(MUIEditIcon)(({theme}) => ({
         color: theme.palette.primary.light,
     })),
