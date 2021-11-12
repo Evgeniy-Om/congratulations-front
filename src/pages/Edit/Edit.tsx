@@ -11,7 +11,7 @@ import {FormCongratulationValidationSchema} from "../../core/yupValidastionSchem
 import {getDefaultValues} from "./getDefaultValues"
 import getId from "./getId"
 import getModifiedData from "./getModifiedData"
-import FormCongratulation from "../../components/FormCongratulation"
+import FormCongratulation from "../../components/FormCongratulation/FormCongratulation"
 
 export default function Edit({match}: RouteComponentProps<{ id: string }>) {
     const idEditableItem = getId(match)

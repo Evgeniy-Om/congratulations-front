@@ -1,9 +1,9 @@
 import React from 'react'
-import {styled, TextField} from "@mui/material"
+import {styled, TextField as MUITextField} from "@mui/material"
 import {useFormContext} from 'react-hook-form'
 
-// function TextFieldReactHookForm<T extends Record<string, unknown>>({name, isWatch, limitSymbols, ...rest}: Props & T) {
-function TextFieldReactHookForm<T extends Record<string, unknown>>(props: Props & T) {
+// function TextField<T extends Record<string, unknown>>({name, isWatch, limitSymbols, ...rest}: Props & T) {
+function TextField<T extends Record<string, unknown>>(props: Props & T) {
     const {name, isWatch, maxLength, inputProps, ...rest} = props
     const {register, formState: {errors}, watch} = useFormContext()
     console.log(maxLength)
@@ -31,7 +31,7 @@ function TextFieldReactHookForm<T extends Record<string, unknown>>(props: Props 
     )
 }
 
-export default TextFieldReactHookForm
+export default TextField
 
 // Types
 type Props = {
@@ -49,7 +49,7 @@ const _ = {
         width: "100%",
         marginBottom: "25px",
     }),
-    TextField: styled(TextField)({
+    TextField: styled(MUITextField)({
 
         width: "100%",
         marginBottom: "5px",

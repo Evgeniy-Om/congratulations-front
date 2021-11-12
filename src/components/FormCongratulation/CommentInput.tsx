@@ -1,8 +1,8 @@
-import TextFieldReactHookForm from "./TextFieldReactHookForm"
+import TextField from "../TextField"
 
 function CommentInput() {
     return (
-        <TextFieldReactHookForm
+        <TextField
             name="comment"
             type="text"
             label="Комментарии"

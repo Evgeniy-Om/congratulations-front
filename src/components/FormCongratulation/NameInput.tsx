@@ -1,8 +1,8 @@
-import TextFieldReactHookForm from "./TextFieldReactHookForm"
+import TextField from "../TextField"
 
 function NameInput() {
     return (
-        <TextFieldReactHookForm
+        <TextField
             name="bday_name"
             type="text"
             label="Кого поздравить?"
