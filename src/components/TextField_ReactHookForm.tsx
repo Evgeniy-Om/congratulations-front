@@ -9,8 +9,8 @@ function TextField_ReactHookForm<T extends Record<string, unknown>>(props: Props
     console.log(maxLength)
 // debugger
     return (
-        <Styled.Wrapper>
-            <Styled.TextField
+        <_.Wrapper>
+            <_.TextField
                 {...rest}
                 {...register(name)}
                 variant="outlined"
@@ -23,11 +23,11 @@ function TextField_ReactHookForm<T extends Record<string, unknown>>(props: Props
             />
             {
                 isWatch &&
-                <Styled.Counter error={errors[name]}>
+                <_.Counter error={errors[name]}>
                     {watch(name)?.length ?? 0}/{maxLength ?? "Не указана максимальная длина"}
-                </Styled.Counter>
+                </_.Counter>
             }
-        </Styled.Wrapper>
+        </_.Wrapper>
     )
 }
 
@@ -42,8 +42,8 @@ type Props = {
     inputProps?: Record<string, unknown>
 }
 
-// Styled Components
-const Styled = {
+// _ Components
+const _ = {
     Wrapper: styled("div")({
         position: "relative",
         width: "100%",

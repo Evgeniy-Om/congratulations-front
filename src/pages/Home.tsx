@@ -6,7 +6,7 @@ import {useAppDispatch, useAppSelector} from "../core/hooks"
 import format from 'date-fns/format'
 import {ru} from 'date-fns/locale'
 import {Button as MUIButton, IconButton as MUIIconButton, styled} from "@mui/material"
-import Link_ReactRouterDom from '../components/Link_ReactRouterDom'
+import Link from '../components/Link'
 import {useDeleteCongratulationMutation, useGetCongratulationsQuery} from '../core/api/services/congratulationsService'
 import {useUpdateAccessTokenMutation} from "../core/api/services/authService"
 import {useEffect} from "react"
@@ -47,8 +47,8 @@ export default function Home() {
 
     return (
         <>
-            <Styled.Header>
-                <Link_ReactRouterDom to="/login">
+            <_.Header>
+                <Link to="/login">
                     <MUIButton
                         variant="outlined"
                         startIcon={<MUIArrowBackIosIcon/>}
@@ -64,41 +64,42 @@ export default function Home() {
                         }>
                         Выйти из приложения
                     </MUIButton>
-                </Link_ReactRouterDom>
+                </Link>
 
-                <Link_ReactRouterDom to="/new">
+                <Link to="/new">
                     <MUIButton variant="outlined" component="span" endIcon={<MUIAddIcon/>}>
                         Новая запись
                     </MUIButton>
-                </Link_ReactRouterDom>
-            </Styled.Header>
+                </Link>
+            </_.Header>
             <h2>Birthday book</h2>
             <hr/>
             {isLoading && <div>Loading...</div>}
             {isSuccess && data?.map((item, index) =>
-                <Styled.ItemContainer key={index + Number(new Date())}>
-                    <Styled.CongratulationContainer disabled={new Date(item.alert_datetime) < new Date()}>
-                        <Styled.NameAndDate>
+                <_.ItemContainer key={index + Number(new Date())}>
+                    <_.CongratulationContainer disabled={new Date(item.alert_datetime) < new Date()}>
+                        <_.NameAndDate>
                             <span>{item.bday_name}</span>
                             <span>{item.alert_datetime && format(new Date(item.alert_datetime), "d MMMM yyyy в hh:mm", {locale: ru})}</span>
-                        </Styled.NameAndDate>
-                        <Styled.Comment>Комментарий: <span>{item.comment}</span></Styled.Comment>
-                    </Styled.CongratulationContainer>
-                    <Link_ReactRouterDom to={`/edit/${item.id}`}>
+                        </_.NameAndDate>
+                        <_.Comment>Комментарий: <span>{item.comment}</span></_.Comment>
+                    </_.CongratulationContainer>
+                    <Link to={`/edit/${item.id}`}>
                         <MUIIconButton aria-label="edit">
-                            <Styled.EditIcon/>
+                            <_.EditIcon/>
                         </MUIIconButton>
-                    </Link_ReactRouterDom>
+                    </Link>
                     <MUIIconButton aria-label="delete" onClick={() => deleteCongratulation(item.id)}>
-                        <Styled.DeleteIcon/>
+                        <_.DeleteIcon/>
                     </MUIIconButton>
-                </Styled.ItemContainer>,
+                </_.ItemContainer>,
             )}
         </>
     )
 }
 
-const Styled = {
+// Styled Components
+const _ = {
     Header: styled("div")({
         display: 'flex',
         justifyContent: 'space-between',

@@ -2,18 +2,18 @@ import {Checkbox as MUICheckbox, FormControlLabel, styled} from "@mui/material"
 import {useFormContext} from 'react-hook-form'
 
 
-export default function Checkbox_ReactHookForm({name, label}: Props) {
+export default function Checkbox({name, label}: Props) {
     const {register} = useFormContext()
     return (
-        <Styled.Label
+        <_.Label
             {...register(name)}
             control={<MUICheckbox defaultChecked/>}
             label={label}/>
     )
 }
 
-// Styled Components
-const Styled = {
+// _ Components
+const _ = {
     Label: styled(FormControlLabel)({
         margin: "0 auto 10px",
     }),

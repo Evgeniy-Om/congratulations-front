@@ -4,7 +4,7 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns"
 import ruLocale from "date-fns/locale/ru"
 import {getMaxDateCalendar} from "../core/features/getMaxDateCalendar"
 import TextField_ReactHookForm from "./TextField_ReactHookForm"
-import Checkbox_ReactHookForm from "./Checkbox_ReactHookForm"
+import Checkbox from "./Checkbox"
 import {Button as MUIButton, FormControlLabel, styled} from "@mui/material"
 import {Link} from "react-router-dom"
 import TextFieldComment from "./TextFieldComment"
@@ -13,7 +13,7 @@ import TextFieldName from "./TextFieldName"
 export default function FormCongratulation({page}: PropsTypes) {
     const {control} = useFormContext()
     return (
-        <Styled.Wrapper>
+        <_.Wrapper>
             {/*React Hook Form контролирует DatePicker из Material UI, который в свою очередь рендерит TextField*/}
             <Controller
                 name="alert_datetime"
@@ -56,7 +56,7 @@ export default function FormCongratulation({page}: PropsTypes) {
 
             <TextFieldComment/>
 
-            <Checkbox_ReactHookForm
+            <Checkbox
                 name="notify_by_email"
                 label="Уведомить по e-mail"
             />
@@ -65,7 +65,7 @@ export default function FormCongratulation({page}: PropsTypes) {
                 {page === "New" ? "Создать" : "Изменить"}
             </MUIButton>
 
-        </Styled.Wrapper>
+        </_.Wrapper>
     )
 }
 
@@ -74,8 +74,8 @@ type PropsTypes = {
     page: "New" | "Edit"
 }
 
-// Styled Components
-const Styled = {
+// _ Components
+const _ = {
     Wrapper: styled("div")({
         display: "flex",
         flexDirection: "column",

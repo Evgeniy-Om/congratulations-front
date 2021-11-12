@@ -3,16 +3,16 @@ import React from "react"
 
 export default function ContainerPaper({children}: Props) {
     return (
-        <Styled.Container>
-            <Styled.Paper>
+        <_.Container>
+            <_.Paper>
                 {children}
-            </Styled.Paper>
-        </Styled.Container>
+            </_.Paper>
+        </_.Container>
     )
 }
 
-// Styled Components
-const Styled = {
+// _ Components
+const _ = {
     Container: styled('div')({
         display: 'flex',
         minHeight: "100vh",

@@ -3,7 +3,7 @@ import {FormProvider, SubmitHandler} from "react-hook-form"
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos"
 import {Button as MUIButton, styled} from "@mui/material"
 import {useForm} from "react-hook-form"
-import Link_ReactRouterDom from "../../components/Link_ReactRouterDom"
+import Link from "../../components/Link"
 import {useEditCongratulationMutation, useGetCongratulationsQuery} from "../../core/api/services/congratulationsService"
 import {RouteComponentProps} from "react-router-dom"
 import {yupResolver} from "@hookform/resolvers/yup"
@@ -38,11 +38,11 @@ export default function Edit({match}: RouteComponentProps<{ id: string }>) {
     }
     return (
         <div>
-            <Link_ReactRouterDom to="/">
+            <Link to="/">
                 <MUIButton variant="outlined" component="span" startIcon={<ArrowBackIosIcon/>}>
                     Назад
                 </MUIButton>
-            </Link_ReactRouterDom>
+            </Link>
 
             <h2>Новая запись</h2>
             <hr/>
@@ -56,17 +56,17 @@ export default function Edit({match}: RouteComponentProps<{ id: string }>) {
                 </form>
             </FormProvider>
 
-            <Styled.Info>
+            <_.Info>
                 {isSuccess && <div>Данные успешно сохранены!</div>}
                 {isLoading && <div>Сохраняем ....</div>}
                 {isError && <div>Какая-то ошибка</div>}
-            </Styled.Info>
+            </_.Info>
         </div>
     )
 }
 
-// Styled Components
-const Styled = {
+// _ Components
+const _ = {
     Form: styled("form")({
         display: "flex",
         flexDirection: "column",

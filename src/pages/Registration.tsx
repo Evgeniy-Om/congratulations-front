@@ -40,32 +40,32 @@ export default function Registration() {
             })
     }
     return (
-        <Styled.Wrapper>
-            {isError && <Styled.Error>Такой емейл уже зарегистрирован</Styled.Error>}
+        <_.Wrapper>
+            {isError && <_.Error>Такой емейл уже зарегистрирован</_.Error>}
             <FormProvider {...methods} >
                 <form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
-                    <Styled.Inner>
+                    <_.Inner>
                         <TextField_ReactHookForm name="email" type="email" label="Эл. почта" required/>
                         <TextField_ReactHookForm name="password" type="password" label="Пароль" required/>
                         <TextField_ReactHookForm name="repeat" type="password" label="Повторите пароль" required/>
                         <Button type="submit" variant="contained">Регистрация</Button>
-                        <Styled.AgreementLinkContainer>
-                            Регистрируясь вы принимаете условия <Styled.AgreementLink to="/agreement">пользовательского
-                            соглашения</Styled.AgreementLink>
-                        </Styled.AgreementLinkContainer>
-                        <Styled.RegistrationLink to="/login">
+                        <_.AgreementLinkContainer>
+                            Регистрируясь вы принимаете условия <_.AgreementLink to="/agreement">пользовательского
+                            соглашения</_.AgreementLink>
+                        </_.AgreementLinkContainer>
+                        <_.RegistrationLink to="/login">
                             Уже зарегистрированы?
-                        </Styled.RegistrationLink>
+                        </_.RegistrationLink>
                         <ButtonsSocials/>
-                    </Styled.Inner>
+                    </_.Inner>
                 </form>
             </FormProvider>
-        </Styled.Wrapper>
+        </_.Wrapper>
     )
 }
 
-// Styled Components
-const Styled = {
+// _ Components
+const _ = {
     Wrapper: styled("div")({
         textAlign: "center",
     }),

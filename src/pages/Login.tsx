@@ -7,7 +7,7 @@ import {loginValidationSchema} from "../core/yupValidastionSchemes"
 import {Link, useHistory} from "react-router-dom"
 import type {LoginFormInputs} from "../core/types/globalTypes"
 import {useLoginMutation} from "../core/api/services/authService"
-import Checkbox_ReactHookForm from "../components/Checkbox_ReactHookForm"
+import Checkbox from "../components/Checkbox"
 import {useAppDispatch} from "../core/hooks"
 import {changeAuthStatus} from "../core/store/congratulationsSlice"
 import {useState} from "react"
@@ -60,26 +60,26 @@ export default function Login() {
             })
     }
     return (
-        <Styled.Wrapper>
-            {isError && <Styled.Error>{errorMessage}</Styled.Error>}
+        <_.Wrapper>
+            {isError && <_.Error>{errorMessage}</_.Error>}
             <FormProvider {...methods} >
-                <Styled.Form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
+                <_.Form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
                     <TextField_ReactHookForm name="email" type="email" label="Эл. почта" required/>
                     <TextField_ReactHookForm name="password" type="password" label="Пароль" required/>
-                    <Checkbox_ReactHookForm name="rememberMe" label="Запомнить меня"/>
+                    <Checkbox name="rememberMe" label="Запомнить меня"/>
                     <MUIButton type="submit" variant="contained">Вход</MUIButton>
-                    <Styled.RegistrationLink to="/registration">
+                    <_.RegistrationLink to="/registration">
                         Ещё не зарегистрированы?
-                    </Styled.RegistrationLink>
+                    </_.RegistrationLink>
                     <ButtonsSocials/>
-                </Styled.Form>
+                </_.Form>
             </FormProvider>
-        </Styled.Wrapper>
+        </_.Wrapper>
     )
 }
 
-// Styled Components
-const Styled = {
+// _ Components
+const _ = {
     Wrapper: styled("div")({
         textAlign: "center",
     }),
