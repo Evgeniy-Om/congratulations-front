@@ -27,7 +27,7 @@ export const authApi = emptySplitApi.injectEndpoints({
                 body: getRefreshToken()
                 // credentials: "include"
             }),
-            // invalidatesTags: ['Refresh'],
+            invalidatesTags: ['Refresh'],
         }),
     }),
 })
