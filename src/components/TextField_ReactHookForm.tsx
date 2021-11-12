@@ -4,10 +4,10 @@ import {useFormContext} from 'react-hook-form'
 
 // function TextField_ReactHookForm<T extends Record<string, unknown>>({name, isWatch, limitSymbols, ...rest}: Props & T) {
 function TextField_ReactHookForm<T extends Record<string, unknown>>(props: Props & T) {
-    const {name, isWatch, maxLength, ...rest} = props
+    const {name, isWatch, maxLength, inputProps, ...rest} = props
     const {register, formState: {errors}, watch} = useFormContext()
     console.log(maxLength)
-
+// debugger
     return (
         <Styled.Wrapper>
             <Styled.TextField
@@ -17,6 +17,7 @@ function TextField_ReactHookForm<T extends Record<string, unknown>>(props: Props
                 error={Boolean(errors[name])}
                 helperText={errors[name]?.message}
                 inputProps={{
+                    ...inputProps,
                     maxlength: maxLength,
                 }}
             />
@@ -38,6 +39,7 @@ type Props = {
     label: string
     isWatch?: boolean
     maxLength?: number
+    inputProps?: Record<string, unknown>
 }
 
 // Styled Components

@@ -32,11 +32,13 @@ export default function FormCongratulation({page}: PropsTypes) {
                             minutesStep={5}
                             inputFormat="dd.MM.yyyy HH:mm"
                             renderInput={({...params}) => {
+
                                 return (
                                     <TextField_ReactHookForm
                                         {...params}
                                         name="alert_datetime"
                                         label="Когда поздравить?"
+                                        datePlaceholder='дд.мм.гггг чч:мм'
                                         inputProps={{
                                             ...params.inputProps,
                                             placeholder: 'дд.мм.гггг чч:мм',
