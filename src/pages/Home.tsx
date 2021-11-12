@@ -5,12 +5,14 @@ import MUIEditIcon from '@mui/icons-material/Edit'
 import {useAppDispatch, useAppSelector} from "../core/hooks"
 import format from 'date-fns/format'
 import {ru} from 'date-fns/locale'
-import {Button as MUIButton, IconButton as MUIIconButton, styled} from "@mui/material"
+import {Button as MUIButton, IconButton, IconButton as MUIIconButton, styled, Tooltip} from "@mui/material"
 import Link from '../components/Link'
 import {useDeleteCongratulationMutation, useGetCongratulationsQuery} from '../core/api/services/congratulationsService'
 import {useUpdateAccessTokenMutation} from "../core/api/services/authService"
 import {useEffect} from "react"
 import {changeAuthStatus} from "../core/store/congratulationsSlice"
+import MUICommentIcon from '@mui/icons-material/Comment'
+import clearStorages from "../core/features/clearStorages"
 
 
 export default function Home() {
@@ -69,25 +71,39 @@ export default function Home() {
             <h2>Birthday book</h2>
             <hr/>
             {isLoading && <div>Loading...</div>}
-            {isSuccess && data?.map((item, index) =>
-                <_.ItemContainer key={index + Number(new Date())}>
-                    <_.CongratulationContainer disabled={new Date(item.alert_datetime) < new Date()}>
-                        <_.NameAndDate>
-                            <span>{item.bday_name}</span>
-                            <span>{item.alert_datetime && format(new Date(item.alert_datetime), "d MMMM yyyy в hh:mm", {locale: ru})}</span>
-                        </_.NameAndDate>
-                        <_.Comment>Комментарий: <span>{item.comment}</span></_.Comment>
-                    </_.CongratulationContainer>
-                    <Link to={`/edit/${item.id}`}>
-                        <MUIIconButton aria-label="edit">
-                            <_.EditIcon/>
-                        </MUIIconButton>
-                    </Link>
-                    <MUIIconButton aria-label="delete" onClick={() => deleteCongratulation(item.id)}>
-                        <_.DeleteIcon/>
-                    </MUIIconButton>
-                </_.ItemContainer>,
-            )}
+            <_.Wrapper>
+                {isSuccess && data?.map((item, index) =>
+                    <_.ItemWrapper key={index + Number(new Date())}>
+                        <_.ItemInner disabled={new Date(item.alert_datetime) < new Date()}>
+                            <_.Name>
+                                {item.bday_name}
+                            </_.Name>
+                            <_.DateAndIconsContainer>
+                                <_.Date>{item.alert_datetime && format(new Date(item.alert_datetime), "d MMMM yyyy в hh:mm", {locale: ru})}</_.Date>
+                                <_.IconsContainer>
+                                    {item.comment &&
+                                    <Tooltip title={item.comment} placement="bottom-end">
+                                        <IconButton>
+                                            <_.CommentIcon/>
+                                        </IconButton>
+                                    </Tooltip>
+                                    }
+                                    <Link to={`/edit/${item.id}`}>
+                                        <MUIIconButton aria-label="edit">
+                                            <_.EditIcon/>
+                                        </MUIIconButton>
+                                    </Link>
+                                    <MUIIconButton aria-label="delete" onClick={() => deleteCongratulation(item.id)}>
+                                        <_.DeleteIcon/>
+                                    </MUIIconButton>
+                                </_.IconsContainer>
+                            </_.DateAndIconsContainer>
+
+                        </_.ItemInner>
+
+                    </_.ItemWrapper>,
+                )}
+            </_.Wrapper>
         </>
     )
 }
@@ -98,35 +114,59 @@ const _ = {
         display: 'flex',
         justifyContent: 'space-between',
     }),
-    ItemContainer: styled("div")({
+    Wrapper: styled("div")({
+        display: "flex",
+        // justifyContent: 'space-between',
+        flexWrap: "wrap",
+        marginRight: "-20px"
+    }),
+    ItemWrapper: styled("div")({
         display: "flex",
         alignItems: "center",
         marginBottom: "10px",
+        marginRight: "10px",
+        width: "475px",
+        '@media(max-width: 1040px)': {
+            width: '480px'
+        }
     }),
-    CongratulationContainer: styled("div")<any>(({theme , ...props}) => ({
+    ItemInner: styled("div")<any>(({theme, ...props}) => ({
+        display: "flex",
+        justifyContent: "space-between",
         minHeight: "40px",
         width: "100%",
-        marginRight: '5px',
         padding: "10px",
         border: "1px solid",
         overflow: "hidden",
-        color: props.disabled ? theme.palette.grey[500] : theme.palette.common.black,
-        borderColor: props.disabled ? theme.palette.grey[500] : theme.palette.primary.light,
+        color: props.disabled ? theme.palette.grey[400] : theme.palette.common.black,
+        borderColor: props.disabled ? theme.palette.grey[400] : theme.palette.primary.light,
         borderRadius: theme.shape.borderRadius,
     })),
-    NameAndDate: styled("div")({
+    Name: styled("div")({
+        marginRight: "10px",
+    }),
+    DateAndIconsContainer: styled("div")({
+        width: "200px",
+    }),
+    Date: styled("div")({
+        width: "200px",
+        textAlign: "right",
+    }),
+    IconsContainer: styled("div")({
         display: "flex",
-        marginBottom: "10px",
-        justifyContent: "space-between",
-        alignItems: "center",
+        justifyContent: "end",
+        marginRight: "-10px",
     }),
     Comment: styled("div")({
-        wordBreak: "break-all"
+        wordBreak: "break-all",
     }),
     EditIcon: styled(MUIEditIcon)(({theme}) => ({
         color: theme.palette.primary.light,
     })),
     DeleteIcon: styled(MUIDeleteIcon)(({theme}) => ({
+        color: theme.palette.primary.light,
+    })),
+    CommentIcon: styled(MUICommentIcon)(({theme}) => ({
         color: theme.palette.primary.light,
     })),
 }
