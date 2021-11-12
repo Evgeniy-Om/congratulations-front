@@ -1,8 +1,8 @@
-import TextField_ReactHookForm from "./TextField_ReactHookForm"
+import TextFieldReactHookForm from "./TextFieldReactHookForm"
 
-function TextFieldName() {
+function NameInput() {
     return (
-        <TextField_ReactHookForm
+        <TextFieldReactHookForm
             name="bday_name"
             type="text"
             label="Кого поздравить?"
@@ -13,4 +13,4 @@ function TextFieldName() {
     )
 }
 
-export default TextFieldName
+export default NameInput

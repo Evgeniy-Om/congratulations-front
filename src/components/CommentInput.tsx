@@ -1,8 +1,8 @@
-import TextField_ReactHookForm from "./TextField_ReactHookForm"
+import TextFieldReactHookForm from "./TextFieldReactHookForm"
 
-function TextFieldComment() {
+function CommentInput() {
     return (
-        <TextField_ReactHookForm
+        <TextFieldReactHookForm
             name="comment"
             type="text"
             label="Комментарии"
@@ -14,4 +14,4 @@ function TextFieldComment() {
     )
 }
 
-export default TextFieldComment
+export default CommentInput

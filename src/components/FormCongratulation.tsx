@@ -3,12 +3,12 @@ import {DateTimePicker, LocalizationProvider} from "@mui/lab"
 import AdapterDateFns from "@mui/lab/AdapterDateFns"
 import ruLocale from "date-fns/locale/ru"
 import {getMaxDateCalendar} from "../core/features/getMaxDateCalendar"
-import TextField_ReactHookForm from "./TextField_ReactHookForm"
+import TextFieldReactHookForm from "./TextFieldReactHookForm"
 import Checkbox from "./Checkbox"
 import {Button as MUIButton, FormControlLabel, styled} from "@mui/material"
 import {Link} from "react-router-dom"
-import TextFieldComment from "./TextFieldComment"
-import TextFieldName from "./TextFieldName"
+import CommentInput from "./CommentInput"
+import NameInput from "./NameInput"
 
 export default function FormCongratulation({page}: PropsTypes) {
     const {control} = useFormContext()
@@ -34,7 +34,7 @@ export default function FormCongratulation({page}: PropsTypes) {
                             renderInput={({...params}) => {
 
                                 return (
-                                    <TextField_ReactHookForm
+                                    <TextFieldReactHookForm
                                         {...params}
                                         name="alert_datetime"
                                         label="Когда поздравить?"
@@ -52,9 +52,9 @@ export default function FormCongratulation({page}: PropsTypes) {
                 }
             />
 
-            <TextFieldName/>
+            <NameInput/>
 
-            <TextFieldComment/>
+            <CommentInput/>
 
             <Checkbox
                 name="notify_by_email"

@@ -2,7 +2,7 @@ import {useEffect} from "react"
 import {useUpdateAccessTokenMutation} from "./core/api/services/authService"
 import PrivateRoutes from "./core/routes/PrivateRoutes"
 import PublicRoutes from "./core/routes/PublicRoutes"
-import ContainerPaper from "./components/ContainerPaper"
+import PaperContainer from "./components/PaperContainer"
 import CircularProgress from "@mui/material/CircularProgress"
 import isActiveAccessToken from "./core/features/isActiveAccessToken"
 import {useAppDispatch, useAppSelector} from "./core/hooks"
@@ -40,7 +40,7 @@ export default function App() {
     }, [])
 
     return (
-        <ContainerPaper>
+        <PaperContainer>
             {authStatus === "none" && <CircularProgress/>}
             <Router>
                 <Switch>
@@ -49,7 +49,7 @@ export default function App() {
                 </Switch>
             </Router>
 
-        </ContainerPaper>
+        </PaperContainer>
     )
 
 }

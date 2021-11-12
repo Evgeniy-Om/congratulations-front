@@ -1,7 +1,7 @@
 import {Paper, styled} from "@mui/material"
 import React from "react"
 
-export default function ContainerPaper({children}: Props) {
+export default function PaperContainer({children}: Props) {
     return (
         <_.Container>
             <_.Paper>
@@ -24,9 +24,12 @@ const _ = {
         flexDirection: 'column',
         justifyContent: "center",
         minWidth: "500px",
-        maxWidth: "700px",
+        maxWidth: "1000px",
         margin: "auto",
         padding: '20px',
+        '@media(max-width: 1040px)': {
+            maxWidth: '520px'
+        }
     })
 }
 

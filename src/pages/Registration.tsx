@@ -1,7 +1,7 @@
 import {FormProvider, useForm} from "react-hook-form"
 import {yupResolver} from "@hookform/resolvers/yup"
-import ButtonsSocials from "../components/ButtonsSocials"
-import TextField_ReactHookForm from "../components/TextField_ReactHookForm"
+import SocialButton from "../components/SocialButton"
+import TextFieldReactHookForm from "../components/TextFieldReactHookForm"
 import {registrationValidationSchema} from "../core/yupValidastionSchemes"
 import {Button, styled} from "@mui/material"
 import {Link, useHistory} from "react-router-dom"
@@ -45,9 +45,9 @@ export default function Registration() {
             <FormProvider {...methods} >
                 <form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
                     <_.Inner>
-                        <TextField_ReactHookForm name="email" type="email" label="Эл. почта" required/>
-                        <TextField_ReactHookForm name="password" type="password" label="Пароль" required/>
-                        <TextField_ReactHookForm name="repeat" type="password" label="Повторите пароль" required/>
+                        <TextFieldReactHookForm name="email" type="email" label="Эл. почта" required/>
+                        <TextFieldReactHookForm name="password" type="password" label="Пароль" required/>
+                        <TextFieldReactHookForm name="repeat" type="password" label="Повторите пароль" required/>
                         <Button type="submit" variant="contained">Регистрация</Button>
                         <_.AgreementLinkContainer>
                             Регистрируясь вы принимаете условия <_.AgreementLink to="/agreement">пользовательского
@@ -56,7 +56,7 @@ export default function Registration() {
                         <_.RegistrationLink to="/login">
                             Уже зарегистрированы?
                         </_.RegistrationLink>
-                        <ButtonsSocials/>
+                        <SocialButton/>
                     </_.Inner>
                 </form>
             </FormProvider>

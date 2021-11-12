@@ -2,8 +2,8 @@ import React from 'react'
 import {styled, TextField} from "@mui/material"
 import {useFormContext} from 'react-hook-form'
 
-// function TextField_ReactHookForm<T extends Record<string, unknown>>({name, isWatch, limitSymbols, ...rest}: Props & T) {
-function TextField_ReactHookForm<T extends Record<string, unknown>>(props: Props & T) {
+// function TextFieldReactHookForm<T extends Record<string, unknown>>({name, isWatch, limitSymbols, ...rest}: Props & T) {
+function TextFieldReactHookForm<T extends Record<string, unknown>>(props: Props & T) {
     const {name, isWatch, maxLength, inputProps, ...rest} = props
     const {register, formState: {errors}, watch} = useFormContext()
     console.log(maxLength)
@@ -31,7 +31,7 @@ function TextField_ReactHookForm<T extends Record<string, unknown>>(props: Props
     )
 }
 
-export default TextField_ReactHookForm
+export default TextFieldReactHookForm
 
 // Types
 type Props = {
