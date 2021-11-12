@@ -52,16 +52,10 @@ export default function Home() {
                     <MUIButton
                         variant="outlined"
                         startIcon={<MUIArrowBackIosIcon/>}
-                        onClick={
-                            () => {
-                                localStorage.removeItem("access_token")
-                                localStorage.removeItem("exp_access")
-                                localStorage.removeItem("refresh_token")
-                                sessionStorage.removeItem("access_token")
-                                sessionStorage.removeItem("exp_access")
-                                dispatch(changeAuthStatus("public"))
-                            }
-                        }>
+                        onClick={() => {
+                            clearStorages()
+                            dispatch(changeAuthStatus("public"))
+                        }}>
                         Выйти из приложения
                     </MUIButton>
                 </Link>
