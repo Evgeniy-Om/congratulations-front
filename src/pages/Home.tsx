@@ -87,17 +87,6 @@ export default function Home() {
                             Новая запись
                         </MUIButton>
                     </Link>
-                    {/*<Tooltip title="Удалить прошедшие ДР" placement="bottom-end">*/}
-                    {/*    <MUIElderlyIcon/>*/}
-                    {/*</Tooltip>*/}
-                    {/*<Tooltip title="Удалить все ДР" placement="bottom-end">*/}
-                    {/*    <MUIDeleteSweepIcon/>*/}
-                    {/*</Tooltip>*/}
-                    {/*<Link to="/new">*/}
-                    {/*    <Tooltip title="Добавить новую запись" placement="bottom-end">*/}
-                    {/*        <_.AddIcon/>*/}
-                    {/*    </Tooltip>*/}
-                    {/*</Link>*/}
                 </_.Icons>
             </_.Header>
 
