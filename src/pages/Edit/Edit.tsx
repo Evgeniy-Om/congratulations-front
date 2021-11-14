@@ -4,14 +4,19 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos"
 import {Button as MUIButton, styled} from "@mui/material"
 import {useForm} from "react-hook-form"
 import Link from "../../components/Link"
-import {useEditCongratulationMutation, useGetCongratulationsQuery} from "../../core/api/services/congratulationsService"
-import {RouteComponentProps} from "react-router-dom"
+import {
+    useDeleteCongratulationMutation,
+    useEditCongratulationMutation,
+    useGetCongratulationsQuery,
+} from "../../core/api/services/congratulationsService"
+import {RouteComponentProps, useHistory} from "react-router-dom"
 import {yupResolver} from "@hookform/resolvers/yup"
 import {FormCongratulationValidationSchema} from "../../core/yupValidastionSchemes"
 import {getDefaultValues} from "./getDefaultValues"
 import getId from "./getId"
 import getModifiedData from "./getModifiedData"
 import FormCongratulation from "../../components/FormCongratulation/FormCongratulation"
+import MUIDeleteIcon from "@mui/icons-material/Delete"
 
 export default function Edit({match}: RouteComponentProps<{ id: string }>) {
     const idEditableItem = getId(match)
@@ -20,12 +25,14 @@ export default function Edit({match}: RouteComponentProps<{ id: string }>) {
             editableItem: data?.find((item) => item.id === idEditableItem),
         }),
     })
+    const [deleteCongratulation] = useDeleteCongratulationMutation()
     const methods = useForm<CongratulationItem>({
         mode: "onBlur",
         resolver: yupResolver(FormCongratulationValidationSchema),
         defaultValues: getDefaultValues(editableItem),
     })
     const [editCongratulation, {isSuccess, isLoading, isError}] = useEditCongratulationMutation()
+    const history = useHistory()
 
     const onSubmit: SubmitHandler<CongratulationItem> = (data) => {
         const modifiedData = getModifiedData(data, idEditableItem)
@@ -38,13 +45,28 @@ export default function Edit({match}: RouteComponentProps<{ id: string }>) {
     }
     return (
         <div>
-            <Link to="/">
-                <MUIButton variant="outlined" component="span" startIcon={<ArrowBackIosIcon/>}>
-                    Назад
+            <_.Buttons>
+                <Link to="/">
+                    <MUIButton variant="outlined" component="span" startIcon={<ArrowBackIosIcon/>}>
+                        Назад
+                    </MUIButton>
+                </Link>
+                <MUIButton
+                    aria-label="delete"
+                    variant="outlined"
+                    component="span"
+                    endIcon={<_.DeleteIcon/>}
+                    onClick={() => {
+                        deleteCongratulation(idEditableItem).then(() => {
+                            history.push("/")
+                        })
+                    }}>
+                    Удалить
                 </MUIButton>
-            </Link>
 
-            <h2>Новая запись</h2>
+            </_.Buttons>
+
+            <h2>Редактирование</h2>
             <hr/>
 
             <br/>
@@ -67,6 +89,10 @@ export default function Edit({match}: RouteComponentProps<{ id: string }>) {
 
 // _ Components
 const _ = {
+    Buttons: styled("div")({
+        display: "flex",
+        justifyContent: "space-between",
+    }),
     Form: styled("form")({
         display: "flex",
         flexDirection: "column",
@@ -77,6 +103,8 @@ const _ = {
         alignItems: "center",
         width: "100%",
         height: 50,
-
     }),
+    DeleteIcon: styled(MUIDeleteIcon)(({theme}) => ({
+        color: theme.palette.primary.light,
+    })),
 }
