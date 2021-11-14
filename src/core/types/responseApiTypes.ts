@@ -27,3 +27,7 @@ export type RefreshResponse = {
     access: string
     access_live: string
 }
+
+export type LogoutResponse = {
+    refresh: string
+}

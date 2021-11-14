@@ -2,6 +2,8 @@ import getRefreshToken from "../../features/getRefreshToken"
 import { emptySplitApi } from "../api"
 import type { LoginRequest, RegistrationRequest } from "../../types/requestApiTypes"
 import type { LoginResponse, RefreshResponse, RegistrationResponse } from "../../types/responseApiTypes"
+import {LogoutResponse} from "../../types/responseApiTypes"
+import getAccessToken from "../../features/getAccessToken"
 
 export const authApi = emptySplitApi.injectEndpoints({
     endpoints: (builder) => ({
@@ -29,7 +31,16 @@ export const authApi = emptySplitApi.injectEndpoints({
             }),
             invalidatesTags: ['Refresh'],
         }),
+        logout: builder.mutation<LogoutResponse, void>({
+            query: () => ({
+                url: 'auth/logout/',
+                method: 'POST',
+                headers: getAccessToken(),
+                body: getRefreshToken()
+                // credentials: "include"
+            }),
+        }),
     }),
 })
 
-export const { useLoginMutation, useRegistrationMutation, useUpdateAccessTokenMutation } = authApi
+export const { useLoginMutation, useRegistrationMutation, useUpdateAccessTokenMutation, useLogoutMutation } = authApi

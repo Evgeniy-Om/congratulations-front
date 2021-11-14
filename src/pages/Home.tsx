@@ -8,7 +8,7 @@ import {ru} from 'date-fns/locale'
 import {Button as MUIButton, IconButton, IconButton as MUIIconButton, styled, Tooltip} from "@mui/material"
 import Link from '../components/Link'
 import {useDeleteCongratulationMutation, useGetCongratulationsQuery} from '../core/api/services/congratulationsService'
-import {useUpdateAccessTokenMutation} from "../core/api/services/authService"
+import {useLogoutMutation, useUpdateAccessTokenMutation} from "../core/api/services/authService"
 import {useEffect} from "react"
 import {changeAuthStatus} from "../core/store/congratulationsSlice"
 import MUICommentIcon from '@mui/icons-material/Comment'
@@ -23,6 +23,7 @@ export default function Home() {
     const {data, isSuccess, isError, isLoading, refetch} = useGetCongratulationsQuery()
     const [deleteCongratulation] = useDeleteCongratulationMutation()
     const [refresh] = useUpdateAccessTokenMutation()
+    const [logout] = useLogoutMutation()
     const dispatch = useAppDispatch()
 
     useEffect(() => {
@@ -65,6 +66,14 @@ export default function Home() {
                         variant="outlined"
                         startIcon={<MUIArrowBackIosIcon/>}
                         onClick={() => {
+                            logout()
+                                .unwrap()
+                                .then((payload) => {
+                                    console.log(payload)
+                                })
+                                .catch((error) => {
+                                    console.error('rejected3', error)
+                                })
                             clearStorages()
                             dispatch(changeAuthStatus("public"))
                         }}>
