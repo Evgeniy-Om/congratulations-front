@@ -7,7 +7,6 @@ import CircularProgress from "@mui/material/CircularProgress"
 import isActiveAccessToken from "./core/features/isActiveAccessToken"
 import {useAppDispatch, useAppSelector} from "./core/hooks"
 import {changeAuthStatus} from "./core/store/congratulationsSlice"
-import {BrowserRouter as Router, Switch} from "react-router-dom"
 
 
 export default function App() {
@@ -42,12 +41,8 @@ export default function App() {
     return (
         <PaperContainer>
             {authStatus === "none" && <CircularProgress/>}
-            <Router>
-                <Switch>
-                    {authStatus === "public" && <PublicRoutes/>}
-                    {authStatus === "private" && <PrivateRoutes/>}
-                </Switch>
-            </Router>
+            {authStatus === "public" && <PublicRoutes/>}
+            {authStatus === "private" && <PrivateRoutes/>}
 
         </PaperContainer>
     )

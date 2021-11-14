@@ -1,25 +1,31 @@
 import React from 'react'
-import {Redirect, Route} from "react-router-dom"
-// import Edit from "../../pages/Edit"
+import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom"
 import New from "../../pages/New"
 import Agreement from "../../pages/Agreement"
 import Home from "../../pages/Home"
 import Edit from '../../pages/Edit/Edit'
+import Account from "../../pages/Account"
+
 
 export default function PrivateRoutes() {
     return (
-        <>
-            <Route path="/new">
-                <New/>
-            </Route>
-            <Route path="/edit/:id" component={Edit}/>
-            <Route path="/agreement">
-                <Agreement/>
-            </Route>
-            <Route path="/" exact>
-                <Home/>
-            </Route>
-            <Redirect to="/"/>
-        </>
+        <Router>
+            <Switch>
+                <Route path="/new">
+                    <New/>
+                </Route>
+                <Route path="/edit/:id" component={Edit}/>
+                <Route path="/account" exact>
+                    <Account/>
+                </Route>
+                <Route path="/agreement">
+                    <Agreement/>
+                </Route>
+                <Route path="/" exact>
+                    <Home/>
+                </Route>
+                <Redirect to="/"/>
+            </Switch>
+        </Router>
     )
 }
