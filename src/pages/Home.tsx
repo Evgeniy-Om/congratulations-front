@@ -23,7 +23,7 @@ export default function Home() {
     const [deleteCongratulation] = useDeleteCongratulationMutation()
     const [refresh] = useUpdateAccessTokenMutation()
     const dispatch = useAppDispatch()
-    console.log(window.innerWidth)
+    console.log(data)
 
     useEffect(() => {
         if (isError) {
@@ -93,6 +93,7 @@ export default function Home() {
             <hr/>
             {isLoading && <div>Loading...</div>}
             <_.Wrapper>
+                {isSuccess && data?.length === 0 && <_.EvmptyMessage>Добавьте первого именинника!</_.EvmptyMessage>}
                 {isSuccess && data?.map((item, index) =>
                     <_.ItemWrapper key={index + Number(new Date())}>
                         <_.ItemInner disabled={new Date(item.alert_datetime) < new Date()}>
@@ -133,7 +134,7 @@ export default function Home() {
 const _ = {
     Title: styled("h2")({
         textAlign: "center",
-        marginBottom: "40px"
+        marginBottom: "40px",
     }),
     Header: styled("div")({
         display: 'flex',
@@ -152,12 +153,17 @@ const _ = {
         // width: "100px",
         color: theme.palette.primary.light,
         "& > *": {
-            marginLeft: "10px"
+            marginLeft: "10px",
         },
         '@media(max-width: 1040px)': {
             display: "none",
         },
     })),
+    EvmptyMessage: styled("div")({
+        width: "100%",
+        margin: "30px 0",
+        textAlign: "center",
+    }),
     ItemWrapper: styled("div")({
         display: "flex",
         alignItems: "center",
