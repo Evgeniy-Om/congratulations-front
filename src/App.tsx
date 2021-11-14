@@ -7,34 +7,48 @@ import CircularProgress from "@mui/material/CircularProgress"
 import isActiveAccessToken from "./core/features/isActiveAccessToken"
 import {useAppDispatch, useAppSelector} from "./core/hooks"
 import {changeAuthStatus} from "./core/store/congratulationsSlice"
+import { CHECK_VALID_ACCESS_TOKEN_INTERVAL } from "./core/constants"
 
 
 export default function App() {
-    // const [skip, setSkip] = useState(false)
-    // const {isError, isSuccess, refetch} = useGetCongratulationsQuery(null, {skip})
-    const {authStatus} = useAppSelector((state) => state.congratulations)
+    const {authStatus, rememberMe} = useAppSelector((state) => state.congratulations)
     const dispatch = useAppDispatch()
     const [refresh] = useUpdateAccessTokenMutation()
 
     useEffect(() => {
-        if (isActiveAccessToken()) {
-            dispatch(changeAuthStatus("private"))
-        } else {
-            if (localStorage.getItem("refresh_token")) {
-                refresh()
-                    .unwrap()
-                    .then((payload) => {
-                        localStorage.setItem("access_token", payload.access)
-                        localStorage.setItem("exp_access", `${payload.access_live}UTC`)
-                        dispatch(changeAuthStatus("private"))
-                    })
-                    .catch((error) => {
-                        console.error('rejected3', error)
-                        dispatch(changeAuthStatus("public"))
-                    })
+        function checkAccessToken () {
+            if (isActiveAccessToken()) {
+                if (authStatus !== "private") {
+                    dispatch(changeAuthStatus("private"))
+                }
             } else {
-                dispatch(changeAuthStatus("public"))
+                if (localStorage.getItem("refresh_token")) {
+                    refresh()
+                        .unwrap()
+                        .then((payload) => {
+                            if (rememberMe) {
+                                localStorage.setItem("access_token", payload.access)
+                                localStorage.setItem("exp_access", `${payload.access_live}UTC`)
+                            } else {
+                                sessionStorage.setItem("access_token", payload.access)
+                                sessionStorage.setItem("exp_access", `${payload.access_live}UTC`)
+                            }
+
+                            dispatch(changeAuthStatus("private"))
+                        })
+                        .catch((error) => {
+                            console.error('rejected3', error)
+                            dispatch(changeAuthStatus("public"))
+                        })
+                } else {
+                    dispatch(changeAuthStatus("public"))
+                }
             }
+        }
+        checkAccessToken()
+        const timer = setInterval(checkAccessToken, CHECK_VALID_ACCESS_TOKEN_INTERVAL)
+        return function clearTimer () {
+            clearInterval(timer)
         }
     }, [])
 

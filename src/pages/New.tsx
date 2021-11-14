@@ -9,11 +9,9 @@ import {yupResolver} from "@hookform/resolvers/yup"
 import {FormCongratulationValidationSchema} from "../core/yupValidastionSchemes"
 import getDefaultDate from "../core/features/getDefaultDate"
 import FormCongratulation from "../components/FormCongratulation/FormCongratulation"
-import {useUpdateAccessTokenMutation} from "../core/api/services/authService"
 
 export default function New() {
     const [addCongratulation, {isSuccess, isLoading, isError}] = useAddCongratulationMutation()
-    const [refresh] = useUpdateAccessTokenMutation()
     const methods = useForm<CongratulationItem>({
         mode: "onBlur",
         resolver: yupResolver(FormCongratulationValidationSchema),
@@ -28,12 +26,6 @@ export default function New() {
                 console.log(payload)
             })
             .catch((error) => {
-                if (error.data.status === 401) {
-                    refresh()
-                        .then(() =>
-                            addCongratulation(modifyData)
-                        )
-                }
                 console.error('rejected', error)
             })
     }

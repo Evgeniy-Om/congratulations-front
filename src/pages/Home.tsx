@@ -14,6 +14,7 @@ import {changeAuthStatus} from "../core/store/congratulationsSlice"
 import MUICommentIcon from '@mui/icons-material/Comment'
 import MUIDeleteSweepIcon from '@mui/icons-material/DeleteSweep'
 import MUIElderlyIcon from '@mui/icons-material/Elderly'
+import MUIPersonIcon from '@mui/icons-material/Person'
 import clearStorages from "../core/features/clearStorages"
 
 
@@ -23,7 +24,6 @@ export default function Home() {
     const [deleteCongratulation] = useDeleteCongratulationMutation()
     const [refresh] = useUpdateAccessTokenMutation()
     const dispatch = useAppDispatch()
-    console.log(data)
 
     useEffect(() => {
         if (isError) {
@@ -53,8 +53,13 @@ export default function Home() {
     return (
         <>
 
-            <_.Title>Birthday book</_.Title>
             <_.Header>
+                <_.Title>Birthday book</_.Title>
+                <_.PersonIconWrapper>
+                    <_.PersonIcon/>
+                </_.PersonIconWrapper>
+            </_.Header>
+            <_.Buttons>
                 <Link to="/login">
                     <MUIButton
                         variant="outlined"
@@ -88,12 +93,12 @@ export default function Home() {
                         </MUIButton>
                     </Link>
                 </_.Icons>
-            </_.Header>
+            </_.Buttons>
 
             <hr/>
             {isLoading && <div>Loading...</div>}
             <_.Wrapper>
-                {isSuccess && data?.length === 0 && <_.EvmptyMessage>Добавьте первого именинника!</_.EvmptyMessage>}
+                {isSuccess && data?.length === 0 && <_.EmptyMessage>Добавьте первого именинника!</_.EmptyMessage>}
                 {isSuccess && data?.map((item, index) =>
                     <_.ItemWrapper key={index + Number(new Date())}>
                         <_.ItemInner disabled={new Date(item.alert_datetime) < new Date()}>
@@ -137,6 +142,9 @@ const _ = {
         marginBottom: "40px",
     }),
     Header: styled("div")({
+        position: "relative",
+    }),
+    Buttons: styled("div")({
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: "center",
@@ -159,7 +167,7 @@ const _ = {
             display: "none",
         },
     })),
-    EvmptyMessage: styled("div")({
+    EmptyMessage: styled("div")({
         width: "100%",
         margin: "30px 0",
         textAlign: "center",
@@ -214,6 +222,22 @@ const _ = {
         color: theme.palette.primary.light,
     })),
     CommentIcon: styled(MUICommentIcon)(({theme}) => ({
+        color: theme.palette.primary.light,
+    })),
+    PersonIconWrapper: styled(IconButton)({
+        position: "absolute",
+        right: 0,
+        top: 4,
+        // ":hover": {
+        //     backgroundColor: "transparent",
+        // },
+        // ":hover svg": {
+        //     // color: "#000",
+        //     boxShadow: "0 0 10px rgba(0,0,0,0.5)",
+        // }
+    }),
+    PersonIcon: styled(MUIPersonIcon)(({theme}) => ({
+        fontSize: "40px",
         color: theme.palette.primary.light,
     })),
 }
