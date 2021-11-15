@@ -1,14 +1,13 @@
 import type {CongratulationItem} from "../core/types/globalTypes"
 import type {SubmitHandler} from "react-hook-form"
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos"
-import {Button as MUIButton, styled} from "@mui/material"
+import {styled} from "@mui/material"
 import {FormProvider, useForm} from "react-hook-form"
-import Link from "../components/Link"
 import {useAddCongratulationMutation} from "../core/api/services/congratulationsService"
 import {yupResolver} from "@hookform/resolvers/yup"
 import {FormCongratulationValidationSchema} from "../core/yupValidastionSchemes"
 import getDefaultDate from "../core/features/getDefaultDate"
 import FormCongratulation from "../components/FormCongratulation/FormCongratulation"
+import BackButton from "../components/BackButton";
 
 export default function New() {
     const [addCongratulation, {isSuccess, isLoading, isError}] = useAddCongratulationMutation()
@@ -31,11 +30,7 @@ export default function New() {
     }
     return (
         <div>
-            <Link to="/">
-                <MUIButton variant="outlined" component="span" startIcon={<ArrowBackIosIcon/>}>
-                    Назад
-                </MUIButton>
-            </Link>
+            <BackButton/>
 
             <h2>Новая запись</h2>
             <hr/>

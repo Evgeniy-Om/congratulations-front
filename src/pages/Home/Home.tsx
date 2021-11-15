@@ -1,21 +1,20 @@
-import MUIArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 import MUIAddIcon from '@mui/icons-material/Add'
 import MUIDeleteIcon from '@mui/icons-material/Delete'
 import MUIEditIcon from '@mui/icons-material/Edit'
-import {useAppDispatch, useAppSelector} from "../core/hooks"
+import {useAppDispatch, useAppSelector} from "../../core/hooks"
 import format from 'date-fns/format'
 import {ru} from 'date-fns/locale'
 import {Button as MUIButton, IconButton, IconButton as MUIIconButton, styled, Tooltip} from "@mui/material"
-import Link from '../components/Link'
-import {useDeleteCongratulationMutation, useGetCongratulationsQuery} from '../core/api/services/congratulationsService'
-import {useLogoutMutation, useUpdateAccessTokenMutation} from "../core/api/services/authService"
+import Link from '../../components/Link'
+import {useDeleteCongratulationMutation, useGetCongratulationsQuery} from '../../core/api/services/congratulationsService'
+import {useUpdateAccessTokenMutation} from "../../core/api/services/authService"
 import {useEffect} from "react"
-import {changeAuthStatus} from "../core/store/congratulationsSlice"
+import {changeAuthStatus} from "../../core/store/congratulationsSlice"
 import MUICommentIcon from '@mui/icons-material/Comment'
 import MUIDeleteSweepIcon from '@mui/icons-material/DeleteSweep'
 import MUIElderlyIcon from '@mui/icons-material/Elderly'
 import MUIPersonIcon from '@mui/icons-material/Person'
-import clearStorages from "../core/features/clearStorages"
+import Menu from "./Menu/Menu";
 
 
 export default function Home() {
@@ -23,7 +22,6 @@ export default function Home() {
     const {data, isSuccess, isError, isLoading, refetch} = useGetCongratulationsQuery()
     const [deleteCongratulation] = useDeleteCongratulationMutation()
     const [refresh] = useUpdateAccessTokenMutation()
-    const [logout] = useLogoutMutation()
     const dispatch = useAppDispatch()
 
     useEffect(() => {
@@ -59,25 +57,6 @@ export default function Home() {
                 <Menu/>
             </_.Header>
             <_.Buttons>
-                <Link to="/login">
-                    <MUIButton
-                        variant="outlined"
-                        startIcon={<MUIArrowBackIosIcon/>}
-                        onClick={() => {
-                            logout()
-                                .unwrap()
-                                .then((payload) => {
-                                    console.log(payload)
-                                })
-                                .catch((error) => {
-                                    console.error('rejected3', error)
-                                })
-                            clearStorages()
-                            dispatch(changeAuthStatus("public"))
-                        }}>
-                        Выйти из приложения
-                    </MUIButton>
-                </Link>
                 <_.Icons>
                     <MUIButton
                         variant="outlined"

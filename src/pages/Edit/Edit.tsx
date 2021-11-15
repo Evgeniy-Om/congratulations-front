@@ -1,9 +1,7 @@
 import type {CongratulationItem} from "../../core/types/globalTypes"
 import {FormProvider, SubmitHandler} from "react-hook-form"
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos"
 import {Button as MUIButton, styled} from "@mui/material"
 import {useForm} from "react-hook-form"
-import Link from "../../components/Link"
 import {
     useDeleteCongratulationMutation,
     useEditCongratulationMutation,
@@ -17,6 +15,7 @@ import getId from "./getId"
 import getModifiedData from "./getModifiedData"
 import FormCongratulation from "../../components/FormCongratulation/FormCongratulation"
 import MUIDeleteIcon from "@mui/icons-material/Delete"
+import BackButton from "../../components/BackButton";
 
 export default function Edit({match}: RouteComponentProps<{ id: string }>) {
     const idEditableItem = getId(match)
@@ -46,11 +45,7 @@ export default function Edit({match}: RouteComponentProps<{ id: string }>) {
     return (
         <div>
             <_.Buttons>
-                <Link to="/">
-                    <MUIButton variant="outlined" component="span" startIcon={<ArrowBackIosIcon/>}>
-                        Назад
-                    </MUIButton>
-                </Link>
+                <BackButton/>
                 <MUIButton
                     aria-label="delete"
                     variant="outlined"
