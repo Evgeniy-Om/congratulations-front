@@ -56,9 +56,7 @@ export default function Home() {
 
             <_.Header>
                 <_.Title>Birthday book</_.Title>
-                <_.PersonIconWrapper>
-                    <_.PersonIcon/>
-                </_.PersonIconWrapper>
+                <Menu/>
             </_.Header>
             <_.Buttons>
                 <Link to="/login">
