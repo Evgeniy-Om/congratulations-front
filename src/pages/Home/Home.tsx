@@ -133,15 +133,15 @@ const _ = {
         justifyContent: 'end',
         alignItems: "center",
 
-        "& > *": {
-            marginLeft: 11
+        "&>*": {
+            marginLeft: 10
         }
     }),
     Wrapper: styled("div")({
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
         gridGap: "10px",
-        '@media(max-width: 1040px)': {
+        '@media (max-width:1040px)': {
             gridTemplateColumns: "1fr",
         },
     }),
@@ -152,7 +152,6 @@ const _ = {
     }),
     ItemWrapper: styled("div")({
         width: "400px",
-
     }),
     ItemInner: styled("div")<any>(({theme, ...props}) => ({
         display: "flex",
