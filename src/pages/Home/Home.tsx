@@ -56,30 +56,28 @@ export default function Home() {
                 <_.Title>Birthday book</_.Title>
                 <Menu/>
             </_.Header>
-            <_.Buttons>
-                <_.Icons>
+            <_.ButtonList>
+                <MUIButton
+                    variant="outlined"
+                    endIcon={<MUIElderlyIcon/>}
+                >
+                    Удалить прошедшие
+                </MUIButton>
+                <MUIButton
+                    variant="outlined"
+                    endIcon={<MUIDeleteSweepIcon/>}
+                >
+                    Удалить все
+                </MUIButton>
+                <Link to="/new">
                     <MUIButton
                         variant="outlined"
-                        endIcon={<MUIElderlyIcon/>}
+                        endIcon={<_.AddIcon/>}
                     >
-                        Удалить прошедшие
+                        Новая запись
                     </MUIButton>
-                    <MUIButton
-                        variant="outlined"
-                        endIcon={<MUIDeleteSweepIcon/>}
-                    >
-                        Удалить все
-                    </MUIButton>
-                    <Link to="/new">
-                        <MUIButton
-                            variant="outlined"
-                            endIcon={<_.AddIcon/>}
-                        >
-                            Новая запись
-                        </MUIButton>
-                    </Link>
-                </_.Icons>
-            </_.Buttons>
+                </Link>
+            </_.ButtonList>
 
             <hr/>
             {isLoading && <div>Loading...</div>}
@@ -130,10 +128,14 @@ const _ = {
     Header: styled("div")({
         position: "relative",
     }),
-    Buttons: styled("div")({
+    ButtonList: styled("div")({
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: 'end',
         alignItems: "center",
+
+        "& > *": {
+            marginLeft: 11
+        }
     }),
     Wrapper: styled("div")({
         display: "grid",
@@ -143,24 +145,13 @@ const _ = {
             gridTemplateColumns: "1fr",
         },
     }),
-    Icons: styled("div")(({theme}) => ({
-        display: "flex",
-        justifyContent: "space-between",
-        color: theme.palette.primary.light,
-        "& > *": {
-            marginLeft: "10px",
-        },
-        '@media(max-width: 1040px)': {
-            display: "none",
-        },
-    })),
     EmptyMessage: styled("div")({
         width: "100%",
         margin: "30px 0",
         textAlign: "center",
     }),
     ItemWrapper: styled("div")({
-        width: "480px",
+        width: "400px",
 
     }),
     ItemInner: styled("div")<any>(({theme, ...props}) => ({
@@ -176,7 +167,7 @@ const _ = {
         borderRadius: theme.shape.borderRadius,
     })),
     Name: styled("div")({
-        marginRight: "10px",
+        // marginRight: "10px",
     }),
     DateAndIconsContainer: styled("div")({
         width: "200px",

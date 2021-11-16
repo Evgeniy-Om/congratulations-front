@@ -23,6 +23,7 @@ const _ = {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: "center",
+        minWidth: "520px",
         margin: "auto",
         padding: '20px',
     })
