@@ -4,7 +4,7 @@ import {
     styled,
 } from "@mui/material"
 import { useState } from "react"
-import MUIPersonIcon from "@mui/icons-material/Person"
+import MUIMenuIcon from '@mui/icons-material/Menu';
 import LogoutLink from "./LogoutLink"
 import AccountLink from "./AccountLink"
 
@@ -27,9 +27,9 @@ function Menu() {
             {/*<MUIButton aria-describedby={id} variant="contained" onClick={handleClick}>*/}
             {/*    Open Popover*/}
             {/*</MUIButton>*/}
-            <_.PersonIconWrapper>
-                <_.PersonIcon aria-describedby={id} onClick={handleClick}/>
-            </_.PersonIconWrapper>
+            <_.MenuIconWrapper>
+                <_.MenuIcon aria-describedby={id} onClick={handleClick}/>
+            </_.MenuIconWrapper>
             <_.Popover
                 id={id}
                 open={open}
@@ -57,10 +57,10 @@ function Menu() {
 export default Menu
 
 const _ = {
-    PersonIconWrapper: styled(IconButton)({
+    MenuIconWrapper: styled(IconButton)({
         position: "absolute",
         right: 0,
-        top: 4,
+        top: 12,
         // ":hover": {
         //     backgroundColor: "transparent",
         // },
@@ -69,9 +69,12 @@ const _ = {
         //     boxShadow: "0 0 10px rgba(0,0,0,0.5)",
         // }
     }),
-    PersonIcon: styled(MUIPersonIcon)(({theme}) => ({
-        fontSize: "40px",
+    MenuIcon: styled(MUIMenuIcon)(({theme}) => ({
+        // position: "relative",
+        // top: 8,
+        fontSize: "35px",
         color: theme.palette.primary.light,
+
     })),
     Popover: styled(MUIPopover)({
         // position: "absolute",
