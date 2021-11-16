@@ -23,13 +23,8 @@ const _ = {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: "center",
-        minWidth: "500px",
-        maxWidth: "1000px",
         margin: "auto",
         padding: '20px',
-        '@media(max-width: 1040px)': {
-            maxWidth: '520px'
-        }
     })
 }
 

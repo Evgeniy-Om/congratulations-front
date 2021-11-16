@@ -136,15 +136,16 @@ const _ = {
         alignItems: "center",
     }),
     Wrapper: styled("div")({
-        display: "flex",
-        // justifyContent: 'space-between',
-        flexWrap: "wrap",
-        marginRight: "-20px",
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gridGap: "10px",
+        '@media(max-width: 1040px)': {
+            gridTemplateColumns: "1fr",
+        },
     }),
     Icons: styled("div")(({theme}) => ({
         display: "flex",
         justifyContent: "space-between",
-        // width: "100px",
         color: theme.palette.primary.light,
         "& > *": {
             marginLeft: "10px",
@@ -159,14 +160,8 @@ const _ = {
         textAlign: "center",
     }),
     ItemWrapper: styled("div")({
-        display: "flex",
-        alignItems: "center",
-        marginBottom: "10px",
-        marginRight: "10px",
-        width: "475px",
-        '@media(max-width: 1040px)': {
-            width: '480px',
-        },
+        width: "480px",
+
     }),
     ItemInner: styled("div")<any>(({theme, ...props}) => ({
         display: "flex",
