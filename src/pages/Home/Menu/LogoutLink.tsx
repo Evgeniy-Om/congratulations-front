@@ -27,7 +27,7 @@ function LogoutLink() {
                     clearStorages()
                     dispatch(changeAuthStatus("public"))
                 }}>
-                Выйти из приложения
+                Выйти
             </MUIButton>
         </Link>
     );

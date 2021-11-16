@@ -8,7 +8,7 @@ function AccountLink() {
             <MUIButton
                 endIcon={<AccountCircleIcon/>}
             >
-                Вход в личный кабинет
+                Настройки
             </MUIButton>
         </Link>
     )
