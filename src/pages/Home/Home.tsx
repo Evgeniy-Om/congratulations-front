@@ -1,26 +1,29 @@
 import MUIAddIcon from '@mui/icons-material/Add'
 import MUIDeleteIcon from '@mui/icons-material/Delete'
 import MUIEditIcon from '@mui/icons-material/Edit'
-import {useAppDispatch, useAppSelector} from "../../core/hooks"
+import {useAppDispatch, useAppSelector, useDeleteCongratulations} from "../../core/hooks"
 import format from 'date-fns/format'
 import {ru} from 'date-fns/locale'
 import {Button as MUIButton, IconButton, IconButton as MUIIconButton, styled, Tooltip} from "@mui/material"
 import Link from '../../components/Link'
-import {useDeleteCongratulationMutation, useGetCongratulationsQuery} from '../../core/api/services/congratulationsService'
+import {
+    useDeleteCongratulationMutation,
+    useGetCongratulationsQuery
+} from '../../core/api/services/congratulationsService'
 import {useUpdateAccessTokenMutation} from "../../core/api/services/authService"
 import {useEffect} from "react"
 import {changeAuthStatus} from "../../core/store/congratulationsSlice"
 import MUICommentIcon from '@mui/icons-material/Comment'
 import MUIDeleteSweepIcon from '@mui/icons-material/DeleteSweep'
 import MUIElderlyIcon from '@mui/icons-material/Elderly'
-import MUIPersonIcon from '@mui/icons-material/Person'
-import Menu from "./Menu/Menu";
+import Menu from "./Menu/Menu"
 
 
 export default function Home() {
     const {rememberMe} = useAppSelector((state) => state.congratulations)
     const {data, isSuccess, isError, isLoading, refetch} = useGetCongratulationsQuery()
     const [deleteCongratulation] = useDeleteCongratulationMutation()
+    const deleteCongratulationsList = useDeleteCongratulations()
     const [refresh] = useUpdateAccessTokenMutation()
     const dispatch = useAppDispatch()
 
@@ -60,12 +63,31 @@ export default function Home() {
                 <MUIButton
                     variant="outlined"
                     endIcon={<MUIElderlyIcon/>}
+                    onClick={() => {
+                        const idList: number[] = []
+                        const now = new Date()
+                        if (isSuccess && data?.length) {
+                            data.map(item => {
+                                if (new Date(item.alert_datetime) < now) idList.push(item.id)
+                            })
+                        }
+                        console.log(idList)
+                        deleteCongratulationsList(idList)
+                    }}
                 >
                     Удалить прошедшие
                 </MUIButton>
                 <MUIButton
                     variant="outlined"
                     endIcon={<MUIDeleteSweepIcon/>}
+                    onClick={() => {
+                        const idList: number[] = []
+                        if (isSuccess && data?.length) {
+                            data.map(item => idList.push(item.id))
+                        }
+                        console.log(idList)
+                        deleteCongratulationsList(idList)
+                    }}
                 >
                     Удалить все
                 </MUIButton>
@@ -154,11 +176,11 @@ const _ = {
         width: "400px",
     }),
     ItemInner: styled("div")<any>(({theme, ...props}) => ({
-        display: "flex",
-        justifyContent: "space-between",
+        // display: "flex",
+        // justifyContent: "space-between",
         minHeight: "40px",
         width: "100%",
-        padding: "10px",
+        padding: "10px 10px 5px",
         border: "1px solid",
         overflow: "hidden",
         color: props.disabled ? theme.palette.grey[400] : theme.palette.common.black,
@@ -169,11 +191,14 @@ const _ = {
         // marginRight: "10px",
     }),
     DateAndIconsContainer: styled("div")({
-        width: "200px",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center"
+        // width: "200px",
     }),
     Date: styled("div")({
-        width: "200px",
-        textAlign: "right",
+        // width: "200px",
+        // textAlign: "right",
     }),
     IconsContainer: styled("div")({
         display: "flex",
@@ -193,22 +218,6 @@ const _ = {
         color: theme.palette.primary.light,
     })),
     CommentIcon: styled(MUICommentIcon)(({theme}) => ({
-        color: theme.palette.primary.light,
-    })),
-    PersonIconWrapper: styled(IconButton)({
-        position: "absolute",
-        right: 0,
-        top: 4,
-        // ":hover": {
-        //     backgroundColor: "transparent",
-        // },
-        // ":hover svg": {
-        //     // color: "#000",
-        //     boxShadow: "0 0 10px rgba(0,0,0,0.5)",
-        // }
-    }),
-    PersonIcon: styled(MUIPersonIcon)(({theme}) => ({
-        fontSize: "40px",
         color: theme.palette.primary.light,
     })),
 }
