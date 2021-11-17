@@ -154,8 +154,11 @@ const _ = {
         display: 'flex',
         justifyContent: 'end',
         alignItems: "center",
-
-        "&>*": {
+        //Костыль: "&>*" почему-то не работает
+        "&>button": {
+            marginLeft: 10
+        },
+        "&>a": {
             marginLeft: 10
         }
     }),
@@ -180,7 +183,7 @@ const _ = {
         // justifyContent: "space-between",
         minHeight: "40px",
         width: "100%",
-        padding: "10px 10px 5px",
+        padding: "10px 15px 5px",
         border: "1px solid",
         overflow: "hidden",
         color: props.disabled ? theme.palette.grey[400] : theme.palette.common.black,
