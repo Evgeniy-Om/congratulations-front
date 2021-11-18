@@ -1,5 +1,5 @@
 import {Button as MUIButton} from "@mui/material"
-import ExitToAppIcon from '@mui/icons-material/ExitToApp'
+import MUIExitToAppIcon from '@mui/icons-material/ExitToApp'
 import clearStorages from "../../../core/features/clearStorages"
 import {changeAuthStatus} from "../../../core/store/congratulationsSlice"
 import Link from "../../../components/Link"
@@ -14,7 +14,7 @@ function LogoutLink() {
         <Link to="/login">
             <MUIButton
                 // variant="outlined"
-                endIcon={<ExitToAppIcon/>}
+                endIcon={<MUIExitToAppIcon/>}
                 onClick={() => {
                     logout()
                         .unwrap()

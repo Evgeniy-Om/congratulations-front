@@ -1,7 +1,7 @@
 import MUIAddIcon from '@mui/icons-material/Add'
 import MUIDeleteIcon from '@mui/icons-material/Delete'
 import MUIEditIcon from '@mui/icons-material/Edit'
-import {useAppDispatch, useAppSelector, useDeleteCongratulations} from "../../core/hooks"
+import {useAppDispatch, useAppSelector, useDeleteCongratulationsList} from "../../core/hooks"
 import format from 'date-fns/format'
 import {ru} from 'date-fns/locale'
 import {Button as MUIButton, IconButton, IconButton as MUIIconButton, styled, Tooltip} from "@mui/material"
@@ -23,7 +23,7 @@ export default function Home() {
     const {rememberMe} = useAppSelector((state) => state.congratulations)
     const {data, isSuccess, isError, isLoading, refetch} = useGetCongratulationsQuery()
     const [deleteCongratulation] = useDeleteCongratulationMutation()
-    const deleteCongratulationsList = useDeleteCongratulations()
+    const deleteCongratulationsList = useDeleteCongratulationsList()
     const [refresh] = useUpdateAccessTokenMutation()
     const dispatch = useAppDispatch()
 
@@ -54,7 +54,6 @@ export default function Home() {
 
     return (
         <>
-
             <_.Header>
                 <_.Title>Birthday book</_.Title>
                 <Menu/>

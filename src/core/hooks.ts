@@ -6,7 +6,7 @@ import {useDeleteCongratulationMutation} from "./api/services/congratulationsSer
 export const useAppDispatch = () => useDispatch<AppDispatch>()
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
-export function useDeleteCongratulations () {
+export function useDeleteCongratulationsList () {
     const [deleteCongratulation] = useDeleteCongratulationMutation()
     return (idList: number[]) => idList.forEach(item => deleteCongratulation(item))
 }
