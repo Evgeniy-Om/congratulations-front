@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  react-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "80:3000"
+    volumes:
+      - ./src:/app/src
+    environment:
+      - REACT_APP_NAME1=EvgeniyOm-dev
+      - CHOKIDAR_USEPOLLING=true
