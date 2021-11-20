@@ -5,7 +5,7 @@ RUN npm install
 COPY . .
 ARG REACT_APP_NAME1
 ENV REACT_APP_NAME1=$REACT_APP_NAME1
-RUN npm run build
+RUN npm run builddocker
 
 FROM nginx
 COPY --from=build /app/build /usr/share/nginx/html
