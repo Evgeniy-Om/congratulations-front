@@ -17,4 +17,15 @@ export type CongratulationItem = {
     comment: string | undefined
 }
 
+export type ChangePasswordFormInputs = {
+    password: string
+    repeat: string
+}
+
+export type SupportFormInputs = {
+    name: string
+    email: string
+    comment: string | undefined
+}
+
 export type AuthStatus = "none" | "public" | "private"
