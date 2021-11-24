@@ -1,29 +1,28 @@
 import MUIAddIcon from '@mui/icons-material/Add'
 import MUIDeleteIcon from '@mui/icons-material/Delete'
 import MUIEditIcon from '@mui/icons-material/Edit'
-import {useAppDispatch, useAppSelector, useDeleteCongratulationsList} from "../../core/hooks"
+import {useAppDispatch, useAppSelector} from "../../core/hooks"
 import format from 'date-fns/format'
 import {ru} from 'date-fns/locale'
 import {Button as MUIButton, IconButton, IconButton as MUIIconButton, styled, Tooltip} from "@mui/material"
 import Link from '../../components/Link'
 import {
     useDeleteCongratulationMutation,
-    useGetCongratulationsQuery
+    useGetCongratulationsQuery,
 } from '../../core/api/services/congratulationsService'
 import {useUpdateAccessTokenMutation} from "../../core/api/services/authService"
 import {useEffect} from "react"
 import {changeAuthStatus} from "../../core/store/congratulationsSlice"
 import MUICommentIcon from '@mui/icons-material/Comment'
-import MUIDeleteSweepIcon from '@mui/icons-material/DeleteSweep'
-import MUIElderlyIcon from '@mui/icons-material/Elderly'
 import Menu from "./Menu/Menu"
+import DeleteAllButton from "./DeleteAllButton"
+import DeleteOldButton from "./DeleteOldButton"
 
 
 export default function Home() {
     const {rememberMe} = useAppSelector((state) => state.congratulations)
     const {data, isSuccess, isError, isLoading, refetch} = useGetCongratulationsQuery()
     const [deleteCongratulation] = useDeleteCongratulationMutation()
-    const deleteCongratulationsList = useDeleteCongratulationsList()
     const [refresh] = useUpdateAccessTokenMutation()
     const dispatch = useAppDispatch()
 
@@ -59,37 +58,8 @@ export default function Home() {
                 <Menu/>
             </_.Header>
             <_.ButtonList>
-                <MUIButton
-                    variant="outlined"
-                    endIcon={<MUIElderlyIcon/>}
-                    onClick={() => {
-                        const idList: number[] = []
-                        const now = new Date()
-                        if (isSuccess && data?.length) {
-                            data.map(item => {
-                                if (new Date(item.alert_datetime) < now) idList.push(item.id)
-                            })
-                        }
-                        console.log(idList)
-                        deleteCongratulationsList(idList)
-                    }}
-                >
-                    Удалить прошедшие
-                </MUIButton>
-                <MUIButton
-                    variant="outlined"
-                    endIcon={<MUIDeleteSweepIcon/>}
-                    onClick={() => {
-                        const idList: number[] = []
-                        if (isSuccess && data?.length) {
-                            data.map(item => idList.push(item.id))
-                        }
-                        console.log(idList)
-                        deleteCongratulationsList(idList)
-                    }}
-                >
-                    Удалить все
-                </MUIButton>
+                <DeleteOldButton/>
+                <DeleteAllButton/>
                 <Link to="/new">
                     <MUIButton
                         variant="outlined"
@@ -155,11 +125,11 @@ const _ = {
         alignItems: "center",
         //Костыль: "&>*" почему-то не работает
         "&>button": {
-            marginLeft: 10
+            marginLeft: 10,
         },
         "&>a": {
-            marginLeft: 10
-        }
+            marginLeft: 10,
+        },
     }),
     Wrapper: styled("div")({
         display: "grid",
@@ -195,7 +165,7 @@ const _ = {
     DateAndIconsContainer: styled("div")({
         display: "flex",
         justifyContent: "space-between",
-        alignItems: "center"
+        alignItems: "center",
         // width: "200px",
     }),
     Date: styled("div")({
