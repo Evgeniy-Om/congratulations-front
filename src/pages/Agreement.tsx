@@ -1,8 +1,12 @@
 import React from 'react'
+import BackButton from "../components/BackButton"
 
 function Agreement() {
     return (
-        <div>Пользовательское соглашение</div>
+        <>
+            <div>Пользовательское соглашение</div>
+            <BackButton/>
+        </>
     )
 }
 

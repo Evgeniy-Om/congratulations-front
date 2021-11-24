@@ -18,6 +18,9 @@ export default function PrivateRoutes() {
                 <Route path="/account" exact>
                     <Account/>
                 </Route>
+                <Route path="/support" exact>
+                    <Support/>
+                </Route>
                 <Route path="/agreement">
                     <Agreement/>
                 </Route>

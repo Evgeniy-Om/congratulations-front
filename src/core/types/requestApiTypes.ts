@@ -8,6 +8,22 @@ export type RegistrationRequest = {
     password: string
 }
 
+export type ResetPasswordEmailRequest = {
+    email: string
+}
+
+export type ResetPasswordCompleteRequest = {
+    password: string
+    token: string
+    uidb64: string
+}
+
+export type SupportEmailRequest = {
+    email: string
+    name: string
+    body: string
+}
+
 export type AddCongratulationRequest = {
     bday_name: string
     alert_datetime: string
