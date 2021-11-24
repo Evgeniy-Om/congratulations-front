@@ -1,4 +1,4 @@
-import { Button, styled} from "@mui/material"
+import {Button, styled} from "@mui/material"
 import BackButton from "../components/BackButton"
 import {ChangePasswordFormInputs, RegistrationFormInputs} from "../core/types/globalTypes"
 import {FormProvider, useForm} from "react-hook-form"
@@ -32,29 +32,33 @@ function Account() {
         }
     }
     return (
-        <_.Wrapper>
-            {isError && <_.Error>Ошибка</_.Error>}
+        <div>
             <BackButton/>
-            <FormProvider {...methods} >
-                <h3>Смена пароля</h3>
-                <form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
-                    <_.Inner>
-                        <TextField name="password" type="password" label="Пароль" required/>
-                        <TextField name="repeat" type="password" label="Повторите пароль" required/>
-                        <Button type="submit" variant="contained">Изменить пароль</Button>
-                    </_.Inner>
-                </form>
-            </FormProvider>
-            <div>
-                <Link to="/support">
-                    Связаться с поддержкой
-                </Link>
-            </div>
+            <_.Wrapper>
+                {isError && <_.Error>Ошибка</_.Error>}
 
-            <Link to="/agreement">
-                Пользовательское соглашение
-            </Link>
-        </_.Wrapper>
+                <FormProvider {...methods} >
+                    <h3>Смена пароля</h3>
+                    <form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
+                        <_.Inner>
+                            <TextField name="password" type="password" label="Пароль" required/>
+                            <TextField name="repeat" type="password" label="Повторите пароль" required/>
+                            <Button type="submit" variant="contained">Изменить пароль</Button>
+                        </_.Inner>
+                    </form>
+                </FormProvider>
+                <_.Links>
+                    <Link to="/support">
+                        Связаться с поддержкой
+                    </Link>
+
+
+                    <Link to="/agreement">
+                        Пользовательское соглашение
+                    </Link>
+                </_.Links>
+            </_.Wrapper>
+        </div>
     )
 }
 
@@ -74,8 +78,14 @@ const _ = {
     AgreementLinkContainer: styled("div")({
         marginTop: "20px",
     }),
-    AgreementLink: styled(Link)(({theme}) => ({
-        color: theme.palette.text.primary,
+    Links: styled("div")(({theme}) => ({
+        display: "flex",
+        justifyContent: "space-around",
+        height: 80,
+        flexDirection: "column",
+        "& > a": {
+            color: theme.palette.text.primary
+        },
     })),
     Error: styled('div')(({theme}) => ({
         marginBottom: "20px",

@@ -69,8 +69,6 @@ export default function Home() {
                     </MUIButton>
                 </Link>
             </_.ButtonList>
-
-            <hr/>
             {isLoading && <div>Loading...</div>}
             <_.Wrapper>
                 {isSuccess && data?.length === 0 && <_.EmptyMessage>Добавьте первого именинника!</_.EmptyMessage>}
@@ -123,6 +121,7 @@ const _ = {
         display: 'flex',
         justifyContent: 'end',
         alignItems: "center",
+        marginBottom: 20,
         //Костыль: "&>*" почему-то не работает
         "&>button": {
             marginLeft: 10,
