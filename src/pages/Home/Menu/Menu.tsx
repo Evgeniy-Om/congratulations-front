@@ -7,6 +7,7 @@ import { useState } from "react"
 import MUIMenuIcon from '@mui/icons-material/Menu';
 import LogoutLink from "./LogoutLink"
 import AccountLink from "./AccountLink"
+import SupportLink from "./SupportLink";
 
 function Menu() {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -24,13 +25,10 @@ function Menu() {
 
     return (
         <>
-            {/*<MUIButton aria-describedby={id} variant="contained" onClick={handleClick}>*/}
-            {/*    Open Popover*/}
-            {/*</MUIButton>*/}
             <_.MenuIconWrapper>
                 <_.MenuIcon aria-describedby={id} onClick={handleClick}/>
             </_.MenuIconWrapper>
-            <_.Popover
+            <MUIPopover
                 id={id}
                 open={open}
                 anchorEl={anchorEl}
@@ -46,10 +44,11 @@ function Menu() {
             >
                 <_.Modal>
                     <AccountLink/>
+                    <SupportLink/>
                     <LogoutLink/>
                 </_.Modal>
 
-            </_.Popover>
+            </MUIPopover>
         </>
     );
 }
@@ -70,23 +69,14 @@ const _ = {
         // }
     }),
     MenuIcon: styled(MUIMenuIcon)(({theme}) => ({
-        // position: "relative",
-        // top: 8,
         fontSize: "35px",
         color: theme.palette.primary.light,
 
     })),
-    Popover: styled(MUIPopover)({
-        // position: "absolute",
-        // right: 0,
-        // top: 0,
-    }),
     Modal: styled("div")({
         display: "flex",
         flexDirection: "column",
         alignItems: "end",
-        // width: 300,
-        // height: 100,
         padding: 20
     }),
 }

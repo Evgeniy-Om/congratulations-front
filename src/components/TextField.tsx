@@ -2,12 +2,10 @@ import React from 'react'
 import {styled, TextField as MUITextField} from "@mui/material"
 import {useFormContext} from 'react-hook-form'
 
-// function TextField<T extends Record<string, unknown>>({name, isWatch, limitSymbols, ...rest}: Props & T) {
 function TextField<T extends Record<string, unknown>>(props: Props & T) {
     const {name, isWatch, maxLength, inputProps, ...rest} = props
     const {register, formState: {errors}, watch} = useFormContext()
-    console.log(maxLength)
-// debugger
+
     return (
         <_.Wrapper>
             <_.TextField

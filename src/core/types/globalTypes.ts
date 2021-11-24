@@ -25,7 +25,7 @@ export type ChangePasswordFormInputs = {
 export type SupportFormInputs = {
     name: string
     email: string
-    comment: string | undefined
+    comment: string
 }
 
 export type AuthStatus = "none" | "public" | "private"

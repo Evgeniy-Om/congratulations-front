@@ -4,7 +4,7 @@ import {yupResolver} from "@hookform/resolvers/yup"
 import SocialButton from "../components/SocialButton"
 import TextField from "../components/TextField"
 import {loginValidationSchema} from "../core/yupValidastionSchemes"
-import {Link, useHistory} from "react-router-dom"
+import {Link} from "react-router-dom"
 import type {LoginFormInputs} from "../core/types/globalTypes"
 import {useLoginMutation} from "../core/api/services/authService"
 import Checkbox from "../components/Checkbox"
@@ -16,7 +16,6 @@ import {EMAIL_DEFAULT, PASSWORD_DEFAULT} from "../core/constants"
 export default function Login() {
     const [login, {isError}] = useLoginMutation()
     const [errorMessage, setErrorMessage] = useState("")
-    const history = useHistory()
     const dispatch = useAppDispatch()
     const methods = useForm<LoginFormInputs>({
         mode: "onBlur",
