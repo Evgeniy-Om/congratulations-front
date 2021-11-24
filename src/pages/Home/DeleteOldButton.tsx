@@ -1,17 +1,18 @@
-import {Button as MUIButton, Modal, styled} from "@mui/material"
+import {Button as MUIButton, IconButton as MUIIconButton, Modal, styled, Tooltip, useMediaQuery} from "@mui/material"
 import {useState} from "react"
-import MUIDeleteSweepIcon from "@mui/icons-material/DeleteSweep"
 import {
     useGetCongratulationsQuery,
 } from "../../core/api/services/congratulationsService"
 import {useDeleteCongratulationsList} from "../../core/hooks"
 import MUICheckIcon from '@mui/icons-material/Check'
 import MUICloseIcon from '@mui/icons-material/Close'
+import MUIElderlyIcon from '@mui/icons-material/Elderly'
 
 
 function DeleteOldButton() {
     const {data, isSuccess} = useGetCongratulationsQuery()
     const deleteCongratulationsList = useDeleteCongratulationsList()
+    const matches = useMediaQuery('(min-width: 1040px)')
 
     const [open, setOpen] = useState(false)
     const handleOpen = () => {
@@ -35,13 +36,22 @@ function DeleteOldButton() {
 
     return (
         <_.Wrapper>
-            <MUIButton
+            {matches && <MUIButton
                 variant="outlined"
-                endIcon={<MUIDeleteSweepIcon/>}
+                endIcon={<MUIElderlyIcon/>}
                 onClick={handleOpen}
             >
                 Удалить прошедшие
-            </MUIButton>
+            </MUIButton>}
+            {!matches && <Tooltip title="Удалить неактуальные записи" placement="bottom">
+                <MUIIconButton
+                    aria-label="deleteOld"
+                    onClick={handleOpen}
+                    color="primary"
+                >
+                    <MUIElderlyIcon/>
+                </MUIIconButton>
+            </Tooltip>}
             <Modal open={open} onClose={handleClose}>
                 <_.ModalWrapper>
                     <h2>Удалить неактуальные записи?</h2>
@@ -78,7 +88,7 @@ const _ = {
         position: "absolute",
         top: "50%",
         left: "50%",
-        width: 500,
+        width: 400,
         padding: "10px 20px 30px",
         transform: "translate(-50%, -50%)",
         backgroundColor: "white",

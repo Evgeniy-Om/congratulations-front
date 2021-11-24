@@ -1,4 +1,11 @@
-import {Button as MUIButton, Modal, styled} from "@mui/material"
+import {
+    Button as MUIButton,
+    IconButton as MUIIconButton,
+    Modal,
+    styled,
+    Tooltip,
+    useMediaQuery,
+} from "@mui/material"
 import {useState} from "react"
 import MUIDeleteSweepIcon from "@mui/icons-material/DeleteSweep"
 import {
@@ -12,6 +19,7 @@ import MUICloseIcon from '@mui/icons-material/Close'
 function DeleteAllButton() {
     const {data, isSuccess} = useGetCongratulationsQuery()
     const deleteCongratulationsList = useDeleteCongratulationsList()
+    const matches = useMediaQuery('(min-width: 1040px)')
 
     const [open, setOpen] = useState(false)
     const handleOpen = () => {
@@ -32,13 +40,25 @@ function DeleteAllButton() {
 
     return (
         <_.Wrapper>
-            <MUIButton
+
+            {matches && <_.DeleteAll
                 variant="outlined"
                 endIcon={<MUIDeleteSweepIcon/>}
                 onClick={handleOpen}
             >
                 Удалить все
-            </MUIButton>
+            </_.DeleteAll>}
+            {!matches &&
+            <Tooltip title="Удалить все записи" placement="bottom">
+                <MUIIconButton
+                    aria-label="deleteAll"
+                    onClick={handleOpen}
+                    color="primary"
+                >
+                    <MUIDeleteSweepIcon/>
+                </MUIIconButton>
+            </Tooltip>}
+
             <Modal open={open} onClose={handleClose}>
                 <_.ModalWrapper>
                     <h2>Удалить все записи?</h2>
@@ -83,6 +103,8 @@ const _ = {
         textAlign: "center",
         borderRadius: theme.shape.borderRadius,
     })),
+    DeleteAll: styled(MUIButton)({
+    }),
     ConfirmButton: styled(MUIButton)({
         marginRight: 20
     }),
