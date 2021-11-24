@@ -38,13 +38,16 @@ export default function Login() {
                     localStorage.setItem("access_token", payload.tokens.access)
                     localStorage.setItem("exp_access", `${payload.tokens.access_live}UTC`)
                     localStorage.setItem("refresh_token", payload.tokens.refresh)
+                    localStorage.setItem("email", payload.email)
                 } else {
                     localStorage.removeItem("access_token")
                     localStorage.removeItem("exp_access")
                     localStorage.removeItem("refresh_token")
+                    localStorage.removeItem("email")
                     sessionStorage.setItem("access_token", payload.tokens.access)
                     sessionStorage.setItem("exp_access", `${payload.tokens.access_live}UTC`)
                     sessionStorage.setItem("refresh_token", payload.tokens.refresh)
+                    sessionStorage.setItem("email", payload.email)
                 }
                 dispatch(changeAuthStatus("private"))
                 // history.push("/")
