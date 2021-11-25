@@ -4,7 +4,12 @@ import type {LoginRequest, RegistrationRequest} from "../../types/requestApiType
 import type {LoginResponse, RefreshResponse, RegistrationResponse} from "../../types/responseApiTypes"
 import {LogoutResponse} from "../../types/responseApiTypes"
 import getAccessToken from "../../features/getAccessToken"
-import {ResetPasswordCompleteRequest, ResetPasswordEmailRequest, SupportEmailRequest} from "../../types/requestApiTypes"
+import {
+    RepeatEmailVerifyRequest,
+    ResetPasswordCompleteRequest,
+    ResetPasswordEmailRequest,
+    SupportEmailRequest,
+} from "../../types/requestApiTypes"
 
 export const authApi = emptySplitApi.injectEndpoints({
     endpoints: (builder) => ({
@@ -62,6 +67,13 @@ export const authApi = emptySplitApi.injectEndpoints({
                 body: credentials,
             }),
         }),
+        repeatEmailVerify: builder.mutation<void, RepeatEmailVerifyRequest>({
+            query: (credentials) => ({
+                url: 'auth/repeat-email-verify/',
+                method: 'POST',
+                body: credentials,
+            }),
+        }),
     }),
 })
 
@@ -72,5 +84,6 @@ export const {
     useLogoutMutation,
     usePasswordResetEmailMutation,
     usePasswordResetCompleteMutation,
-    useSupportEmailMutation
+    useSupportEmailMutation,
+    useRepeatEmailVerifyMutation
 } = authApi

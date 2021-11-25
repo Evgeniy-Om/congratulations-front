@@ -1,15 +1,16 @@
-import {Button, styled} from "@mui/material"
+import {Button as MUIButton, Button, styled} from "@mui/material"
 import BackButton from "../components/BackButton"
 import {ChangePasswordFormInputs, RegistrationFormInputs} from "../core/types/globalTypes"
 import {FormProvider, useForm} from "react-hook-form"
 import TextField from "../components/TextField"
 import {Link, useHistory} from "react-router-dom"
-import {usePasswordResetEmailMutation} from "../core/api/services/authService"
+import {usePasswordResetEmailMutation, useRepeatEmailVerifyMutation} from "../core/api/services/authService"
 import {yupResolver} from "@hookform/resolvers/yup"
 import {ChangePasswordValidationSchema} from "../core/yupValidastionSchemes"
 
 function Account() {
     const [passwordResetEmail, {isError}] = usePasswordResetEmailMutation()
+    const [repeatEmailVerify] = useRepeatEmailVerifyMutation()
 
     const history = useHistory()
     const methods = useForm<RegistrationFormInputs>({
@@ -34,11 +35,26 @@ function Account() {
     return (
         <div>
             <BackButton/>
+
             <_.Wrapper>
+                <h4>Для доступа к кабинету подтвердите емейл</h4>
+                <MUIButton
+                    variant="contained"
+                    onClick={() => {
+                        const email = sessionStorage.getItem("email") ?? localStorage.getItem("email")
+                        if (email) {
+                            repeatEmailVerify({email})
+                        }
+
+                    }}
+                >
+                    Отправить письмо повторно
+                </MUIButton>
+
                 {isError && <_.Error>Ошибка</_.Error>}
 
                 <FormProvider {...methods} >
-                    <h3>Смена пароля</h3>
+                    <h4>Смена пароля</h4>
                     <form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
                         <_.Inner>
                             <TextField name="password" type="password" label="Пароль" required/>

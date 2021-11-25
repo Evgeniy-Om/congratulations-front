@@ -24,6 +24,10 @@ export type SupportEmailRequest = {
     body: string
 }
 
+export type RepeatEmailVerifyRequest = {
+    email: string
+}
+
 export type AddCongratulationRequest = {
     bday_name: string
     alert_datetime: string

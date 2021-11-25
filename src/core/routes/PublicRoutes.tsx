@@ -4,6 +4,7 @@ import Login from "../../pages/Login"
 import Registration from "../../pages/Registration"
 import ConfirmEmail from "../../pages/ConfirmEmail"
 import Agreement from "../../pages/Agreement"
+import EmailVerify from "../../pages/EmailVerify"
 
 export default function PublicRoutes() {
     return (
@@ -17,6 +18,9 @@ export default function PublicRoutes() {
                 </Route>
                 <Route path="/confirm">
                     <ConfirmEmail/>
+                </Route>
+                <Route path="/auth/email-verify/">
+                    <EmailVerify/>
                 </Route>
                 <Route path="/agreement">
                     <Agreement/>
