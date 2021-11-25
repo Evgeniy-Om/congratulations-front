@@ -4,11 +4,7 @@ import type {LoginRequest, RegistrationRequest} from "../../types/requestApiType
 import type {LoginResponse, RefreshResponse, RegistrationResponse} from "../../types/responseApiTypes"
 import {LogoutResponse} from "../../types/responseApiTypes"
 import getAccessToken from "../../features/getAccessToken"
-import {
-    ResetPasswordCompleteRequest,
-    ResetPasswordEmailRequest,
-    SupportEmailRequest,
-} from "../../types/requestApiTypes"
+import {SupportEmailRequest} from "../../types/requestApiTypes"
 
 export const authApi = emptySplitApi.injectEndpoints({
     endpoints: (builder) => ({
@@ -45,17 +41,11 @@ export const authApi = emptySplitApi.injectEndpoints({
                 // credentials: "include"
             }),
         }),
-        passwordResetEmail: builder.mutation<void, ResetPasswordEmailRequest>({
+        passwordChange: builder.mutation<void, {password: string, access_token: string}>({
             query: (credentials) => ({
-                url: 'auth/password-reset-email/',
-                method: 'POST',
-                body: credentials,
-            }),
-        }),
-        passwordResetComplete: builder.mutation<void, ResetPasswordCompleteRequest>({
-            query: (credentials) => ({
-                url: 'auth/password-reset-email/',
+                url: 'auth/password-change/',
                 method: 'PATCH',
+                headers: getAccessToken(),
                 body: credentials,
             }),
         }),
@@ -88,8 +78,7 @@ export const {
     useRegistrationMutation,
     useUpdateAccessTokenMutation,
     useLogoutMutation,
-    usePasswordResetEmailMutation,
-    usePasswordResetCompleteMutation,
+    usePasswordChangeMutation,
     useSupportEmailMutation,
     useRepeatEmailVerifyMutation,
     useIsEmailVerifyMutation,

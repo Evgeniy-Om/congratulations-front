@@ -5,6 +5,7 @@ import Agreement from "../../pages/Agreement"
 import Home from "../../pages/Home/Home"
 import Edit from '../../pages/Edit/Edit'
 import Account from "../../pages/Account"
+import Support from "../../pages/Support"
 
 
 export default function PrivateRoutes() {
