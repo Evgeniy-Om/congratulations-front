@@ -79,7 +79,7 @@ export default function Home() {
                                 {item.bday_name}
                             </_.Name>
                             <_.DateAndIconsContainer>
-                                <_.Date>{item.alert_datetime && format(new Date(item.alert_datetime), "d MMMM yyyy в hh:mm", {locale: ru})}</_.Date>
+                                <_.Date>{item.alert_datetime && format(new Date(item.alert_datetime), "d MMMM yyyy в HH:mm", {locale: ru})}</_.Date>
                                 <_.IconsContainer>
                                     {item.comment &&
                                     <Tooltip title={item.comment} placement="bottom-end">

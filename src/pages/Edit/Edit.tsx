@@ -35,6 +35,7 @@ export default function Edit({match}: RouteComponentProps<{ id: string }>) {
 
     const onSubmit: SubmitHandler<CongratulationItem> = (data) => {
         const modifiedData = getModifiedData(data, idEditableItem)
+        console.log(modifiedData)
         editCongratulation(modifiedData)
             .unwrap()
             .then((payload) => {

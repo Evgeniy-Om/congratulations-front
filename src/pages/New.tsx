@@ -18,7 +18,11 @@ export default function New() {
     })
 
     const onSubmit: SubmitHandler<CongratulationItem> = (data) => {
-        const modifyData = {...data, alert_datetime: new Date(data.alert_datetime).toJSON()}
+        const notify_by_email = data.notify_by_email ?? false
+
+        const modifyData = {...data, alert_datetime: new Date(data.alert_datetime).toJSON(), notify_by_email: notify_by_email}
+        console.log(data)
+        console.log(modifyData)
         addCongratulation(modifyData)
             .unwrap()
             .then((payload) => {
