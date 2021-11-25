@@ -15,9 +15,11 @@ import {Link} from "react-router-dom"
 import CommentInput from "./CommentInput"
 import NameInput from "./NameInput"
 import MUIHelpOutlineIcon from '@mui/icons-material/HelpOutline'
+import {useAppSelector} from "../../core/hooks"
 
 export default function FormCongratulation({page}: PropsTypes) {
     const {register, control} = useFormContext()
+    const {isEmailVerify} = useAppSelector((state) => state.congratulations)
     return (
         <_.Wrapper>
             {/*React Hook Form контролирует DatePicker из Material UI, который в свою очередь рендерит TextField*/}
@@ -61,17 +63,30 @@ export default function FormCongratulation({page}: PropsTypes) {
             <NameInput/>
             <CommentInput/>
             <_.EmailCheckbox>
-                <_.Label
-                    {...register("notify_by_email")}
-                    control={<MUICheckbox/>}
-                    label={"Уведомить по e-mail"}
-                    disabled={true}
-                />
-                <Tooltip
-                    title="Подтвердите емейл, перейдя по ссылке из письма в вашем почтовом ящике. Если вы не получили письмо: 1. проверьте папку Спам, 2. либо повторно отправьте ссылку из личного кабинета сайта"
-                    placement="bottom">
-                    <MUIHelpOutlineIcon color="primary"/>
-                </Tooltip>
+                {
+                    !isEmailVerify &&
+                    <>
+                        <_.Label
+                            {...register("notify_by_email")}
+                            control={<MUICheckbox/>}
+                            label={"Уведомить по e-mail"}
+                            disabled={true}
+                        />
+                        <Tooltip
+                            title="Подтвердите емейл, перейдя по ссылке из письма в вашем почтовом ящике. Если вы не получили письмо: 1. проверьте папку Спам, 2. либо повторно отправьте ссылку из личного кабинета сайта"
+                            placement="bottom">
+                            <MUIHelpOutlineIcon color="primary"/>
+                        </Tooltip>
+                    </>
+                }
+                {
+                    isEmailVerify &&
+                    <_.Label
+                        {...register("notify_by_email")}
+                        control={<MUICheckbox/>}
+                        label={"Уведомить по e-mail"}
+                    />
+                }
             </_.EmailCheckbox>
 
 
@@ -95,7 +110,7 @@ const _ = {
         flexDirection: "column",
     }),
     Label: styled(FormControlLabel)({
-        marginRight: 10
+        marginRight: 10,
     }),
     RegistrationLink: styled(Link)(({theme}) => ({
         margin: "15px 0",
@@ -105,6 +120,6 @@ const _ = {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        marginBottom: 20
-    })
+        marginBottom: 20,
+    }),
 }

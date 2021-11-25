@@ -1,8 +1,15 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {Button as MUIButton, styled} from "@mui/material"
 import Link from "../components/Link"
+import {changeEmailVerifyStatus} from "../core/store/congratulationsSlice"
+import {useAppDispatch} from "../core/hooks"
 
 function EmailVerify() {
+    const dispatch = useAppDispatch()
+
+    useEffect(() => {
+        dispatch(changeEmailVerifyStatus(true))
+    },[])
     return (
         <_.Wrapper>
             <div>Емейл подтверждён!</div>

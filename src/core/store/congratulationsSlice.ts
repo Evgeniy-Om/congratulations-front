@@ -3,7 +3,8 @@ import {AuthStatus} from "../types/globalTypes"
 
 const initialState: InitialState = {
     authStatus: "none",
-    rememberMe: true
+    rememberMe: true,
+    isEmailVerify: false
 }
 
 export const congratulationsSlice = createSlice({
@@ -16,11 +17,14 @@ export const congratulationsSlice = createSlice({
         checkRememberMe: (state, action: PayloadAction<boolean>) => {
             state.rememberMe = action.payload
         },
+        changeEmailVerifyStatus: (state, action: PayloadAction<boolean>) => {
+            state.isEmailVerify = action.payload
+        },
     },
 })
 
 // Action creators are generated for each case reducer function
-export const {changeAuthStatus, checkRememberMe} = congratulationsSlice.actions
+export const {changeAuthStatus, checkRememberMe, changeEmailVerifyStatus} = congratulationsSlice.actions
 
 export default congratulationsSlice.reducer
 
@@ -28,4 +32,5 @@ export default congratulationsSlice.reducer
 type InitialState = {
     authStatus: AuthStatus
     rememberMe: boolean
+    isEmailVerify: boolean
 }
