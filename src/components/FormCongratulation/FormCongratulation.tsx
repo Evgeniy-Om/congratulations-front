@@ -4,14 +4,20 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns"
 import ruLocale from "date-fns/locale/ru"
 import {getMaxDateCalendar} from "../../core/features/getMaxDateCalendar"
 import TextField from "../TextField"
-import Checkbox from "../Checkbox"
-import {Button as MUIButton, FormControlLabel, styled} from "@mui/material"
+import {
+    Button as MUIButton,
+    Checkbox as MUICheckbox,
+    FormControlLabel,
+    styled,
+    Tooltip,
+} from "@mui/material"
 import {Link} from "react-router-dom"
 import CommentInput from "./CommentInput"
 import NameInput from "./NameInput"
+import MUIHelpOutlineIcon from '@mui/icons-material/HelpOutline'
 
 export default function FormCongratulation({page}: PropsTypes) {
-    const {control} = useFormContext()
+    const {register, control} = useFormContext()
     return (
         <_.Wrapper>
             {/*React Hook Form контролирует DatePicker из Material UI, который в свою очередь рендерит TextField*/}
@@ -38,7 +44,7 @@ export default function FormCongratulation({page}: PropsTypes) {
                                         {...params}
                                         name="alert_datetime"
                                         label="Когда поздравить?"
-                                        datePlaceholder='дд.мм.гггг чч:мм'
+                                        datePlaceholder="дд.мм.гггг чч:мм"
                                         inputProps={{
                                             ...params.inputProps,
                                             placeholder: 'дд.мм.гггг чч:мм',
@@ -53,13 +59,21 @@ export default function FormCongratulation({page}: PropsTypes) {
             />
 
             <NameInput/>
-
             <CommentInput/>
+            <_.EmailCheckbox>
+                <_.Label
+                    {...register("notify_by_email")}
+                    control={<MUICheckbox/>}
+                    label={"Уведомить по e-mail"}
+                    disabled={true}
+                />
+                <Tooltip
+                    title="Подтвердите емейл, перейдя по ссылке из письма в вашем почтовом ящике. Если вы не получили письмо: 1. проверьте папку Спам, 2. либо повторно отправьте ссылку из личного кабинета сайта"
+                    placement="bottom">
+                    <MUIHelpOutlineIcon color="primary"/>
+                </Tooltip>
+            </_.EmailCheckbox>
 
-            <Checkbox
-                name="notify_by_email"
-                label="Уведомить по e-mail"
-            />
 
             <MUIButton type="submit" variant="contained">
                 {page === "New" ? "Создать" : "Изменить"}
@@ -81,10 +95,16 @@ const _ = {
         flexDirection: "column",
     }),
     Label: styled(FormControlLabel)({
-        margin: "0 auto 10px",
+        marginRight: 10
     }),
     RegistrationLink: styled(Link)(({theme}) => ({
         margin: "15px 0",
         color: theme.palette.text.primary,
     })),
+    EmailCheckbox: styled("div")({
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        marginBottom: 20
+    })
 }

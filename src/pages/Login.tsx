@@ -1,4 +1,4 @@
-import {Button as MUIButton, FormControlLabel, styled} from "@mui/material"
+import {Button as MUIButton, Checkbox as MUICheckbox, FormControlLabel, styled} from "@mui/material"
 import {FormProvider, useForm} from "react-hook-form"
 import {yupResolver} from "@hookform/resolvers/yup"
 import SocialButton from "../components/SocialButton"
@@ -7,7 +7,6 @@ import {loginValidationSchema} from "../core/yupValidastionSchemes"
 import {Link} from "react-router-dom"
 import type {LoginFormInputs} from "../core/types/globalTypes"
 import {useLoginMutation} from "../core/api/services/authService"
-import Checkbox from "../components/Checkbox"
 import {useAppDispatch} from "../core/hooks"
 import {changeAuthStatus} from "../core/store/congratulationsSlice"
 import {useState} from "react"
@@ -68,7 +67,11 @@ export default function Login() {
                 <_.Form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
                     <TextField name="email" type="email" label="Эл. почта" required/>
                     <TextField name="password" type="password" label="Пароль" required/>
-                    <Checkbox name="rememberMe" label="Запомнить меня"/>
+                    <_.Label
+                        {...methods.register("rememberMe")}
+                        control={<MUICheckbox defaultChecked/>}
+                        label={"Запомнить меня"}
+                    />
                     <MUIButton type="submit" variant="contained">Вход</MUIButton>
                     <_.RegistrationLink to="/registration">
                         Ещё не зарегистрированы?
@@ -89,9 +92,6 @@ const _ = {
         display: "flex",
         flexDirection: "column",
     }),
-    Label: styled(FormControlLabel)({
-        margin: "0 auto 10px",
-    }),
     Error: styled('div')(({theme}) => ({
         marginBottom: "20px",
         color: theme.palette.error.main,
@@ -100,4 +100,7 @@ const _ = {
         margin: "15px 0",
         color: theme.palette.text.primary,
     })),
+    Label: styled(FormControlLabel)({
+        margin: "0 auto 10px",
+    }),
 }

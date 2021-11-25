@@ -41,30 +41,35 @@ function Support() {
     )
 
     return (
-        <_.Wrapper>
+        <div>
             <BackButton/>
-            <h3>Поддержка</h3>
 
-            <FormProvider {...methods} >
-                <form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
-                    <_.Inner>
-                        <TextField name="name" type="text" label="Имя" required/>
-                        <TextField name="email" type="email" label="Эл. почта" required/>
-                        <TextField
-                            name="comment"
-                            type="text"
-                            label="Опишите, пожалуйста, вашу проблему"
-                            isWatch={true}
-                            multiline
-                            rows={4}
-                            maxLength={250}
-                            required
-                        />
-                        <Button type="submit" variant="contained">Отправить</Button>
-                    </_.Inner>
-                </form>
-            </FormProvider>
-        </_.Wrapper>
+            <h2>Поддержка</h2>
+            <hr/>
+            <br/>
+            <br/>
+            <_.Wrapper>
+                <FormProvider {...methods} >
+                    <form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
+                        <_.Inner>
+                            <TextField name="name" type="text" label="Имя" required/>
+                            <TextField name="email" type="email" label="Эл. почта" required/>
+                            <TextField
+                                name="comment"
+                                type="text"
+                                label="Опишите, пожалуйста, вашу проблему"
+                                isWatch={true}
+                                multiline
+                                rows={4}
+                                maxLength={250}
+                                required
+                            />
+                            <Button type="submit" variant="contained">Отправить</Button>
+                        </_.Inner>
+                    </form>
+                </FormProvider>
+            </_.Wrapper>
+        </div>
     )
 }
 
