@@ -4,13 +4,13 @@ import {yupResolver} from "@hookform/resolvers/yup"
 import SocialButton from "../components/SocialButton"
 import TextField from "../components/TextField"
 import {loginValidationSchema} from "../core/yupValidastionSchemes"
-import {Link} from "react-router-dom"
 import type {LoginFormInputs} from "../core/types/globalTypes"
 import {useLoginMutation} from "../core/api/services/authService"
 import {useAppDispatch} from "../core/hooks"
 import {changeAuthStatus} from "../core/store/congratulationsSlice"
 import {useState} from "react"
 import {EMAIL_DEFAULT, PASSWORD_DEFAULT} from "../core/constants"
+import { Link } from "react-router-dom"
 
 export default function Login() {
     const [login, {isError}] = useLoginMutation()
@@ -67,6 +67,9 @@ export default function Login() {
                 <_.Form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
                     <TextField name="email" type="email" label="Эл. почта" required/>
                     <TextField name="password" type="password" label="Пароль" required/>
+                    <_.RecoveryPassword to="/recovery-password">
+                        Забыли пароль?
+                    </_.RecoveryPassword>
                     <_.Label
                         {...methods.register("rememberMe")}
                         control={<MUICheckbox defaultChecked/>}
@@ -83,7 +86,6 @@ export default function Login() {
     )
 }
 
-// _ Components
 const _ = {
     Wrapper: styled("div")({
         textAlign: "center",
@@ -103,4 +105,15 @@ const _ = {
     Label: styled(FormControlLabel)({
         margin: "0 auto 10px",
     }),
+    RecoveryPassword: styled(Link)(({theme}) => ({
+        alignSelf: "end",
+        marginTop: -20,
+        marginBottom: 20,
+        color: theme.palette.primary.light,
+        textDecoration: "none",
+        fontSize: 13,
+        "&:hover": {
+            textDecoration: "underline"
+        }
+    })),
 }

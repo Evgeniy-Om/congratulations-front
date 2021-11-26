@@ -1,11 +1,11 @@
 import {Button as MUIButton, Button, styled} from "@mui/material"
 import BackButton from "../components/BackButton"
-import {ChangePasswordFormInputs, RegistrationFormInputs} from "../core/types/globalTypes"
+import {RegistrationFormInputs} from "../core/types/globalTypes"
 import {FormProvider, useForm} from "react-hook-form"
 import TextField from "../components/TextField"
-import {Link, useHistory} from "react-router-dom"
+import {Link} from "react-router-dom"
 import {
-    usePasswordResetEmailMutation,
+    useLogoutMutation, usePasswordChangeMutation,
     useRepeatEmailVerifyMutation,
 } from "../core/api/services/authService"
 import {yupResolver} from "@hookform/resolvers/yup"
@@ -13,24 +13,24 @@ import {ChangePasswordValidationSchema} from "../core/yupValidastionSchemes"
 import {useAppSelector} from "../core/hooks"
 
 function Account() {
-    const [passwordResetEmail] = usePasswordResetEmailMutation()
+    const [passwordChange] = usePasswordChangeMutation()
     const [repeatEmailVerify] = useRepeatEmailVerifyMutation()
     const {isEmailVerify} = useAppSelector((state) => state.congratulations)
+    const [logout] = useLogoutMutation()
+    const accessToken = sessionStorage.getItem("access_token") ?? localStorage.getItem("access_token")
 
-    const history = useHistory()
     const methods = useForm<RegistrationFormInputs>({
         mode: "onTouched",
         resolver: yupResolver(ChangePasswordValidationSchema),
     })
-    const onSubmit = (data: ChangePasswordFormInputs) => {
+
+    const onSubmit = (data: { password: string, repeat: string }) => {
         console.log(data)
-        localStorage.setItem("tempNewPass", data.password)
-        const email = sessionStorage.getItem("email") ?? localStorage.getItem("email")
-        if (email) {
-            passwordResetEmail({email})
+        if (accessToken) {
+            passwordChange({password: data.password, access_token: accessToken})
                 .unwrap()
                 .then(() => {
-                    history.push("/confirm")
+                    logout()
                 })
                 .catch((error) => {
                     console.error('rejected', error)
