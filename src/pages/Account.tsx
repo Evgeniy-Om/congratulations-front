@@ -5,19 +5,22 @@ import {FormProvider, useForm} from "react-hook-form"
 import TextField from "../components/TextField"
 import {Link} from "react-router-dom"
 import {
-    useLogoutMutation, usePasswordChangeMutation,
+    usePasswordChangeMutation,
     useRepeatEmailVerifyMutation,
 } from "../core/api/services/authService"
 import {yupResolver} from "@hookform/resolvers/yup"
 import {ChangePasswordValidationSchema} from "../core/yupValidastionSchemes"
-import {useAppSelector} from "../core/hooks"
+import {useAppDispatch, useAppSelector, useIsEmailVerify} from "../core/hooks"
+import {changeAuthStatus} from "../core/store/congratulationsSlice"
 
 function Account() {
     const [passwordChange] = usePasswordChangeMutation()
     const [repeatEmailVerify] = useRepeatEmailVerifyMutation()
     const {isEmailVerify} = useAppSelector((state) => state.congratulations)
-    const [logout] = useLogoutMutation()
+    const dispatch = useAppDispatch()
     const accessToken = sessionStorage.getItem("access_token") ?? localStorage.getItem("access_token")
+
+    useIsEmailVerify()
 
     const methods = useForm<RegistrationFormInputs>({
         mode: "onTouched",
@@ -25,12 +28,11 @@ function Account() {
     })
 
     const onSubmit = (data: { password: string, repeat: string }) => {
-        console.log(data)
         if (accessToken) {
             passwordChange({password: data.password, access_token: accessToken})
                 .unwrap()
                 .then(() => {
-                    logout()
+                    dispatch(changeAuthStatus("public"))
                 })
                 .catch((error) => {
                     console.error('rejected', error)

@@ -4,7 +4,7 @@ import Link from "../components/Link"
 import {changeEmailVerifyStatus} from "../core/store/congratulationsSlice"
 import {useAppDispatch} from "../core/hooks"
 
-function EmailVerify() {
+function EmailVerifyPublic() {
     const dispatch = useAppDispatch()
 
     useEffect(() => {
@@ -24,7 +24,7 @@ function EmailVerify() {
     )
 }
 
-export default EmailVerify
+export default EmailVerifyPublic
 
 const _ = {
     Wrapper: styled("div")({

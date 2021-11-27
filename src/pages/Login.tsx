@@ -67,7 +67,7 @@ export default function Login() {
                 <_.Form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
                     <TextField name="email" type="email" label="Эл. почта" required/>
                     <TextField name="password" type="password" label="Пароль" required/>
-                    <_.RecoveryPassword to="/recovery-password">
+                    <_.RecoveryPassword to="/auth/password-reset-email/">
                         Забыли пароль?
                     </_.RecoveryPassword>
                     <_.Label

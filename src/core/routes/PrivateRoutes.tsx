@@ -6,6 +6,7 @@ import Home from "../../pages/Home/Home"
 import Edit from '../../pages/Edit/Edit'
 import Account from "../../pages/Account"
 import Support from "../../pages/Support"
+import EmailVerifyPrivate from '../../pages/EmailVerifyPrivate'
 
 
 export default function PrivateRoutes() {
@@ -24,6 +25,9 @@ export default function PrivateRoutes() {
                 </Route>
                 <Route path="/agreement">
                     <Agreement/>
+                </Route>
+                <Route path="/auth/email-verify/">
+                    <EmailVerifyPrivate/>
                 </Route>
                 <Route path="/" exact>
                     <Home/>

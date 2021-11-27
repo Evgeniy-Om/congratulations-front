@@ -72,3 +72,21 @@ export const SupportValidationSchema: SchemaOf<SupportFormInputs> = object().sha
     comment: string()
         .required("Обязательное поле"),
 })
+
+export const PasswordResetEmailValidationSchema: SchemaOf<{ email: string }> = object().shape({
+    email: string()
+        .required("Обязательное поле")
+        .email("Неверный формат эл. почты"),
+})
+
+export const PasswordResetCompleteValidationSchema: SchemaOf<{ password: string, repeat: string }> = object().shape({
+    password: string()
+        .required("Обязательное поле")
+        .min(6, 'Пароль должен быть не менее 6 символов')
+        .max(50, 'Пароль должен быть не более 50 символов')
+        .matches(/^\S.*/, "Пароль не может начинаться с пробела")
+        .matches(/.*\S$/, "Пароль не может заканчиваться пробелом"),
+    repeat: string()
+        .required("Обязательное поле")
+        .oneOf([ref('password'), null], 'Пароль не совпадает'),
+})

@@ -15,11 +15,12 @@ import {Link} from "react-router-dom"
 import CommentInput from "./CommentInput"
 import NameInput from "./NameInput"
 import MUIHelpOutlineIcon from '@mui/icons-material/HelpOutline'
-import {useAppSelector} from "../../core/hooks"
+import {useAppSelector, useIsEmailVerify} from "../../core/hooks"
 
 export default function FormCongratulation({page}: PropsTypes) {
     const {register, control} = useFormContext()
     const {isEmailVerify} = useAppSelector((state) => state.congratulations)
+    useIsEmailVerify()
     return (
         <_.Wrapper>
             {/*React Hook Form контролирует DatePicker из Material UI, который в свою очередь рендерит TextField*/}

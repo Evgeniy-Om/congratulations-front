@@ -67,7 +67,21 @@ export const authApi = emptySplitApi.injectEndpoints({
             query: (credentials) => ({
                 url: 'auth/is-email-verify',
                 method: 'POST',
-                body: credentials,
+                body: data,
+            }),
+        }),
+        passwordResetEmail: builder.mutation<void, { email: string }>({
+            query: (data) => ({
+                url: 'auth/password-reset-email/',
+                method: 'POST',
+                body: data,
+            }),
+        }),
+        passwordResetComplete: builder.mutation<void, { password: string, token: string, uidb64: string }>({
+            query: (data) => ({
+                url: 'auth/password-reset-complete',
+                method: 'PATCH',
+                body: data,
             }),
         }),
     }),

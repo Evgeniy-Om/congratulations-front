@@ -1,6 +1,9 @@
 import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux'
-import {store} from "./store/store"
 import {useDeleteCongratulationMutation} from "./api/services/congratulationsService"
+import { AppDispatch, RootState } from './types/globalTypes'
+import {useIsEmailVerifyMutation} from "./api/services/authService"
+import {useEffect} from "react"
+import {changeAuthStatus, changeEmailVerifyStatus} from "./store/congratulationsSlice"
 
 // Use throughout your app instead of plain `useDispatch` and `useSelector`
 export const useAppDispatch = () => useDispatch<AppDispatch>()
@@ -11,8 +14,31 @@ export function useDeleteCongratulationsList () {
     return (idList: number[]) => idList.forEach(item => deleteCongratulation(item))
 }
 
-//Types
-// Infer the `RootState` and `AppDispatch` types from the store itself
-type RootState = ReturnType<typeof store.getState>
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-type AppDispatch = typeof store.dispatch
+export function useIsEmailVerify () {
+    const [emailVerify] = useIsEmailVerifyMutation()
+    const dispatch = useAppDispatch()
+
+    useEffect(() => {
+        const email = sessionStorage.getItem("email") ?? localStorage.getItem("email")
+        console.log(email)
+        if (email) {
+            emailVerify({email})
+                .unwrap()
+                .then((payload) => {
+                    if (payload.email === "Email is verified") {
+                        dispatch(changeEmailVerifyStatus(true))
+                    }
+                    if (payload.email === "Email not verified") {
+                        dispatch(changeEmailVerifyStatus(false))
+                    }
+                })
+                .catch((error) => {
+                    console.error('rejected3', error)
+                    dispatch(changeAuthStatus("public"))
+                })
+        } else {
+            dispatch(changeAuthStatus("public"))
+        }
+    },[])
+}
+
