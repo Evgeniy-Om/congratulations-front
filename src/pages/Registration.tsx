@@ -53,9 +53,9 @@ export default function Registration() {
                             Регистрируясь вы принимаете условия <_.AgreementLink to="/agreement">пользовательского
                             соглашения</_.AgreementLink>
                         </_.AgreementLinkContainer>
-                        <_.RegistrationLink to="/login">
+                        <_.LoginLink to="/login">
                             Уже зарегистрированы?
-                        </_.RegistrationLink>
+                        </_.LoginLink>
                         <SocialButton/>
                     </_.Inner>
                 </form>
@@ -73,7 +73,7 @@ const _ = {
         display: "flex",
         flexDirection: "column",
     }),
-    RegistrationLink: styled(Link)(({theme}) => ({
+    LoginLink: styled(Link)(({theme}) => ({
         margin: "15px 0",
         color: theme.palette.text.primary,
     })),

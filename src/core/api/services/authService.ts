@@ -9,18 +9,18 @@ import {SupportEmailRequest} from "../../types/requestApiTypes"
 export const authApi = emptySplitApi.injectEndpoints({
     endpoints: (builder) => ({
         login: builder.mutation<LoginResponse, LoginRequest>({
-            query: (credentials) => ({
+            query: (data) => ({
                 url: 'auth/login/',
                 method: 'POST',
-                body: credentials,
+                body: data,
             }),
             invalidatesTags: ['Access'],
         }),
         registration: builder.mutation<RegistrationResponse, RegistrationRequest>({
-            query: (credentials) => ({
+            query: (data) => ({
                 url: 'auth/register/',
                 method: 'POST',
-                body: credentials,
+                body: data,
             }),
         }),
         updateAccessToken: builder.mutation<RefreshResponse, void>({
@@ -28,7 +28,7 @@ export const authApi = emptySplitApi.injectEndpoints({
                 url: 'auth/token/refresh/',
                 method: 'POST',
                 body: getRefreshToken(),
-                // credentials: "include"
+                // data: "include"
             }),
             invalidatesTags: ['Refresh'],
         }),
@@ -38,33 +38,33 @@ export const authApi = emptySplitApi.injectEndpoints({
                 method: 'POST',
                 headers: getAccessToken(),
                 body: getRefreshToken(),
-                // credentials: "include"
+                // data: "include"
             }),
         }),
         passwordChange: builder.mutation<void, {password: string, access_token: string}>({
-            query: (credentials) => ({
+            query: (data) => ({
                 url: 'auth/password-change/',
                 method: 'PATCH',
                 headers: getAccessToken(),
-                body: credentials,
+                body: data,
             }),
         }),
         supportEmail: builder.mutation<void, SupportEmailRequest>({
-            query: (credentials) => ({
+            query: (data) => ({
                 url: 'auth/support-email',
                 method: 'POST',
-                body: credentials,
+                body: data,
             }),
         }),
         repeatEmailVerify: builder.mutation<void, { email: string }>({
-            query: (credentials) => ({
+            query: (data) => ({
                 url: 'auth/repeat-email-verify/',
                 method: 'POST',
-                body: credentials,
+                body: data,
             }),
         }),
         isEmailVerify: builder.mutation<{ email: "Email is verified" | "Email not verified" }, { email: string }>({
-            query: (credentials) => ({
+            query: (data) => ({
                 url: 'auth/is-email-verify',
                 method: 'POST',
                 body: data,
@@ -96,4 +96,6 @@ export const {
     useSupportEmailMutation,
     useRepeatEmailVerifyMutation,
     useIsEmailVerifyMutation,
+    usePasswordResetEmailMutation,
+    usePasswordResetCompleteMutation
 } = authApi

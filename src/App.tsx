@@ -15,6 +15,7 @@ export default function App() {
     const dispatch = useAppDispatch()
     const [refresh] = useUpdateAccessTokenMutation()
 
+
     useEffect(() => {
         function checkAccessToken () {
             if (isActiveAccessToken()) {

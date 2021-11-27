@@ -10,9 +10,9 @@ import {
     useDeleteCongratulationMutation,
     useGetCongratulationsQuery,
 } from '../../core/api/services/congratulationsService'
-import {useIsEmailVerifyMutation, useUpdateAccessTokenMutation} from "../../core/api/services/authService"
+import {useUpdateAccessTokenMutation} from "../../core/api/services/authService"
 import {useEffect} from "react"
-import {changeAuthStatus, changeEmailVerifyStatus} from "../../core/store/congratulationsSlice"
+import {changeAuthStatus} from "../../core/store/congratulationsSlice"
 import MUICommentIcon from '@mui/icons-material/Comment'
 import Menu from "./Menu/Menu"
 import DeleteAllButton from "./DeleteAllButton"
@@ -24,30 +24,9 @@ export default function Home() {
     const {data, isSuccess, isError, isLoading, refetch} = useGetCongratulationsQuery()
     const [deleteCongratulation] = useDeleteCongratulationMutation()
     const [refresh] = useUpdateAccessTokenMutation()
-    const [emailVerify] = useIsEmailVerifyMutation()
     const dispatch = useAppDispatch()
 
-    useEffect(() => {
-        const email = sessionStorage.getItem("email") ?? localStorage.getItem("email")
-        if (email) {
-            emailVerify({email})
-                .unwrap()
-                .then((payload) => {
-                    if (payload.email === "Email is verified") {
-                        dispatch(changeEmailVerifyStatus(true))
-                    }
-                    if (payload.email === "Email not verified") {
-                        dispatch(changeEmailVerifyStatus(false))
-                    }
-                })
-                .catch((error) => {
-                    console.error('rejected3', error)
-                    dispatch(changeAuthStatus("public"))
-                })
-        } else {
-            dispatch(changeAuthStatus("public"))
-        }
-    },[])
+
     useEffect(() => {
         if (isError) {
             if (sessionStorage.getItem("refresh_token") || localStorage.getItem("refresh_token")) {

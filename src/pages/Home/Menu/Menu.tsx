@@ -25,9 +25,9 @@ function Menu() {
 
     return (
         <>
-            <_.MenuIconWrapper>
-                <_.MenuIcon aria-describedby={id} onClick={handleClick}/>
-            </_.MenuIconWrapper>
+            <_.MenuButton onClick={handleClick}>
+                <_.MenuIcon aria-describedby={id}/>
+            </_.MenuButton>
             <MUIPopover
                 id={id}
                 open={open}
@@ -56,7 +56,7 @@ function Menu() {
 export default Menu
 
 const _ = {
-    MenuIconWrapper: styled(IconButton)({
+    MenuButton: styled(IconButton)({
         position: "absolute",
         right: 0,
         top: 12,

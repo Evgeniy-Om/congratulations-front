@@ -1,3 +1,5 @@
+import {store} from "../store/store"
+
 export type RegistrationFormInputs = {
     email: string
     password: string
@@ -27,5 +29,10 @@ export type SupportFormInputs = {
     email: string
     comment: string
 }
+
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<typeof store.getState>
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+export type AppDispatch = typeof store.dispatch
 
 export type AuthStatus = "none" | "public" | "private"
