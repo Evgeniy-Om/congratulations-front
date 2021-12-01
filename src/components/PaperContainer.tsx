@@ -26,6 +26,10 @@ const _ = {
         minWidth: "440px",
         margin: "auto",
         padding: '20px',
+        '@media (max-width:460px)': {
+            width: "95%",
+            minWidth: "350px",
+        },
     })
 }
 

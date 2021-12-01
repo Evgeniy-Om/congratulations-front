@@ -146,6 +146,10 @@ const _ = {
     }),
     ItemWrapper: styled("div")({
         width: "400px",
+        '@media (max-width:460px)': {
+            width: "100%",
+            fontSize: 13
+        },
     }),
     ItemInner: styled("div")<any>(({theme, ...props}) => ({
         // display: "flex",

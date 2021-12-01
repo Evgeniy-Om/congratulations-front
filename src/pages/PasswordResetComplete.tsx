@@ -18,21 +18,12 @@ export default function PasswordResetComplete() {
 
     const onSubmit = (data: { password: string, repeat: string }) => {
         const pathSplit = window.location.pathname.split("/")
-        console.log(pathSplit)
-        console.log({
-            password: data.password,
-            token: pathSplit[4],
-            uidb64: pathSplit[3],
-        })
+
         passwordResetComplete({
             password: data.password,
             token: pathSplit[4],
             uidb64: pathSplit[3],
         }).unwrap()
-            .then(() => {
-                // console.log(authStatus)
-                // history.push("/confirm")
-            })
             .catch((error) => {
                 if (error.data.detail === "The reset link is invalid") {
                     setErrorMessage("Данная ссылка уже недействительна")
