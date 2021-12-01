@@ -17,6 +17,8 @@ export default function App() {
 
 
     useEffect(() => {
+        const timer = setInterval(checkAccessToken, CHECK_VALID_ACCESS_TOKEN_INTERVAL)
+
         function checkAccessToken () {
             if (isActiveAccessToken()) {
                 if (authStatus !== "private") {
@@ -40,14 +42,16 @@ export default function App() {
                         .catch((error) => {
                             console.error('rejected3', error)
                             dispatch(changeAuthStatus("public"))
+                            clearInterval(timer)
                         })
                 } else {
                     dispatch(changeAuthStatus("public"))
+                    clearInterval(timer)
                 }
             }
         }
         checkAccessToken()
-        const timer = setInterval(checkAccessToken, CHECK_VALID_ACCESS_TOKEN_INTERVAL)
+
         return function clearTimer () {
             clearInterval(timer)
         }

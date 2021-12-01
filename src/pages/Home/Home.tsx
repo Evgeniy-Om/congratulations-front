@@ -33,6 +33,7 @@ export default function Home() {
                 refresh()
                     .unwrap()
                     .then((payload) => {
+                        console.log(payload)
                         if (rememberMe) {
                             localStorage.setItem("access_token", payload.access)
                             localStorage.setItem("exp_access", `${payload.access_live}UTC`)
