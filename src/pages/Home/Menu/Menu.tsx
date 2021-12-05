@@ -60,13 +60,6 @@ const _ = {
         position: "absolute",
         right: 0,
         top: 12,
-        // ":hover": {
-        //     backgroundColor: "transparent",
-        // },
-        // ":hover svg": {
-        //     // color: "#000",
-        //     boxShadow: "0 0 10px rgba(0,0,0,0.5)",
-        // }
     }),
     MenuIcon: styled(MUIMenuIcon)(({theme}) => ({
         fontSize: "35px",

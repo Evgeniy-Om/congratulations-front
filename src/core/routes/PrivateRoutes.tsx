@@ -1,12 +1,12 @@
 import React from 'react'
-import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom"
-import New from "../../pages/New"
-import Agreement from "../../pages/Agreement"
-import Home from "../../pages/Home/Home"
+import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom'
+import New from '../../pages/New'
+import Agreement from '../../pages/Agreement'
+import Home from '../../pages/Home/Home'
 import Edit from '../../pages/Edit/Edit'
-import Account from "../../pages/Account"
-import Support from "../../pages/Support"
-import EmailVerifyPrivate from '../../pages/EmailVerifyPrivate'
+import Account from '../../pages/Account'
+import Support from '../../pages/Support'
+import EmailVerify from '../../pages/EmailVerify'
 
 
 export default function PrivateRoutes() {
@@ -27,7 +27,7 @@ export default function PrivateRoutes() {
                     <Agreement/>
                 </Route>
                 <Route path="/auth/email-verify/">
-                    <EmailVerifyPrivate/>
+                    <EmailVerify privatePage={true}/>
                 </Route>
                 <Route path="/" exact>
                     <Home/>
