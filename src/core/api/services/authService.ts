@@ -1,10 +1,10 @@
-import getRefreshToken from "../../features/getRefreshToken"
-import {emptySplitApi} from "../api"
-import type {LoginRequest, RegistrationRequest} from "../../types/requestApiTypes"
-import type {LoginResponse, RefreshResponse, RegistrationResponse} from "../../types/responseApiTypes"
-import {LogoutResponse} from "../../types/responseApiTypes"
-import getAccessToken from "../../features/getAccessToken"
-import {SupportEmailRequest} from "../../types/requestApiTypes"
+import getRefreshToken from '../../features/getRefreshToken'
+import {emptySplitApi} from '../api'
+import type {LoginRequest, RegistrationRequest} from '../../types/requestApiTypes'
+import {SupportEmailRequest} from '../../types/requestApiTypes'
+import type {LoginResponse, RefreshResponse, RegistrationResponse} from '../../types/responseApiTypes'
+import {LogoutResponse} from '../../types/responseApiTypes'
+import getAccessToken from '../../features/getAccessToken'
 
 export const authApi = emptySplitApi.injectEndpoints({
     endpoints: (builder) => ({
@@ -41,7 +41,7 @@ export const authApi = emptySplitApi.injectEndpoints({
                 // data: "include"
             }),
         }),
-        passwordChange: builder.mutation<void, {password: string, access_token: string}>({
+        passwordChange: builder.mutation<void, { password: string, access_token: string }>({
             query: (data) => ({
                 url: 'auth/password-change/',
                 method: 'PATCH',
@@ -56,6 +56,11 @@ export const authApi = emptySplitApi.injectEndpoints({
                 body: data,
             }),
         }),
+        emailVerify: builder.query<void, string>({
+            query: (search) => ({
+                url: `auth/email-verify/${search}`,
+            }),
+        }),
         repeatEmailVerify: builder.mutation<void, { email: string }>({
             query: (data) => ({
                 url: 'auth/repeat-email-verify/',
@@ -63,7 +68,7 @@ export const authApi = emptySplitApi.injectEndpoints({
                 body: data,
             }),
         }),
-        isEmailVerify: builder.mutation<{ email: "Email is verified" | "Email not verified" }, { email: string }>({
+        isEmailVerify: builder.mutation<{ email: 'Email is verified' | 'Email not verified' }, { email: string }>({
             query: (data) => ({
                 url: 'auth/is-email-verify',
                 method: 'POST',
@@ -97,5 +102,5 @@ export const {
     useRepeatEmailVerifyMutation,
     useIsEmailVerifyMutation,
     usePasswordResetEmailMutation,
-    usePasswordResetCompleteMutation
+    usePasswordResetCompleteMutation,
 } = authApi
