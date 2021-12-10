@@ -12,7 +12,9 @@ export const loginValidationSchema: SchemaOf<LoginFormInputs> = object().shape({
         .required('Обязательное поле')
         .email('Неверный формат эл. почты'),
     password: string()
-        .required('Обязательное поле'),
+        .required('Обязательное поле')
+        .min(6, 'Пароль должен быть не менее 6 символов')
+        .max(50, 'Пароль должен быть не более 50 символов'),
     rememberMe: bool(),
 })
 
