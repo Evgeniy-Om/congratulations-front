@@ -51,10 +51,10 @@ export default function Login() {
                 // history.push("/")
             })
             .catch((error) => {
-                if (error.data.detail === "Email is not verified") {
+                if (error?.data?.detail === "Email is not verified") {
                     setErrorMessage("Подтвердите свой емейл")
                 }
-                if (error.data.detail === "Invalid credentials, try again") {
+                if (error?.data?.detail === "Invalid credentials, try again") {
                     setErrorMessage("Неверно указана почта или пароль")
                 }
                 console.error('rejected', error)
