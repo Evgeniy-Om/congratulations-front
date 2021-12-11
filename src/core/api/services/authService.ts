@@ -84,7 +84,7 @@ export const authApi = emptySplitApi.injectEndpoints({
         }),
         passwordResetComplete: builder.mutation<void, { password: string, token: string, uidb64: string }>({
             query: (data) => ({
-                url: 'auth/password-reset-complete',
+                url: 'auth/password-reset-complete/',
                 method: 'PATCH',
                 body: data,
             }),

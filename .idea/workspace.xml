@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="рефакторинг&#10;&#10;* Замена имени объекта Styled на _&#10;* Сокращение имён компонентов. Пример: Link_ReactRouterDom на Link">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/features/clearStorages.ts" afterDir="false" />
+    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="fix bug валидации пароля при аутентификации">
+      <change afterPath="$PROJECT_DIR$/src/core/constants.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ButtonsSocials.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SocialButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ContainerPaper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PaperContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FormCongratulation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormCongratulation.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TextFieldComment.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CommentInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TextFieldName.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NameInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TextField_ReactHookForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TextFieldReactHookForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/api/services/authService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/api/services/authService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/New.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/New.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Registration.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Registration.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/constants.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Account.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Account.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/PasswordResetComplete.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/PasswordResetComplete.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,9 +16,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="JavaScript File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -56,36 +46,48 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/build/static/js/runtime-main.8af92af2.js.map" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/core/features" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="ts.external.directory.path" value="C:\Users\Evgeniy\Desktop\React-projects\birthday-clone2\congratulations-front\node_modules\typescript\lib" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
+    <property name="ts.external.directory.path" value="C:\Users\Om\Desktop\React\congratulations-front\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\pages" />
-      <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\core\routes" />
-      <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\components" />
-      <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\core\models" />
+      <recent name="D:\React\congratulations-front\src\core\features" />
+      <recent name="D:\React\congratulations-front\src\pages" />
+      <recent name="D:\React\congratulations-front\src\components" />
+      <recent name="D:\React\congratulations-front\src\pages\Home" />
+      <recent name="D:\React\congratulations-front" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\React\congratulations-front\src\components\FormCongratulation" />
+      <recent name="D:\React\congratulations-front\src\components" />
       <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\core\types" />
       <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\core" />
       <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\core\routes" />
-      <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\core\api" />
-      <recent name="C:\Users\Evgeniy\Desktop\React-projects\birthday\src\pages" />
     </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
       <method v="2" />
     </configuration>
     <configuration name="npm start" type="js.build_tools.npm">
@@ -98,6 +100,22 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="startdocker" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="startdocker" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.startdocker" />
+        <item itemvalue="npm.build" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -122,230 +140,25 @@
       <workItem from="1634215913093" duration="75923000" />
       <workItem from="1634654496229" duration="105903000" />
       <workItem from="1636699346330" duration="9325000" />
-    </task>
-    <task id="LOCAL-00001" summary="перенос на TS">
-      <created>1632931433071</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1632931433071</updated>
-    </task>
-    <task id="LOCAL-00002" summary="изменение архитектуры проекта">
-      <created>1632936181955</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1632936181955</updated>
-    </task>
-    <task id="LOCAL-00003" summary="добавлены роуты">
-      <created>1633117489895</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1633117489895</updated>
-    </task>
-    <task id="LOCAL-00004" summary="создание и перенос логики в папки &quot;routes&quot; и &quot;theme&quot;">
-      <created>1633196192518</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1633196192518</updated>
-    </task>
-    <task id="LOCAL-00005" summary="удаление файла">
-      <created>1633196214119</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1633196214119</updated>
-    </task>
-    <task id="LOCAL-00006" summary="удаление избыточных index файлов. Перенос стилей и типов внутрь компонентов">
-      <created>1633264752874</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1633264752874</updated>
-    </task>
-    <task id="LOCAL-00007" summary="вынесение стилей в styled components">
-      <created>1633269316305</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1633269316305</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Проброс ID записи со страницы Home на страницу New/Edit, которую нужно отредактировать">
-      <created>1633369696872</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1633369696872</updated>
-    </task>
-    <task id="LOCAL-00009" summary="настройка связи с бекэндом">
-      <created>1633545941670</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1633545941670</updated>
-    </task>
-    <task id="LOCAL-00010" summary="попытка настроить RTK Query">
-      <created>1634492382880</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1634492382880</updated>
-    </task>
-    <task id="LOCAL-00011" summary="настроена авторизация и аутентификация">
-      <created>1634536846552</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1634536846552</updated>
-    </task>
-    <task id="LOCAL-00012" summary="настройка обновления Access токена (в процессе)">
-      <created>1634576006728</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1634576006728</updated>
-    </task>
-    <task id="LOCAL-00013" summary="настроен localhost на https">
-      <created>1634637561894</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1634637561894</updated>
-    </task>
-    <task id="LOCAL-00014" summary="настроен localhost на https">
-      <created>1634637581956</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1634637581956</updated>
-    </task>
-    <task id="LOCAL-00015" summary="настройка логики чекбокса &quot;Запомнить меня&quot;">
-      <created>1634637693448</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1634637693448</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Удаление на сервере поздравления при нажатии кнопки-корзины">
-      <created>1634637922935</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1634637922935</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Завершение настройки кнопки-корзины у Item'ов">
-      <created>1634640943056</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1634640943056</updated>
-    </task>
-    <task id="LOCAL-00018" summary="удаление папки server">
-      <created>1634661662121</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1634661662121</updated>
-    </task>
-    <task id="LOCAL-00019" summary="удаление .env">
-      <created>1634662516816</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1634662516816</updated>
-    </task>
-    <task id="LOCAL-00020" summary="удаление сертификатов ssl">
-      <created>1634663677831</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1634663677831</updated>
-    </task>
-    <task id="LOCAL-00021" summary="fix bag">
-      <created>1634705235052</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1634705235052</updated>
-    </task>
-    <task id="LOCAL-00022" summary="fix bag">
-      <created>1634705690301</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1634705690301</updated>
-    </task>
-    <task id="LOCAL-00023" summary="настройка автообновления access токена">
-      <created>1634737901914</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1634737901914</updated>
-    </task>
-    <task id="LOCAL-00024" summary="добавление endpoint addCongratulation">
-      <created>1634744093174</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1634744093174</updated>
-    </task>
-    <task id="LOCAL-00025" summary="изменение структуры папок и файлов">
-      <created>1634744113408</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1634744113408</updated>
-    </task>
-    <task id="LOCAL-00026" summary="настройка страницы New (в процессе)">
-      <created>1634749676987</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1634749676987</updated>
-    </task>
-    <task id="LOCAL-00027" summary="правка типов">
-      <created>1634749699042</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1634749699042</updated>
-    </task>
-    <task id="LOCAL-00028" summary="настройка отправки данных на сервер со страницы New">
-      <created>1634750504955</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1634750504955</updated>
-    </task>
-    <task id="LOCAL-00029" summary="правка стилей">
-      <created>1634829089770</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1634829089770</updated>
-    </task>
-    <task id="LOCAL-00030" summary="правка стилей">
-      <created>1634829616166</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1634829616166</updated>
-    </task>
-    <task id="LOCAL-00031" summary="правка стилей">
-      <created>1634831060023</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1634831060023</updated>
-    </task>
-    <task id="LOCAL-00032" summary="добавление схемы валидации нового ДР">
-      <created>1634911150826</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1634911150826</updated>
+      <workItem from="1637301063684" duration="7032000" />
+      <workItem from="1637321132387" duration="1577000" />
+      <workItem from="1637324302850" duration="15160000" />
+      <workItem from="1637395440412" duration="7109000" />
+      <workItem from="1637598338856" duration="37096000" />
+      <workItem from="1637855017375" duration="63000" />
+      <workItem from="1637855647737" duration="28707000" />
+      <workItem from="1638247384842" duration="559000" />
+      <workItem from="1638336825878" duration="1605000" />
+      <workItem from="1638345669668" duration="5698000" />
+      <workItem from="1638362369009" duration="12955000" />
+      <workItem from="1638463245826" duration="26000" />
+      <workItem from="1638602955253" duration="648000" />
+      <workItem from="1638610039108" duration="615000" />
+      <workItem from="1638696413368" duration="8027000" />
+      <workItem from="1638785405020" duration="2156000" />
+      <workItem from="1638971359340" duration="279000" />
+      <workItem from="1639028859692" duration="5044000" />
+      <workItem from="1639216814547" duration="612000" />
     </task>
     <task id="LOCAL-00033" summary="определение авторизован ли пользователь при первом входе в приложение">
       <created>1634979343599</created>
@@ -459,7 +272,238 @@
       <option name="project" value="LOCAL" />
       <updated>1636704035652</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="настройка Docker'a">
+      <created>1637339742439</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1637339742439</updated>
+    </task>
+    <task id="LOCAL-00050" summary="редактирование для связи с бэком на локалхосте">
+      <created>1637422084454</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1637422084455</updated>
+    </task>
+    <task id="LOCAL-00051" summary="настройка схем валидации для Support и ChangePassword">
+      <created>1637601907589</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1637601907590</updated>
+    </task>
+    <task id="LOCAL-00052" summary="настройка страниц Account и Support">
+      <created>1637747743522</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1637747743522</updated>
+    </task>
+    <task id="LOCAL-00053" summary="добавление email в Storage">
+      <created>1637747870953</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1637747870953</updated>
+    </task>
+    <task id="LOCAL-00054" summary="рефакторинг">
+      <created>1637748072385</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1637748072385</updated>
+    </task>
+    <task id="LOCAL-00055" summary="рефакторинг">
+      <created>1637748114287</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1637748114287</updated>
+    </task>
+    <task id="LOCAL-00056" summary="рефакторинг">
+      <created>1637748136830</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1637748136830</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Добавление окна подтверждения при удалении Всех и Старых записей">
+      <created>1637766700849</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1637766700849</updated>
+    </task>
+    <task id="LOCAL-00058" summary="адаптация под мобилки">
+      <created>1637768167959</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1637768167960</updated>
+    </task>
+    <task id="LOCAL-00059" summary="правка стилей">
+      <created>1637768202701</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1637768202701</updated>
+    </task>
+    <task id="LOCAL-00060" summary="fix bugs">
+      <created>1637845505878</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1637845505878</updated>
+    </task>
+    <task id="LOCAL-00061" summary="настройка функционала повторной валидации почты">
+      <created>1637845661682</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1637845661683</updated>
+    </task>
+    <task id="LOCAL-00062" summary="рефакторинг">
+      <created>1637845751791</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1637845751791</updated>
+    </task>
+    <task id="LOCAL-00063" summary="настройка изменения интерфейса в зависимости от того, подтвердил пользователь емейл или нет">
+      <created>1637858757122</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1637858757122</updated>
+    </task>
+    <task id="LOCAL-00064" summary="рефакторинг">
+      <created>1637861508269</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1637861508269</updated>
+    </task>
+    <task id="LOCAL-00065" summary="добавление функционала &quot;Забыль пароль?&quot; (начало)">
+      <created>1637954344261</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1637954344262</updated>
+    </task>
+    <task id="LOCAL-00066" summary="добавление функционала &quot;Забыль пароль?&quot; (финиш)">
+      <created>1638005113793</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1638005113793</updated>
+    </task>
+    <task id="LOCAL-00067" summary="рефакторинг">
+      <created>1638005162282</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1638005162282</updated>
+    </task>
+    <task id="LOCAL-00068" summary="рефакторинг">
+      <created>1638005175703</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1638005175703</updated>
+    </task>
+    <task id="LOCAL-00069" summary="удаление дефолтных значение логина и пароля">
+      <created>1638005194315</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1638005194315</updated>
+    </task>
+    <task id="LOCAL-00070" summary="смена базового URL на &quot;http://localhost:8000/api/v1/&quot;">
+      <created>1638337023422</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1638337023422</updated>
+    </task>
+    <task id="LOCAL-00071" summary="адаптация стилей под телефоны">
+      <created>1638347547467</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1638347547467</updated>
+    </task>
+    <task id="LOCAL-00072" summary="fix bug">
+      <created>1638356128953</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1638356128953</updated>
+    </task>
+    <task id="LOCAL-00073" summary="смена домена для vercel">
+      <created>1638361071340</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1638361071340</updated>
+    </task>
+    <task id="LOCAL-00074" summary="изменения настроек Docker compose">
+      <created>1638370373789</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1638370373789</updated>
+    </task>
+    <task id="LOCAL-00075" summary="изменения логики верификации емейла">
+      <created>1638703835530</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1638703835530</updated>
+    </task>
+    <task id="LOCAL-00076" summary="изменения логики верификации емейла">
+      <created>1638703858506</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1638703858506</updated>
+    </task>
+    <task id="LOCAL-00077" summary="рефакторинг">
+      <created>1638703883069</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1638703883070</updated>
+    </task>
+    <task id="LOCAL-00078" summary="редактирование заголовка страницы">
+      <created>1639118659814</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1639118659815</updated>
+    </task>
+    <task id="LOCAL-00079" summary="fix bug">
+      <created>1639118674917</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1639118674917</updated>
+    </task>
+    <task id="LOCAL-00080" summary="добавление правила валидации &#10;- &quot;Имя не может состоять из одних пробелов&quot;&#10;- fix bug https://mishurinartem.atlassian.net/browse/STW-82">
+      <created>1639118894710</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1639118894710</updated>
+    </task>
+    <task id="LOCAL-00081" summary="fix bug валидации пароля при аутентификации">
+      <created>1639119085243</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1639119085243</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,32 +526,32 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="удаление сертификатов ssl" />
-    <MESSAGE value="настройка автообновления access токена" />
-    <MESSAGE value="добавление endpoint addCongratulation" />
-    <MESSAGE value="изменение структуры папок и файлов" />
-    <MESSAGE value="настройка страницы New" />
-    <MESSAGE value="настройка страницы New (в процессе)" />
-    <MESSAGE value="правка типов" />
-    <MESSAGE value="настройка страницы New (готово)" />
-    <MESSAGE value="настройка отправки данных на сервер со страницы New" />
+    <MESSAGE value="настройка Docker'a" />
+    <MESSAGE value="редактирование для связи с бэком на локалхосте" />
+    <MESSAGE value="настройка схем валидации для Support и ChangePassword" />
+    <MESSAGE value="настройка страниц Account и Support" />
+    <MESSAGE value="добавление email в Storage" />
+    <MESSAGE value="Добавление окна подтверждения при удалении Всех и Старых записей" />
+    <MESSAGE value="адаптация под мобилки" />
     <MESSAGE value="правка стилей" />
-    <MESSAGE value="добавление схемы валидации нового ДР" />
-    <MESSAGE value="определение авторизован ли пользователь при первом входе в приложение" />
-    <MESSAGE value="fix bag" />
-    <MESSAGE value="устранение багов автоматической авторазации" />
-    <MESSAGE value="изменение условий вывода ошибки ответа сервера на странице" />
-    <MESSAGE value="указание типов для эндпоинта Registration" />
-    <MESSAGE value="связь формы регистрации и бэкенда" />
-    <MESSAGE value="добавление роута ConfirmEmail" />
-    <MESSAGE value="удаление роутов Login и Registration из приватных" />
-    <MESSAGE value="удаление history.push(&quot;/&quot;) после входа" />
-    <MESSAGE value="настройка очистки Storege'й на ПК" />
+    <MESSAGE value="fix bugs" />
+    <MESSAGE value="настройка функционала повторной валидации почты" />
+    <MESSAGE value="настройка изменения интерфейса в зависимости от того, подтвердил пользователь емейл или нет" />
+    <MESSAGE value="добавление функционала &quot;Забыль пароль?&quot; (начало)" />
+    <MESSAGE value="добавление функционала &quot;Забыль пароль?&quot; (финиш)" />
+    <MESSAGE value="удаление дефолтных значение логина и пароля" />
+    <MESSAGE value="смена базового URL на &quot;http://localhost:8000/api/v1/&quot;" />
+    <MESSAGE value="адаптация стилей под телефоны" />
+    <MESSAGE value="смена домена для vercel" />
+    <MESSAGE value="изменения настроек Docker compose" />
+    <MESSAGE value="изменения логики верификации емейла" />
     <MESSAGE value="рефакторинг" />
-    <MESSAGE value="настройка валидации формы New" />
+    <MESSAGE value="редактирование заголовка страницы" />
     <MESSAGE value="fix bug" />
-    <MESSAGE value="рефакторинг&#10;&#10;* Замена имени объекта Styled на _&#10;* Сокращение имён компонентов. Пример: Link_ReactRouterDom на Link" />
-    <option name="LAST_COMMIT_MESSAGE" value="рефакторинг&#10;&#10;* Замена имени объекта Styled на _&#10;* Сокращение имён компонентов. Пример: Link_ReactRouterDom на Link" />
+    <MESSAGE value="добавление правила валидации &#10;- &quot;Имя не может состоять из одних пробелов&quot;&#10;- fix bug https://mishurinartem.atlassian.net/browse/STW-82" />
+    <MESSAGE value="fix bug валидации пароля при аутентификации" />
+    <MESSAGE value="добавление правила валидации&#10;&#10;- &quot;Имя не может состоять из одних пробелов&quot;&#10;- fix bug https://mishurinartem.atlassian.net/browse/STW-82" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bug валидации пароля при аутентификации" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
