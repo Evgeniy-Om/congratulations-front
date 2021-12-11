@@ -67,7 +67,7 @@ function Account() {
                         <h4>Смена пароля</h4>
                         <form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
                             <_.Inner>
-                                <TextField name="password" type="password" label="Пароль" required/>
+                                <TextField name="password" type="password" label="Новый пароль" required/>
                                 <TextField name="repeat" type="password" label="Повторите пароль" required/>
                                 <Button type="submit" variant="contained">Изменить пароль</Button>
                             </_.Inner>
