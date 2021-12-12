@@ -9,7 +9,7 @@ import {SupportValidationSchema} from "../core/yupValidastionSchemes"
 import TextField from "../components/TextField"
 
 function Support() {
-    const [sendSupportEmail, {isSuccess, isError}] = useSupportEmailMutation()
+    const [sendSupportEmail, {isSuccess}] = useSupportEmailMutation()
 
     const methods = useForm<SupportFormInputs>({
         mode: "onTouched",
@@ -44,10 +44,7 @@ function Support() {
         <div>
             <BackButton/>
 
-            <h2>Поддержка</h2>
-            <hr/>
-            <br/>
-            <br/>
+            <_.Title>Поддержка</_.Title>
             <_.Wrapper>
                 <FormProvider {...methods} >
                     <form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
@@ -76,6 +73,9 @@ function Support() {
 export default Support
 
 const _ = {
+    Title: styled('h2') ({
+        margin: "40px 0",
+    }),
     Wrapper: styled("div")({
         display: "flex",
         flexDirection: "column",

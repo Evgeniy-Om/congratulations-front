@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="fix bug валидации пароля при аутентификации">
+    <list default="true" id="1ad29110-f290-4f4a-b695-3067c79abfb1" name="Changes" comment="рефакторинг: br и hr =&gt; css">
       <change afterPath="$PROJECT_DIR$/src/core/constants.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/constants.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Account.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Account.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/PasswordResetComplete.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/PasswordResetComplete.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Edit/Edit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Edit/Edit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/New.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/New.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Support.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Support.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,21 +158,8 @@
       <workItem from="1638785405020" duration="2156000" />
       <workItem from="1638971359340" duration="279000" />
       <workItem from="1639028859692" duration="5044000" />
-      <workItem from="1639216814547" duration="612000" />
-    </task>
-    <task id="LOCAL-00033" summary="определение авторизован ли пользователь при первом входе в приложение">
-      <created>1634979343599</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1634979343599</updated>
-    </task>
-    <task id="LOCAL-00034" summary="fix bag">
-      <created>1635011188733</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1635011188733</updated>
+      <workItem from="1639216814547" duration="1841000" />
+      <workItem from="1639289394222" duration="955000" />
     </task>
     <task id="LOCAL-00035" summary="устранение багов автоматической авторазации">
       <created>1635180272621</created>
@@ -503,7 +490,21 @@
       <option name="project" value="LOCAL" />
       <updated>1639119085243</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="fix bugs">
+      <created>1639217545091</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1639217545091</updated>
+    </task>
+    <task id="LOCAL-00083" summary="fix bugs">
+      <created>1639217906449</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1639217906449</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -526,7 +527,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="настройка Docker'a" />
     <MESSAGE value="редактирование для связи с бэком на локалхосте" />
     <MESSAGE value="настройка схем валидации для Support и ChangePassword" />
     <MESSAGE value="настройка страниц Account и Support" />
@@ -534,7 +534,6 @@
     <MESSAGE value="Добавление окна подтверждения при удалении Всех и Старых записей" />
     <MESSAGE value="адаптация под мобилки" />
     <MESSAGE value="правка стилей" />
-    <MESSAGE value="fix bugs" />
     <MESSAGE value="настройка функционала повторной валидации почты" />
     <MESSAGE value="настройка изменения интерфейса в зависимости от того, подтвердил пользователь емейл или нет" />
     <MESSAGE value="добавление функционала &quot;Забыль пароль?&quot; (начало)" />
@@ -551,7 +550,9 @@
     <MESSAGE value="добавление правила валидации &#10;- &quot;Имя не может состоять из одних пробелов&quot;&#10;- fix bug https://mishurinartem.atlassian.net/browse/STW-82" />
     <MESSAGE value="fix bug валидации пароля при аутентификации" />
     <MESSAGE value="добавление правила валидации&#10;&#10;- &quot;Имя не может состоять из одних пробелов&quot;&#10;- fix bug https://mishurinartem.atlassian.net/browse/STW-82" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bug валидации пароля при аутентификации" />
+    <MESSAGE value="fix bugs" />
+    <MESSAGE value="рефакторинг: br и hr =&gt; css" />
+    <option name="LAST_COMMIT_MESSAGE" value="рефакторинг: br и hr =&gt; css" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

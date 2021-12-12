@@ -1,18 +1,18 @@
-import type {CongratulationItem} from "../core/types/globalTypes"
-import type {SubmitHandler} from "react-hook-form"
-import {styled} from "@mui/material"
-import {FormProvider, useForm} from "react-hook-form"
-import {useAddCongratulationMutation} from "../core/api/services/congratulationsService"
-import {yupResolver} from "@hookform/resolvers/yup"
-import {FormCongratulationValidationSchema} from "../core/yupValidastionSchemes"
-import getDefaultDate from "../core/features/getDefaultDate"
-import FormCongratulation from "../components/FormCongratulation/FormCongratulation"
-import BackButton from "../components/BackButton";
+import type {CongratulationItem} from '../core/types/globalTypes'
+import type {SubmitHandler} from 'react-hook-form'
+import {styled} from '@mui/material'
+import {FormProvider, useForm} from 'react-hook-form'
+import {useAddCongratulationMutation} from '../core/api/services/congratulationsService'
+import {yupResolver} from '@hookform/resolvers/yup'
+import {FormCongratulationValidationSchema} from '../core/yupValidastionSchemes'
+import getDefaultDate from '../core/features/getDefaultDate'
+import FormCongratulation from '../components/FormCongratulation/FormCongratulation'
+import BackButton from '../components/BackButton'
 
 export default function New() {
     const [addCongratulation, {isSuccess, isLoading, isError}] = useAddCongratulationMutation()
     const methods = useForm<CongratulationItem>({
-        mode: "onBlur",
+        mode: 'onBlur',
         resolver: yupResolver(FormCongratulationValidationSchema),
         defaultValues: {alert_datetime: getDefaultDate()},
     })
@@ -20,7 +20,11 @@ export default function New() {
     const onSubmit: SubmitHandler<CongratulationItem> = (data) => {
         const notify_by_email = data.notify_by_email ?? false
 
-        const modifyData = {...data, alert_datetime: new Date(data.alert_datetime).toJSON(), notify_by_email: notify_by_email}
+        const modifyData = {
+            ...data,
+            alert_datetime: new Date(data.alert_datetime).toJSON(),
+            notify_by_email: notify_by_email,
+        }
         console.log(data)
         console.log(modifyData)
         addCongratulation(modifyData)
@@ -36,15 +40,11 @@ export default function New() {
         <div>
             <BackButton/>
 
-            <h2>Новая запись</h2>
-            <hr/>
-
-            <br/>
-            <br/>
+            <_.Title>Новая запись</_.Title>
 
             <FormProvider {...methods} >
                 <form noValidate onSubmit={methods.handleSubmit(onSubmit)}>
-                    <FormCongratulation page="New" />
+                    <FormCongratulation page="New"/>
                 </form>
 
             </FormProvider>
@@ -62,12 +62,14 @@ export default function New() {
 
 // _ Components
 const _ = {
-    Info: styled("div")({
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
+    Title: styled('h2')({
+        margin: '40px 0',
+    }),
+    Info: styled('div')({
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
         height: 50,
-
     }),
 }
