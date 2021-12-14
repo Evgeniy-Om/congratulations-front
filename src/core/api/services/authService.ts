@@ -51,7 +51,7 @@ export const authApi = emptySplitApi.injectEndpoints({
         }),
         supportEmail: builder.mutation<void, SupportEmailRequest>({
             query: (data) => ({
-                url: 'auth/support-email',
+                url: 'auth/support-email/',
                 method: 'POST',
                 body: data,
             }),
