@@ -4,9 +4,9 @@
 **Стек технологий Фронтенда:**
 - Typescript
 - React
-- RTK Query (Redux Toolkit)
+- RTK Query
 - Material UI
-- Emotion (Styled Components)
+- Emotion
 - React Router Dom
 - React Hook Form
 - Yup
